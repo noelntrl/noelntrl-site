@@ -49,12 +49,16 @@
   .brief-text p + p{margin-top:16px;}
 
   .compare{padding:64px 0; border-bottom:1px solid var(--line-soft);}
-  .compare-grid{display:grid; grid-template-columns:1fr 1fr; gap:24px;}
+  .compare-grid{display:grid; grid-template-columns:1fr; gap:32px;}
   .compare-col-label{font-size:12px; letter-spacing:0.14em; text-transform:uppercase; color:var(--text-faint); margin-bottom:16px; font-weight:500;}
   .compare-imgs img{width:100%; aspect-ratio:1/1; object-fit:cover; border-radius:4px; background:var(--bg-card);}
+  .compare-imgs.row-2{display:grid; grid-template-columns:1fr 1fr; gap:10px; max-width:calc(50% - 5px);}
+  .compare-imgs.row-2 img{aspect-ratio:2480/3508;}
+  .compare-imgs.after-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:10px;}
+  .compare-imgs.after-grid img, .compare-imgs.after-grid video{width:100%; aspect-ratio:9/16; object-fit:cover; border-radius:4px;}
 
   .deliverables{padding:64px 0;}
-  .del-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:16px;}
+  .del-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:16px;}
   .del-num{font-family:'Fraunces', serif; font-size:34px; font-weight:500; margin-bottom:8px;}
   .del-label{font-size:14px; color:var(--text-dim);}
 
@@ -68,8 +72,8 @@
 
   @media(max-width:860px){
     h1{font-size:28px;}
-    .compare-grid{grid-template-columns:1fr;}
     .del-grid{grid-template-columns:1fr;}
+    .compare-imgs.after-grid{grid-template-columns:repeat(2,1fr);}
   }
 </style>
 </head>
@@ -109,14 +113,18 @@
     <div class="compare-grid">
       <div>
         <div class="compare-col-label">Before</div>
-        <div class="compare-imgs">
-          <img src="ASSETS/CASE STUDY/LEON GOODS/Leon Goods Before.png" alt="">
+        <div class="compare-imgs row-2">
+          <img src="ASSETS/CASE STUDY/BFRC/bfrc product 1.jpg" alt="">
+          <img src="ASSETS/CASE STUDY/BFRC/bfrc product 2.jpg" alt="">
         </div>
       </div>
       <div>
         <div class="compare-col-label">After</div>
-        <div class="compare-imgs">
-          <img src="ASSETS/CASE STUDY/LEON GOODS/Leon Goods Afterv3.png" alt="">
+        <div class="compare-imgs after-grid">
+          <video src="ASSETS/CASE STUDY/BFRC/bfrc vid 1.mp4" autoplay muted loop playsinline></video>
+          <video src="ASSETS/CASE STUDY/BFRC/brfc vid 2.mp4" autoplay muted loop playsinline></video>
+          <img src="ASSETS/CASE STUDY/BFRC/bfrc 1.jpeg" alt="">
+          <img src="ASSETS/CASE STUDY/BFRC/bfrc 2.jpeg" alt="">
         </div>
       </div>
     </div>
@@ -126,15 +134,11 @@
     <div class="section-eyebrow">Deliverables</div>
     <div class="del-grid">
       <div>
-        <div class="del-num">15</div>
-        <div class="del-label">PDP images</div>
+        <div class="del-num">10</div>
+        <div class="del-label">Social-ready assets</div>
       </div>
       <div>
-        <div class="del-num">1</div>
-        <div class="del-label">Brand Film</div>
-      </div>
-      <div>
-        <div class="del-num">7 business days</div>
+        <div class="del-num">2 business days</div>
         <div class="del-label">Turnaround</div>
       </div>
     </div>

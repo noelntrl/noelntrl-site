@@ -1,7 +1,9 @@
 {
   "permissions": {
     "allow": [
-      "Bash(git push *)"
+      "Bash(git push *)",
+      "Bash(sips -g pixelWidth -g pixelHeight \"/Users/xoxo/Documents/My website/ASSETS/CASE STUDY/BFRC/bfrc product 1.jpg\" \"/Users/xoxo/Documents/My website/ASSETS/CASE STUDY/BFRC/bfrc product 2.jpg\")",
+      "Bash(sips -g pixelWidth -g pixelHeight \"/Users/xoxo/Documents/My website/ASSETS/CASE STUDY/BFRC/bfrc 1.jpeg\" \"/Users/xoxo/Documents/My website/ASSETS/CASE STUDY/BFRC/bfrc 2.jpeg\")"
     ]
   }
 }
