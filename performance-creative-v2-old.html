@@ -37,8 +37,7 @@
   .dropdown-menu a.active{color:var(--text);}
   .nav-icons img{width:32px; height:32px; display:block;}
 
-  /* HERO */
-  .hero{padding:70px 0 50px; border-bottom:1px solid var(--line-soft);}
+  .hero{padding:70px 0 60px; border-bottom:1px solid var(--line-soft);}
   .hero-grid{display:grid; grid-template-columns:1.2fr 1fr; gap:40px; align-items:center;}
   .hero-images{display:flex; gap:12px;}
   .hero-images img{width:50%; aspect-ratio:4/5; object-fit:cover; border-radius:4px;}
@@ -49,17 +48,6 @@
   .pill-row{display:flex; gap:10px;}
   .pill{font-size:12px; padding:6px 13px; border:1px solid var(--line); border-radius:100px; color:var(--text-dim);}
 
-  /* PROOF STRIP — thin credibility bar, not a heavy section */
-  .proof-bar{
-    padding:18px 0; border-bottom:1px solid var(--line-soft);
-    display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:14px;
-  }
-  .proof-badge{display:inline-flex; align-items:center; gap:8px; font-size:13px; color:var(--text-dim);}
-  .proof-badge .dot{width:6px; height:6px; border-radius:50%; background:var(--accent); flex-shrink:0;}
-  .proof-badge b{color:var(--text); font-weight:500;}
-  .proof-link{font-size:13px; color:var(--text); font-weight:500; text-decoration:none;}
-  .proof-link::after{content:" →";}
-
   .section{padding:64px 0; border-bottom:1px solid var(--line-soft);}
   .section-eyebrow{font-size:12px; letter-spacing:0.14em; text-transform:uppercase; color:var(--text-faint); margin-bottom:10px; font-weight:500;}
   h2{font-family:'Fraunces', serif; font-weight:500; font-size:26px; letter-spacing:-0.01em; margin-bottom:28px;}
@@ -69,9 +57,7 @@
   .offer-card h3{font-size:15px; font-weight:500; margin-bottom:8px;}
   .offer-card p{font-size:13.5px; color:var(--text-dim); line-height:1.6;}
 
-  /* FORMATS — expanded grid, mixed static/motion */
   .format-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:16px;}
-  .format-grid.row2{margin-top:16px;}
   .format-card{background:var(--bg-card); border:1px solid var(--line); border-radius:4px; overflow:hidden;}
   .format-img{aspect-ratio:9/16; position:relative; overflow:hidden;}
   .format-img.a{background:linear-gradient(150deg,#262420,#131210);}
@@ -92,6 +78,7 @@
   .price-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:16px;}
   .price-card{background:var(--bg-card); border:1px solid var(--line); border-radius:4px; padding:26px;}
   .price-card.featured{border-color:var(--accent);}
+  .price-tag{position:absolute;}
   .price-tier-row{display:flex; align-items:center; gap:8px; min-height:22px; margin-bottom:14px;}
   .price-tier{font-size:12px; letter-spacing:0.06em; text-transform:uppercase; color:var(--text-faint);}
   .price-flag{font-size:9.5px; font-weight:500; letter-spacing:0.02em; text-transform:uppercase; color:#0a0a0a; background:var(--accent); padding:3px 7px; border-radius:100px; white-space:nowrap;}
@@ -142,12 +129,11 @@
     <div class="nav-icons"><a href="https://www.instagram.com/noelntrl/" target="_blank" rel="noopener"><img src="ASSETS/Logo/instagram logo.png" alt="Instagram"></a></div>
   </nav>
 
-  <!-- HERO -->
   <section class="hero">
     <div class="hero-grid">
       <div>
         <div class="eyebrow">Performance creative</div>
-        <h1>Ad creative for DTC brands, built to be tested.</h1>
+        <h1>Ad creative for DTC beauty brands, built to be tested.</h1>
         <p class="hero-sub">A steady stream of static and motion variants for Meta — <b>AI-assisted production means days, not weeks, at a fraction of shoot cost.</b> Briefed around what's already converting in your category, priced fairly, iterated on what's actually converting.</p>
         <div class="pill-row">
           <div class="pill">Meta ads</div>
@@ -175,13 +161,12 @@
         <p>Static and motion across your key formats, briefed around your actual product and angles.</p>
       </div>
       <div class="offer-card">
-        <h3>Stay if it works, walk if it doesn't</h3>
-        <p>Sprint converts to a monthly retainer if the creative earns it. No renewal, no further commitment, no hard feelings if it's not the right fit.</p>
+        <h3>Stay if it works</h3>
+        <p>Sprint converts to a monthly retainer if the creative earns it. No pressure either way.</p>
       </div>
     </div>
   </section>
 
-  <!-- FORMATS — expanded to 8, mixed static/motion -->
   <section class="section">
     <div class="section-eyebrow">Formats</div>
     <h2>What the work actually looks like</h2>
@@ -199,20 +184,6 @@
         <div class="format-img d"><img src="ASSETS/PERFORMANCE/image /PC 4.jpeg" alt=""></div>
       </div>
     </div>
-    <div class="format-grid row2">
-      <div class="format-card">
-        <div class="format-img a"><img src="ASSETS/PERFORMANCE/image /PC 5.jpg" alt=""></div>
-      </div>
-      <div class="format-card">
-        <div class="format-img b"><img src="ASSETS/PERFORMANCE/image /PC 6.jpg" alt=""></div>
-      </div>
-      <div class="format-card">
-        <div class="format-img c"><img src="ASSETS/PERFORMANCE/image /PC 7.jpg" alt=""></div>
-      </div>
-      <div class="format-card">
-        <div class="format-img d"><img src="ASSETS/PERFORMANCE/image /PC 8.jpg" alt=""></div>
-      </div>
-    </div>
   </section>
 
   <section class="section">
@@ -222,7 +193,7 @@
       <div class="strip-item">
         <div class="strip-num">01</div>
         <div class="strip-title">Brief</div>
-        <div class="strip-desc">Async form or a short call — product, angle, what's already been tested. I pull competitor and category data before the first concept.</div>
+        <div class="strip-desc">Async form or a short call — product, angle, what's already been tested.</div>
       </div>
       <div class="strip-item">
         <div class="strip-num">02</div>
@@ -249,7 +220,7 @@
       <div class="price-card featured">
         <div class="price-tier-row">
           <div class="price-tier">Sprint</div>
-          <div class="price-flag">$500 off · first 2 brands</div>
+          <div class="price-flag">33% off · first 2 brands</div>
         </div>
         <div class="price-amt">$1,000<span>/ one month</span></div>
         <div class="price-desc">Regular rate $1,500/mo.</div>
