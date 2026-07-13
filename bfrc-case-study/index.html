@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>noelntrl — LEÒN Goods case study</title>
-<link rel="icon" type="image/png" href="ASSETS/Logo/web logo.png">
+<title>noelntrl — Black Forest Run Club case study</title>
+<link rel="icon" type="image/png" href="/ASSETS/Logo/web logo.png">
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=Young+Serif&display=swap');
   :root{
@@ -49,12 +49,16 @@
   .brief-text p + p{margin-top:16px;}
 
   .compare{padding:64px 0; border-bottom:1px solid var(--line-soft);}
-  .compare-grid{display:grid; grid-template-columns:1fr 1fr; gap:24px;}
+  .compare-grid{display:grid; grid-template-columns:1fr; gap:32px;}
   .compare-col-label{font-size:12px; letter-spacing:0.14em; text-transform:uppercase; color:var(--text-faint); margin-bottom:16px; font-weight:500;}
   .compare-imgs img{width:100%; aspect-ratio:1/1; object-fit:cover; border-radius:4px; background:var(--bg-card);}
+  .compare-imgs.row-2{display:grid; grid-template-columns:1fr 1fr; gap:10px; max-width:calc(50% - 5px);}
+  .compare-imgs.row-2 img{aspect-ratio:2480/3508;}
+  .compare-imgs.after-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:10px;}
+  .compare-imgs.after-grid img, .compare-imgs.after-grid video{width:100%; aspect-ratio:9/16; object-fit:cover; border-radius:4px;}
 
   .deliverables{padding:64px 0;}
-  .del-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:16px;}
+  .del-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:16px;}
   .del-num{font-family:'Fraunces', serif; font-size:34px; font-weight:500; margin-bottom:8px;}
   .del-label{font-size:14px; color:var(--text-dim);}
 
@@ -68,8 +72,8 @@
 
   @media(max-width:860px){
     h1{font-size:28px;}
-    .compare-grid{grid-template-columns:1fr;}
     .del-grid{grid-template-columns:1fr;}
+    .compare-imgs.after-grid{grid-template-columns:repeat(2,1fr);}
   }
 </style>
 </head>
@@ -77,33 +81,32 @@
 
 <div class="wrap">
   <nav>
-    <a class="logo" href="index.html">noelntrl</a>
+    <a class="logo" href="/">noelntrl</a>
     <div class="nav-links">
-      <a href="performance-creative-v2.html">Performance creative</a>
-      <a href="campaigns.html">Campaigns</a>
+      <a href="/performance-creative">Performance creative</a>
+      <a href="/campaigns">Campaigns</a>
       <div class="nav-dropdown">
         <a href="#">Work</a>
         <div class="dropdown-menu">
-          <a href="leon-goods-case-study.html" class="active">LEÒN Goods</a>
-          <a href="bfrc-case-study.html">BFRC</a>
-          <a href="amore-pacific-case-study.html">Amore Pacific</a>
+          <a href="/leon-goods-case-study">LEÒN Goods</a>
+          <a href="/bfrc-case-study" class="active">BFRC</a>
+          <a href="/amore-pacific-case-study">Amore Pacific</a>
         </div>
       </div>
     </div>
-    <div class="nav-icons"><a href="https://www.instagram.com/noelntrl/" target="_blank" rel="noopener"><img src="ASSETS/Logo/instagram logo.png" alt="Instagram"></a></div>
+    <div class="nav-icons"><a href="https://www.instagram.com/noelntrl/" target="_blank" rel="noopener"><img src="/ASSETS/Logo/instagram logo.png" alt="Instagram"></a></div>
   </nav>
 
   <section class="hero">
-    <div class="eyebrow">Case Study — 01</div>
-    <h1>PDP images and a brand film for a German outdoor brand, delivered in seven business days.</h1>
-    <div class="meta-line">LEÒN Goods <span>/</span> Reflector Stickers · Amazon DE <span>/</span> 7 business days</div>
+    <div class="eyebrow">Case Study — 02</div>
+    <h1>From blank shirt to full campaign — Black Forest Run Club</h1>
+    <div class="meta-line">Black Forest Run Club <span>/</span> 2 business days</div>
   </section>
 
   <section class="section">
     <div class="section-eyebrow">Brief</div>
     <div class="brief-text">
-      <p>Denis runs LEÒN Goods, a small German outdoor brand selling reflector stickers on Amazon DE. He was generating his own product visuals with AI tools but couldn't get consistent product fidelity or build a usable volume of assets on his own.</p>
-      <p>He needed PDP images and supporting content ready for Amazon listings — without booking a shoot.</p>
+      <p>Started with a plain white t-shirt product photo, no lifestyle shots, no campaign assets. Placed the design onto the shirt and built out a full set of usable creative — hanging on a rack, outdoor lifestyle shots, clean product flats — all from one flat image. No physical shoot, no models booked, delivered in a fraction of the time a real shoot would take.</p>
     </div>
   </section>
 
@@ -111,14 +114,18 @@
     <div class="compare-grid">
       <div>
         <div class="compare-col-label">Before</div>
-        <div class="compare-imgs">
-          <img src="ASSETS/CASE STUDY/LEON GOODS/Leon Goods Before.png" alt="">
+        <div class="compare-imgs row-2">
+          <img src="/ASSETS/CASE STUDY/BFRC/bfrc product 1.jpg" alt="">
+          <img src="/ASSETS/CASE STUDY/BFRC/bfrc product 2.jpg" alt="">
         </div>
       </div>
       <div>
         <div class="compare-col-label">After</div>
-        <div class="compare-imgs">
-          <img src="ASSETS/CASE STUDY/LEON GOODS/Leon Goods Afterv3.png" alt="">
+        <div class="compare-imgs after-grid">
+          <video src="/ASSETS/CASE STUDY/BFRC/bfrc vid 1.mp4" autoplay muted loop playsinline></video>
+          <video src="/ASSETS/CASE STUDY/BFRC/brfc vid 2.mp4" autoplay muted loop playsinline></video>
+          <img src="/ASSETS/CASE STUDY/BFRC/bfrc 1.jpeg" alt="">
+          <img src="/ASSETS/CASE STUDY/BFRC/bfrc 2.jpeg" alt="">
         </div>
       </div>
     </div>
@@ -128,15 +135,11 @@
     <div class="section-eyebrow">Deliverables</div>
     <div class="del-grid">
       <div>
-        <div class="del-num">15</div>
-        <div class="del-label">PDP images</div>
+        <div class="del-num">10</div>
+        <div class="del-label">Social-ready assets</div>
       </div>
       <div>
-        <div class="del-num">1</div>
-        <div class="del-label">Brand Film</div>
-      </div>
-      <div>
-        <div class="del-num">7 business days</div>
+        <div class="del-num">2 business days</div>
         <div class="del-label">Turnaround</div>
       </div>
     </div>
@@ -145,7 +148,7 @@
   <section class="cta-band">
     <h2>Need visuals like this?</h2>
     <p>Static and motion, built around your product — no shoot required.</p>
-    <a href="start-a-project.html" class="cta">Start a project</a>
+    <a href="/start-a-project" class="cta">Start a project</a>
   </section>
 
   <footer>

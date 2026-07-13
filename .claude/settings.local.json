@@ -7,7 +7,15 @@
       "Bash(ffprobe -v error -select_streams v:0 -show_entries stream=width,height -of csv=p=0 \"ASSETS/CASE STUDY/Amore pacific/amorepacific.mp4\")",
       "Bash(sips -g pixelWidth -g pixelHeight \"/Users/xoxo/Documents/My website/ASSETS/CASE STUDY/Amore pacific/awardproof.jpg\")",
       "Bash(git status *)",
-      "Bash(git fetch *)"
+      "Bash(git fetch *)",
+      "Bash(cat CNAME)",
+      "Bash(ls -la .github/workflows)",
+      "Bash(find . -maxdepth 2 -iname \"*.yml\")",
+      "Bash(curl -s -o /dev/null -w \"HTTP %{http_code}\\\\n\" \"https://noelntrl.com/performance-creative-v2.html\")",
+      "Bash(curl -s \"https://noelntrl.com/performance-creative-v2.html\")",
+      "Bash(curl -s \"https://noelntrl.com/campaigns.html\")",
+      "Bash(curl -sI \"https://noelntrl.com/campaigns.html\")",
+      "Bash(git add *)"
     ]
   }
 }
