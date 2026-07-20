@@ -53,7 +53,9 @@
       "Bash(curl -s \"https://www.githubstatus.com/api/v2/status.json\")",
       "Bash(curl -s \"https://www.githubstatus.com/api/v2/components.json\")",
       "Bash(curl -s \"https://www.githubstatus.com/api/v2/incidents/unresolved.json\")",
-      "Bash(curl -s -o /dev/null -w \"HTTP status: %{http_code}\\\\n\" \"https://noelntrl.com/\")"
+      "Bash(curl -s -o /dev/null -w \"HTTP status: %{http_code}\\\\n\" \"https://noelntrl.com/\")",
+      "Bash(grep -n \"\\\\.project \\\\.ghost{font-size\\\\|project\\\\.left \\\\.ghost,\\\\|sideindex{right\" \"/Users/xoxo/Documents/My website/campaigns/index.html\")",
+      "Bash(grep -n \"\\\\.hero,\\\\.work{\" \"/Users/xoxo/Documents/My website/campaigns/index.html\")"
     ]
   }
 }

@@ -15,7 +15,7 @@
     --faint:#3a3833;
     --accent:#c9a96a;
     --line:rgba(239,236,229,0.10);
-    --reel-w:min(340px, 78vw);
+    --reel-w:min(480px, 85vw);
   }
   *{margin:0;padding:0;box-sizing:border-box;}
   html{scroll-behavior:smooth;}
@@ -57,22 +57,11 @@
   nav .nav-icon:hover{opacity:1;}
   nav .nav-icon img{width:20px;height:20px;display:block;filter:invert(1);}
 
-  /* fixed side index */
-  .sideindex{
-    position:fixed;right:38px;bottom:38px;z-index:40;
-    font-size:11px;letter-spacing:2px;color:var(--dim);
-    display:flex;align-items:center;gap:10px;
-    mix-blend-mode:difference;
-  }
-  .sideindex .cur{color:var(--fg);font-variant-numeric:tabular-nums;}
-  .sideindex .bar{width:46px;height:1px;background:var(--faint);position:relative;overflow:hidden;}
-  .sideindex .bar span{position:absolute;left:0;top:0;height:100%;width:33%;background:var(--fg);transition:transform .5s cubic-bezier(.5,0,.1,1);}
-
   /* ---------- HERO ---------- */
   .hero{
-    min-height:100vh;
     display:flex;flex-direction:column;justify-content:center;
-    padding:0 42px;
+    padding:160px 42px 90px;
+    max-width:1240px;margin:0 auto;
     position:relative;
   }
   .hero .eyebrow{
@@ -83,30 +72,36 @@
   .hero .eyebrow span{display:inline-block;transform:translateY(120%);animation:rise 1s .1s cubic-bezier(.2,.7,.2,1) forwards;}
   .hero h1{
     font-family:'Fraunces',serif;
-    font-weight:500;
-    font-size:clamp(56px,13vw,190px);
-    line-height:.92;
+    font-weight:300;
+    font-size:clamp(38px,5.6vw,80px);
+    line-height:1.02;
     letter-spacing:-.02em;
+    margin-bottom:28px;
   }
   .hero h1 .word{display:block;overflow:hidden;}
   .hero h1 .word i{display:inline-block;transform:translateY(110%);font-style:normal;}
   .hero h1 .l1 i{animation:rise 1.1s .22s cubic-bezier(.2,.7,.2,1) forwards;}
-  .hero h1 .l2 i{animation:rise 1.1s .34s cubic-bezier(.2,.7,.2,1) forwards;font-style:italic;font-weight:500;color:var(--dim);}
+  .hero h1 .l2 i{animation:rise 1.1s .34s cubic-bezier(.2,.7,.2,1) forwards;font-style:italic;font-weight:400;color:var(--dim);}
   .hero .sub{
-    display:flex;justify-content:space-between;align-items:flex-end;
-    margin-top:48px;border-top:1px solid var(--line);padding-top:22px;
+    margin-top:36px;
     opacity:0;animation:fade 1s .8s forwards;
   }
-  .hero .sub p{max-width:340px;font-size:14px;line-height:1.6;color:var(--dim);}
-  .hero .sub .scroll{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--dim);display:flex;align-items:center;gap:10px;}
-  .hero .sub .scroll::after{content:'';width:1px;height:34px;background:var(--faint);display:block;animation:pulse 2s infinite;}
+  .hero .sub p{max-width:640px;font-size:15px;line-height:1.75;color:var(--dim);margin-bottom:26px;}
+  .hero .sub p b{color:var(--fg);font-weight:400;}
+  .hero .cta{display:inline-block;font-size:12px;letter-spacing:2px;text-transform:uppercase;border-radius:40px;padding:16px 34px;background:var(--fg);color:var(--bg);border:1px solid var(--fg);text-decoration:none;transition:background .4s,color .4s;}
+  .hero .cta:hover{background:transparent;color:var(--fg);border-color:var(--line);}
 
   @keyframes rise{to{transform:translateY(0);}}
   @keyframes fade{to{opacity:1;}}
-  @keyframes pulse{0%,100%{opacity:.3;}50%{opacity:1;}}
 
   /* ---------- PROJECT ---------- */
-  .work{padding:0 42px;}
+  .work{padding:0 42px;max-width:1240px;margin:0 auto;}
+  .work-head{padding:70px 0 0;display:flex;align-items:baseline;gap:20px;}
+  .work-head .idx{font-size:11px;letter-spacing:2px;color:var(--accent);font-variant-numeric:tabular-nums;}
+  .work-head h2{
+    font-family:'Fraunces',serif;font-weight:300;
+    font-size:clamp(26px,3.6vw,44px);line-height:1.1;letter-spacing:-.01em;color:var(--fg);
+  }
   .project{
     position:relative;
     min-height:100vh;
@@ -117,18 +112,6 @@
     padding:120px 0;
     border-top:1px solid var(--line);
   }
-
-  /* giant ghost index number */
-  .project .ghost{
-    position:absolute;top:50%;transform:translateY(-50%);
-    font-family:'Fraunces',serif;font-weight:500;
-    font-size:clamp(200px,42vw,560px);
-    line-height:.8;color:var(--faint);opacity:.5;
-    z-index:0;pointer-events:none;user-select:none;
-    font-variant-numeric:tabular-nums;
-  }
-  .project.left .ghost{right:-3vw;}
-  .project.right .ghost{left:-3vw;}
 
   /* the 9:16 reel */
   .reel-wrap{position:relative;z-index:2;display:flex;}
@@ -238,10 +221,7 @@
     .project.right .info{order:2;text-align:left;margin-left:0;}
     .project.right .info .idx{justify-content:flex-start;}
     .project.right .info .tags{justify-content:flex-start;}
-    .project .ghost{font-size:clamp(140px,45vw,240px);top:auto;bottom:-4%;transform:none;opacity:.35;}
-    .project.left .ghost,.project.right .ghost{right:-4vw;left:auto;}
-    .reel{width:min(300px,72vw);}
-    .sideindex{right:20px;bottom:20px;}
+    .reel{width:min(380px,80vw);}
     .archive{padding:90px 24px 70px;}
   }
   @media(prefers-reduced-motion:reduce){
@@ -271,30 +251,25 @@
   </div>
 </nav>
 
-<div class="sideindex">
-  <span class="cur">01</span>
-  <span class="bar"><span id="progbar"></span></span>
-  <span>03</span>
-</div>
-
 <!-- HERO -->
 <header class="hero">
-  <div class="eyebrow"><span>Campaigns &nbsp;/&nbsp; Art direction &nbsp;/&nbsp; 2026</span></div>
+  <div class="eyebrow"><span>Campaigns &nbsp;/&nbsp; Art direction</span></div>
   <h1>
     <span class="word l1"><i>Campaign</i></span>
     <span class="word l2"><i>work.</i></span>
   </h1>
   <div class="sub">
-    <p>A creative studio directing full campaign concepts — from first idea to finished film.</p>
-    <div class="scroll">Scroll</div>
+    <p>Full-funnel creative direction — concept, shoot, edit, sound — delivering launch-ready images and motion, or a full visual world built around the campaign. <b>AI-native, no crew required.</b></p>
+    <a href="/start-a-project" class="cta">Start a project</a>
   </div>
 </header>
 
 <main class="work">
 
+  <div class="work-head"><span class="idx">01</span><h2>Concept works</h2></div>
+
   <!-- 01 AESOP -->
   <section class="project left" data-idx="01">
-    <div class="ghost">1</div>
     <div class="reel-wrap reveal">
       <div class="reel">
         <span class="rlabel tr">9:16</span>
@@ -313,7 +288,6 @@
 
   <!-- 02 BYREDO -->
   <section class="project right" data-idx="02">
-    <div class="ghost">2</div>
     <div class="reel-wrap reveal">
       <div class="reel">
         <span class="rlabel tr">9:16</span>
@@ -332,7 +306,6 @@
 
   <!-- 03 GENTLE MONSTER -->
   <section class="project left" data-idx="03">
-    <div class="ghost">3</div>
     <div class="reel-wrap reveal">
       <div class="reel">
         <span class="rlabel tr">9:16</span>
@@ -367,20 +340,6 @@
   },{threshold:0.2});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
-  // side index tracking
-  const cur = document.querySelector('.sideindex .cur');
-  const prog = document.getElementById('progbar');
-  const projects = [...document.querySelectorAll('.project')];
-  const idxIO = new IntersectionObserver((entries)=>{
-    entries.forEach(e=>{
-      if(e.isIntersecting){
-        const i = e.target.dataset.idx;
-        cur.textContent = i;
-        prog.style.transform = `translateX(${(parseInt(i)-1)*100}%)`;
-      }
-    });
-  },{threshold:0.5});
-  projects.forEach(p=>idxIO.observe(p));
 </script>
 
 </body>
