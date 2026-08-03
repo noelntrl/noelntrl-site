@@ -85,6 +85,7 @@
   .hero .sub p{max-width:480px;font-size:15px;line-height:1.7;color:var(--dim);}
   .hero .sub p b{color:var(--fg);font-weight:400;}
   .hero-actions{display:flex;flex-direction:column;gap:40px;align-items:center;}
+  .cta-row{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;}
   .cta{
     display:inline-block;font-size:12px;letter-spacing:2px;text-transform:uppercase;
     border:1px solid var(--line);border-radius:40px;padding:15px 30px;color:var(--fg);
@@ -92,6 +93,11 @@
   }
   .cta:hover{background:var(--fg);color:var(--bg);border-color:var(--fg);}
   .cta.solid{background:var(--fg);color:var(--bg);border-color:var(--fg);}
+  .cta.sharp{
+    border:none;padding:16px 8px;color:var(--fg);
+    display:inline-flex;align-items:center;gap:8px;
+  }
+  .cta.sharp:hover{background:transparent;color:var(--accent);}
   .cta.solid:hover{background:transparent;color:var(--fg);border-color:var(--line);}
   .award{font-size:12px;color:var(--dim);display:flex;align-items:center;gap:9px;letter-spacing:.3px;}
   .award .dot{width:5px;height:5px;border-radius:50%;background:var(--accent);flex-shrink:0;}
@@ -110,15 +116,28 @@
   }
   .sec-head h2 em{font-style:italic;color:var(--dim);}
 
+  /* WAYS */
+  .ways{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);}
+  .way-card{background:var(--bg);padding:26px 24px 24px;position:relative;overflow:hidden;}
+  .way-title{
+    font-family:'Fraunces',serif;font-weight:300;font-size:21px;line-height:1.15;
+    letter-spacing:-.01em;margin-bottom:8px;position:relative;z-index:1;
+  }
+  .way-num{color:var(--accent);font-variant-numeric:tabular-nums;margin-right:2px;}
+  .way-desc{font-size:13px;line-height:1.5;color:var(--dim);margin-bottom:18px;position:relative;z-index:1;max-width:280px;}
+  .way-list{list-style:none;display:flex;flex-direction:column;gap:9px;position:relative;z-index:1;}
+  .way-list li{font-size:13px;color:var(--fg);opacity:.85;padding-left:18px;position:relative;}
+  .way-list li::before{content:'';position:absolute;left:0;top:8px;width:8px;height:1px;background:var(--accent);}
+
   /* PROCESS */
-  .process{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--line);}
-  .p-item{padding:40px 34px 46px;border-right:1px solid var(--line);}
+  .process{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--line);}
+  .p-item{padding:36px 26px 40px;border-right:1px solid var(--line);}
   .p-item:last-child{border-right:none;}
   .p-num{
     font-family:'Fraunces',serif;font-size:44px;font-weight:300;color:var(--accent);
     margin-bottom:20px;font-variant-numeric:tabular-nums;
   }
-  .p-title{font-family:'Fraunces',serif;font-size:22px;font-weight:400;margin-bottom:12px;}
+  .p-title{font-family:'Fraunces',serif;font-size:19px;font-weight:400;margin-bottom:12px;line-height:1.25;}
   .p-desc{font-size:14px;line-height:1.65;color:var(--dim);}
 
   /* CTA BAND */
@@ -150,6 +169,7 @@
     .nav-links{gap:16px;}
     .wrap{padding:0 24px;}
     .hero{padding:110px 24px 60px;}
+    .ways{grid-template-columns:1fr;}
     .process{grid-template-columns:1fr;}
     .p-item{border-right:none;border-bottom:1px solid var(--line);}
     .p-item:last-child{border-bottom:none;}
@@ -173,6 +193,7 @@
     <div class="nav-dropdown">
       <a href="#work">Work</a>
       <div class="dropdown-menu"><div class="inner">
+        <a href="/portfolio">Portfolio</a>
         <a href="/amore-pacific-case-study">Amore Pacific</a>
         <a href="/bfrc-case-study">BFRC</a>
         <a href="/leon-goods-case-study">LEÒN Goods</a>
@@ -194,34 +215,80 @@
     <p>AI-native creative production for DTC brands and agencies — <b>static ads, motion, and campaign visuals created faster without traditional production constraints.</b></p>
     <div class="hero-actions">
       <div class="award"><span class="dot"></span>Award recipient — <a href="/amore-pacific-case-study">Amore Pacific AI Creative Competition 2026</a></div>
-      <a href="/start-a-project" class="cta solid">Start a project</a>
+      <div class="cta-row">
+        <a href="/start-a-project" class="cta solid">Start a project</a>
+        <a href="/portfolio" class="cta sharp">View work →</a>
+      </div>
     </div>
   </div>
 </header>
 
 <div class="wrap">
 
-  <!-- PROCESS -->
+  <!-- WAYS -->
   <section class="section" id="work">
     <div class="sec-head reveal">
       <span class="idx">01</span>
-      <h2>From brief <em>to delivered</em></h2>
+      <h2>3 ways to <em>work together</em></h2>
+    </div>
+    <div class="ways reveal d1">
+      <div class="way-card">
+        <div class="way-title"><span class="way-num">01</span> Creative Production</div>
+        <p class="way-desc">For brands that need ongoing ad creative.</p>
+        <ul class="way-list">
+          <li>Static ads</li>
+          <li>Motion assets</li>
+          <li>Creative variations</li>
+          <li>Product visuals</li>
+        </ul>
+      </div>
+      <div class="way-card">
+        <div class="way-title"><span class="way-num">02</span> Campaign Visuals</div>
+        <p class="way-desc">For launches and brand moments.</p>
+        <ul class="way-list">
+          <li>Hero imagery</li>
+          <li>Product worlds</li>
+          <li>Campaign concepts</li>
+        </ul>
+      </div>
+      <div class="way-card">
+        <div class="way-title"><span class="way-num">03</span> Agency Production</div>
+        <p class="way-desc">For agencies needing extra capacity.</p>
+        <ul class="way-list">
+          <li>White-label delivery</li>
+          <li>Client-ready assets</li>
+          <li>Overflow production</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="section">
+    <div class="sec-head reveal">
+      <span class="idx">02</span>
+      <h2>How it <em>works</em></h2>
     </div>
     <div class="process reveal d1">
       <div class="p-item">
         <div class="p-num">01</div>
         <div class="p-title">Brief</div>
-        <p class="p-desc">Product, angle, and what's already been tested — 15 minute call or async.</p>
+        <p class="p-desc">You share the product, goals, references and requirements.</p>
       </div>
       <div class="p-item">
         <div class="p-num">02</div>
-        <div class="p-title">Production</div>
-        <p class="p-desc">First set of variants back in 5–7 days, static and motion.</p>
+        <div class="p-title">Creative Direction</div>
+        <p class="p-desc">I develop concepts and visual directions.</p>
       </div>
       <div class="p-item">
         <div class="p-num">03</div>
-        <div class="p-title">Iterate</div>
-        <p class="p-desc">Revisions based on what's performing — built into the retainer.</p>
+        <div class="p-title">Production</div>
+        <p class="p-desc">Images, motion, retouching and final assets are created.</p>
+      </div>
+      <div class="p-item">
+        <div class="p-num">04</div>
+        <div class="p-title">Delivery</div>
+        <p class="p-desc">Ready-to-use files delivered for your channels.</p>
       </div>
     </div>
   </section>
