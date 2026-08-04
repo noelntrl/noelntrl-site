@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>noelntrl — 20 Static Ads, $400</title>
+<meta name="description" content="20 bespoke static ads for DTC brands. Brief in, 20 custom statics out in 48 hours. Starting at $400.">
+<link rel="icon" type="image/png" href="/ASSETS/Logo/web logo.png">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500&family=Young+Serif&display=swap');
+
+  :root{
+    --bg:#151411;
+    --fg:#efece5;
+    --dim:#7d7a73;
+    --faint:#3a3833;
+    --accent:#c9a96a;
+    --line:rgba(239,236,229,0.10);
+    --card:#1C1B17;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg);color:var(--fg);
+    font-family:'Inter',sans-serif;font-weight:300;
+    -webkit-font-smoothing:antialiased;overflow-x:hidden;
+  }
+  ::selection{background:var(--accent);color:#0a0a0a;}
+  a{text-decoration:none;color:inherit;}
+  .wrap{max-width:1240px;margin:0 auto;padding:0 42px;}
+  .narrow{max-width:640px;margin:0 auto;padding:0 42px;}
+
+  /* NAV */
+  nav{
+    position:fixed;top:0;left:0;right:0;z-index:50;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:24px 42px;mix-blend-mode:difference;
+  }
+  nav .logo{font-family:'Young Serif',serif;font-size:22px;letter-spacing:-.01em;color:#efece5;}
+  .nav-links{display:flex;gap:32px;font-size:12px;letter-spacing:.5px;color:#efece5;}
+  .nav-links a{opacity:.6;transition:opacity .3s;}
+  .nav-links a:hover{opacity:1;}
+  .nav-dropdown{position:relative;}
+  .dropdown-menu{
+    display:none;position:absolute;top:100%;left:50%;transform:translateX(-50%);padding-top:14px;min-width:150px;
+  }
+  .nav-dropdown:hover .dropdown-menu{display:block;}
+  .dropdown-menu .inner{
+    background:#1C1B17;border:1px solid var(--line);padding:6px 0;
+  }
+  .dropdown-menu a{
+    display:block;padding:9px 14px;font-family:'Fraunces',serif;font-size:14px;
+    color:var(--dim);opacity:1;transition:color .2s,background .2s;white-space:nowrap;
+  }
+  .dropdown-menu a:hover{color:var(--fg);background:rgba(239,236,229,.04);}
+
+  /* HERO */
+  .hero{
+    min-height:92vh;display:flex;align-items:center;
+    padding:150px 42px 70px;max-width:1240px;margin:0 auto;
+  }
+  .hero-inner{display:grid;grid-template-columns:.8fr 1.2fr;gap:56px;align-items:center;width:100%;}
+  .hero-inner > *{min-width:0;}
+  .hero-copy{text-align:left;}
+  .hero .mark{
+    font-family:'Young Serif',serif;font-size:22px;color:var(--fg);
+    margin-bottom:30px;opacity:0;animation:fade 1s .05s forwards;
+  }
+  .hero .eyebrow{
+    font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--dim);
+    margin-bottom:34px;overflow:hidden;
+  }
+  .hero .eyebrow span{display:inline-block;transform:translateY(120%);animation:rise 1s .1s cubic-bezier(.2,.7,.2,1) forwards;}
+  .hero h1{
+    font-family:'Fraunces',serif;font-weight:300;
+    font-size:clamp(34px,4.6vw,64px);line-height:1.1;letter-spacing:-.02em;
+    max-width:13ch;
+  }
+  .hero h1 .word{display:block;overflow:hidden;}
+  .hero h1 .word i{display:inline-block;transform:translateY(110%);font-style:normal;}
+  .hero h1 .l1 i{animation:rise 1.1s .22s cubic-bezier(.2,.7,.2,1) forwards;}
+  .hero .sub{
+    display:flex;flex-direction:column;align-items:flex-start;gap:26px;
+    margin-top:34px;
+    opacity:0;animation:fade 1s .85s forwards;
+  }
+  .hero .sub p{max-width:520px;font-size:16px;line-height:1.7;color:var(--dim);}
+  .price-mark{font-family:'Fraunces',serif;font-style:italic;font-size:19px;color:var(--accent);}
+  .hero-actions{display:flex;flex-direction:column;gap:14px;align-items:flex-start;}
+  .cta{
+    display:inline-block;font-size:12px;letter-spacing:2px;text-transform:uppercase;
+    border:1px solid var(--line);border-radius:40px;padding:16px 34px;color:var(--fg);
+    transition:background .4s,color .4s,border-color .4s;white-space:nowrap;
+  }
+  .cta.solid{background:var(--fg);color:var(--bg);border-color:var(--fg);}
+  .cta.solid:hover{background:transparent;color:var(--fg);border-color:var(--line);}
+  .guarantees{list-style:none;display:flex;flex-wrap:nowrap;gap:14px;}
+  .guarantees li{font-size:12px;color:var(--dim);display:flex;align-items:center;gap:6px;white-space:nowrap;}
+  .guarantees li::before{content:'✓';color:var(--accent);font-size:11px;}
+
+  /* HERO VISUAL — rotating carousels */
+  .hero-visual{display:flex;flex-direction:column;gap:16px;min-width:0;}
+  .marquee-row{
+    min-width:0;overflow:hidden;
+    -webkit-mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent);
+    mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent);
+  }
+  .marquee-track{display:flex;gap:14px;width:max-content;animation:marquee 30s linear infinite;}
+  .marquee-row.reverse .marquee-track{animation-direction:reverse;animation-duration:36s;}
+  .marquee-row:hover .marquee-track{animation-play-state:paused;}
+  .marquee-track img{
+    width:200px;height:250px;object-fit:cover;border-radius:3px;flex-shrink:0;
+    background:var(--card);display:block;
+  }
+  @keyframes marquee{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+
+  @keyframes rise{to{transform:translateY(0);}}
+  @keyframes fade{to{opacity:1;}}
+
+  /* SECTION */
+  .section{padding:100px 0;border-top:1px solid var(--line);}
+  .sec-head{display:flex;align-items:baseline;gap:20px;margin-bottom:48px;}
+  .sec-head .idx{font-size:11px;letter-spacing:2px;color:var(--accent);font-variant-numeric:tabular-nums;}
+  .sec-head h2{
+    font-family:'Fraunces',serif;font-weight:300;
+    font-size:clamp(26px,3.6vw,42px);line-height:1.1;letter-spacing:-.01em;
+  }
+  .sec-head h2 em{font-style:italic;color:var(--dim);}
+  .sec-note{font-size:13px;color:var(--dim);max-width:480px;margin-top:10px;line-height:1.6;}
+
+  /* PACKAGE + NEED — side by side */
+  .package-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:stretch;}
+
+  /* PRICE CARD */
+  .price-card{
+    border:1px solid var(--line);background:var(--card);border-radius:4px;
+    padding:44px;display:flex;flex-direction:column;gap:28px;
+  }
+  .price-card .amount{font-family:'Fraunces',serif;font-size:clamp(38px,5vw,56px);font-weight:300;color:var(--fg);white-space:nowrap;}
+  .price-card .amount span{font-size:14px;color:var(--dim);display:block;letter-spacing:1px;text-transform:uppercase;margin-top:8px;font-family:'Inter',sans-serif;}
+  .price-list{list-style:none;display:flex;flex-direction:column;gap:12px;}
+  .price-list li{font-size:14px;color:var(--fg);opacity:.9;padding-left:20px;position:relative;line-height:1.5;}
+  .price-list li::before{content:'';position:absolute;left:0;top:9px;width:9px;height:1px;background:var(--accent);}
+
+  /* NEED BLOCK */
+  .need-block{border:1px solid var(--line);background:var(--card);border-radius:4px;padding:44px;}
+  .need-block h3{font-family:'Fraunces',serif;font-weight:300;font-size:22px;letter-spacing:-.01em;margin-bottom:24px;color:var(--fg);}
+  .need-block h3 em{font-style:italic;color:var(--dim);}
+  .need-list{list-style:none;display:flex;flex-direction:column;gap:12px;}
+  .need-list li{font-size:14px;color:var(--fg);opacity:.9;padding-left:20px;position:relative;line-height:1.5;}
+  .need-list li::before{content:'';position:absolute;left:0;top:9px;width:9px;height:1px;background:var(--accent);}
+  .need-list li b{color:var(--dim);font-weight:400;opacity:1;}
+
+  /* ADD-ONS */
+  .addon-list{display:flex;flex-direction:column;}
+  .addon-item{padding:18px 0;border-top:1px solid var(--line);}
+  .addon-item:last-child{border-bottom:1px solid var(--line);}
+  .addon-top{display:flex;justify-content:space-between;align-items:baseline;gap:16px;}
+  .addon-name{font-family:'Fraunces',serif;font-weight:400;font-size:16px;letter-spacing:-.01em;color:var(--fg);}
+  .addon-price{font-size:13px;color:var(--accent);white-space:nowrap;}
+  .addon-desc{font-size:13px;color:var(--dim);margin-top:5px;line-height:1.5;}
+  .addon-info{font-size:12px;color:var(--faint);margin-top:16px;line-height:1.5;}
+
+  /* SIMPLE LIST */
+  .simple-list{list-style:none;display:flex;flex-direction:column;gap:16px;}
+  .simple-list li{font-size:16px;color:var(--fg);opacity:.9;padding-left:24px;position:relative;line-height:1.5;}
+  .simple-list li::before{content:'';position:absolute;left:0;top:10px;width:12px;height:1px;background:var(--accent);}
+  .simple-list a{color:var(--fg);border-bottom:1px solid var(--faint);}
+  .simple-list a:hover{border-color:var(--fg);}
+
+  /* PROCESS */
+  .process{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--line);}
+  .p-item{padding:36px 26px 40px;border-right:1px solid var(--line);}
+  .p-item:last-child{border-right:none;}
+  .p-num{
+    font-family:'Fraunces',serif;font-size:44px;font-weight:300;color:var(--accent);
+    margin-bottom:20px;font-variant-numeric:tabular-nums;
+  }
+  .p-title{font-family:'Fraunces',serif;font-size:19px;font-weight:400;margin-bottom:12px;line-height:1.25;}
+  .p-desc{font-size:14px;line-height:1.65;color:var(--dim);}
+
+  /* FAQ */
+  .faq{display:flex;flex-direction:column;}
+  .faq-item{padding:26px 0;border-top:1px solid var(--line);}
+  .faq-item:last-child{border-bottom:1px solid var(--line);}
+  .faq-q{font-family:'Fraunces',serif;font-size:18px;font-weight:400;margin-bottom:8px;letter-spacing:-.01em;}
+  .faq-a{font-size:14px;line-height:1.65;color:var(--dim);max-width:640px;}
+
+  /* CTA BAND + FORM */
+  .band{padding:110px 0 20px;text-align:center;border-top:1px solid var(--line);}
+  .band h2{
+    font-family:'Fraunces',serif;font-weight:300;
+    font-size:clamp(28px,4.4vw,54px);line-height:1.12;letter-spacing:-.01em;
+    max-width:680px;margin:0 auto 16px;
+  }
+  .band h2 em{font-style:italic;color:var(--dim);}
+  .band p{font-size:15px;color:var(--dim);margin-bottom:0;}
+
+  form{padding-top:60px;}
+  .field{margin-bottom:22px;}
+  .field-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  label{display:block;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--dim);margin-bottom:10px;}
+  input,textarea,select{
+    width:100%;background:var(--card);border:1px solid var(--line);border-radius:4px;
+    padding:14px 16px;color:var(--fg);font-family:'Inter',sans-serif;font-weight:300;font-size:14px;
+    transition:border-color .3s;
+  }
+  select{appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%237d7a73'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center;}
+  input:focus,textarea:focus,select:focus{outline:none;border-color:var(--accent);}
+  textarea{resize:vertical;min-height:110px;}
+  ::placeholder{color:var(--faint);}
+
+  .submit-btn{
+    display:inline-block;font-size:12px;letter-spacing:2px;text-transform:uppercase;
+    border:1px solid var(--line);border-radius:40px;padding:16px 34px;
+    background:var(--fg);color:var(--bg);border-color:var(--fg);
+    transition:background .4s,color .4s,border-color .4s;
+    cursor:pointer;margin-top:8px;font-family:'Inter',sans-serif;width:100%;
+  }
+  .submit-btn:hover{background:transparent;color:var(--fg);border-color:var(--line);}
+  .submit-btn:disabled{opacity:.5;cursor:default;}
+
+  .confirm{display:none;padding-top:60px;text-align:center;}
+  .confirm h3{
+    font-family:'Fraunces',serif;font-weight:300;
+    font-size:clamp(24px,3vw,34px);letter-spacing:-.01em;margin-bottom:14px;
+  }
+  .confirm p{font-size:14px;color:var(--dim);}
+
+  .form-section{padding-bottom:130px;}
+
+  /* FOOTER */
+  footer{border-top:1px solid var(--line);padding:44px 0;}
+  .foot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
+  .foot .logo{font-family:'Young Serif',serif;font-size:18px;}
+  .foot-mid{display:flex;align-items:center;gap:22px;}
+  .foot .fmail{font-size:14px;color:var(--dim);}
+  .foot .fmail:hover{color:var(--fg);}
+  .foot .fsocial{font-size:14px;color:var(--dim);}
+  .foot .fsocial:hover{color:var(--fg);}
+  .foot .fmeta{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--faint);}
+
+  /* reveal */
+  .reveal{opacity:0;transform:translateY(36px);transition:opacity 1s cubic-bezier(.2,.7,.2,1),transform 1s cubic-bezier(.2,.7,.2,1);}
+  .reveal.in{opacity:1;transform:none;}
+  .reveal.d1{transition-delay:.1s;}
+
+  @media(max-width:860px){
+    nav{padding:18px 24px;}
+    .wrap{padding:0 24px;}
+    .narrow{padding:0 24px;}
+    .hero{padding:120px 24px 60px;}
+    .hero-inner{grid-template-columns:1fr;gap:40px;}
+    .hero h1{max-width:none;}
+    .marquee-track img{width:120px;height:150px;}
+    .section{padding:70px 0;}
+    .sec-head{flex-direction:column;gap:10px;margin-bottom:36px;}
+    .package-grid{grid-template-columns:1fr;}
+    .price-card{padding:30px 26px;}
+    .need-block{padding:30px 26px;}
+    .process{grid-template-columns:1fr;}
+    .p-item{border-right:none;border-bottom:1px solid var(--line);}
+    .p-item:last-child{border-bottom:none;}
+    .field-row{grid-template-columns:1fr;}
+    .band{padding:80px 0 10px;}
+  }
+  @media(prefers-reduced-motion:reduce){
+    *{animation:none!important;transition:none!important;}
+    .reveal{opacity:1;transform:none;}
+    .hero .eyebrow span,.hero h1 .word i{transform:none;}
+    .hero .sub{opacity:1;}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="logo" href="/">noelntrl</a>
+  <div class="nav-links">
+    <div class="nav-dropdown">
+      <a href="/#work">Work</a>
+      <div class="dropdown-menu"><div class="inner">
+        <a href="/portfolio">Portfolio</a>
+        <a href="/amore-pacific-case-study">Amore Pacific</a>
+        <a href="/bfrc-case-study">BFRC</a>
+        <a href="/leon-goods-case-study">LEÒN Goods</a>
+      </div></div>
+    </div>
+    <a href="https://www.instagram.com/noelntrl/" target="_blank" rel="noopener">Instagram</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-inner">
+    <div class="hero-copy">
+      <div class="mark">noelntrl</div>
+      <div class="eyebrow"><span>// STATIC AD PRODUCTION</span></div>
+      <h1>
+        <span class="word l1"><i>20 finished static ads in 48 hours.</i></span>
+      </h1>
+      <div class="sub">
+        <p>Send the approved angles. I turn them into polished, platform-ready static ads using AI-assisted production and human quality control&mdash;for <span class="price-mark">$400</span>, with no retainer or meetings.</p>
+        <div class="hero-actions">
+          <a href="#start" class="cta solid">Get 20 Static Ads</a>
+          <ul class="guarantees">
+            <li>48-hr delivery</li>
+            <li>1 revision included</li>
+            <li>No retainer</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="marquee-row">
+        <div class="marquee-track">
+          <img src="/ASSETS/Landing Page/a_0000_1.jpg" alt="" loading="lazy">
+          <img src="/ASSETS/Landing Page/a_0001_2.jpg" alt="" loading="lazy">
+          <img src="/ASSETS/Landing Page/a_0002_3.jpg" alt="" loading="lazy">
+          <img src="/ASSETS/Landing Page/a_0003_4.jpg" alt="" loading="lazy">
+          <img src="/ASSETS/Landing Page/a_0000_1.jpg" alt="" loading="lazy">
+          <img src="/ASSETS/Landing Page/a_0001_2.jpg" alt="" loading="lazy">
+          <img src="/ASSETS/Landing Page/a_0002_3.jpg" alt="" loading="lazy">
+          <img src="/ASSETS/Landing Page/a_0003_4.jpg" alt="" loading="lazy">
+        </div>
+      </div>
+      <div class="marquee-row reverse">
+        <div class="marquee-track">
+          <img src="/ASSETS/Landing Page/a_0008_9.jpg" alt="" loading="lazy">
+          <img src="/ASSETS/Landing Page/a_0009_10.jpg" alt="" loading="lazy">
+          <img src="/ASSETS/Landing Page/a_0010_11.jpg" alt="" loading="lazy">
+          <img src="/ASSETS/Landing Page/a_0011_12.jpg" alt="" loading="lazy">
+          <img src="/ASSETS/Landing Page/a_0008_9.jpg" alt="" loading="lazy">
+          <img src="/ASSETS/Landing Page/a_0009_10.jpg" alt="" loading="lazy">
+          <img src="/ASSETS/Landing Page/a_0010_11.jpg" alt="" loading="lazy">
+          <img src="/ASSETS/Landing Page/a_0011_12.jpg" alt="" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <!-- PACKAGE -->
+  <section class="section" id="package">
+    <div class="sec-head reveal">
+      <span class="idx">01</span>
+      <h2>The <em>package</em></h2>
+    </div>
+    <div class="package-grid reveal d1">
+      <div class="price-card">
+        <div class="amount">$400<span>Per batch</span></div>
+        <ul class="price-list">
+          <li>20 custom statics</li>
+          <li>Social-ready formats</li>
+          <li>1 revision included</li>
+          <li>Delivered in 48 hours</li>
+        </ul>
+      </div>
+      <div class="need-block">
+        <h3>What I need <em>from you</em></h3>
+        <ul class="need-list">
+          <li><b>Product info</b> — what it is, what it does</li>
+          <li><b>Brand assets</b> — logo, fonts, product shots</li>
+          <li><b>Target audience</b> — who you're selling to</li>
+          <li><b>Up to 4 creative angles</b> — what angles to test</li>
+          <li><b>Existing copy or claims</b> — approved language</li>
+          <li><b>References</b> — optional</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ADD-ONS -->
+  <section class="section">
+    <div class="sec-head reveal">
+      <span class="idx">02</span>
+      <h2>Add-<em>ons</em></h2>
+    </div>
+    <div class="addon-list reveal d1">
+      <div class="addon-item">
+        <div class="addon-top"><span class="addon-name">Creative Strategy</span><span class="addon-price">+$400</span></div>
+        <p class="addon-desc">For undefined angles — market &amp; competitor research, review mining, avatar definition, and a production-ready brief.</p>
+      </div>
+      <div class="addon-item">
+        <div class="addon-top"><span class="addon-name">Additional Static Ads</span><span class="addon-price">+$180 / +$320</span></div>
+        <p class="addon-desc">10 or 20 more, added to your batch.</p>
+      </div>
+      <div class="addon-item">
+        <div class="addon-top"><span class="addon-name">Additional Aspect Ratio</span><span class="addon-price">+$99 per batch</span></div>
+        <p class="addon-desc">Adapt the full batch to another format.</p>
+      </div>
+      <div class="addon-item">
+        <div class="addon-top"><span class="addon-name">Motion Adaptation</span><span class="addon-price">+$99 each / +$399 for 5</span></div>
+        <p class="addon-desc">Turn approved statics into short motion ads.</p>
+      </div>
+      <div class="addon-item">
+        <div class="addon-top"><span class="addon-name">Additional Correction Round</span><span class="addon-price">+$49</span></div>
+      </div>
+      <div class="addon-item">
+        <div class="addon-top"><span class="addon-name">24-Hour Rush Delivery</span><span class="addon-price">+50%</span></div>
+      </div>
+    </div>
+    <p class="addon-info reveal d1">Larger orders and additional formats may require extra delivery time.</p>
+  </section>
+
+  <!-- WHY -->
+  <section class="section">
+    <div class="sec-head reveal">
+      <span class="idx">03</span>
+      <h2>Why work <em>with me</em></h2>
+    </div>
+    <ul class="simple-list reveal d1">
+      <li>48-hour production</li>
+      <li>AI-assisted speed, human quality control</li>
+      <li>No retainer or meetings</li>
+      <li><a href="/amore-pacific-case-study">Amore Pacific</a> award-winning visual work</li>
+    </ul>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="section">
+    <div class="sec-head reveal">
+      <span class="idx">04</span>
+      <h2>How it <em>works</em></h2>
+    </div>
+    <div class="process reveal d1">
+      <div class="p-item">
+        <div class="p-num">01</div>
+        <div class="p-title">Submit</div>
+        <p class="p-desc">Send your brief, brand assets, and creative angles.</p>
+      </div>
+      <div class="p-item">
+        <div class="p-num">02</div>
+        <div class="p-title">I review</div>
+        <p class="p-desc">I check whether what you've sent is production-ready.</p>
+      </div>
+      <div class="p-item">
+        <div class="p-num">03</div>
+        <div class="p-title">Start — or strategize</div>
+        <p class="p-desc">If it's ready, production starts immediately. If not, I recommend Creative Strategy first.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section">
+    <div class="sec-head reveal">
+      <span class="idx">05</span>
+      <h2>FAQ</h2>
+    </div>
+    <div class="faq reveal d1">
+      <div class="faq-item">
+        <div class="faq-q">Do I need a brief?</div>
+        <div class="faq-a">Yes. A completed brief and brand assets are required before production starts.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">What if I don't have one?</div>
+        <div class="faq-a">Add Creative Strategy (+$400) — I'll do the research and build your angles and brief before production begins.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Do you write copy?</div>
+        <div class="faq-a">Yes—light ad copy is included. You provide the approved angle, product facts, offer, and claims, and I turn them into headline and CTA variations. If you need the angles and messaging developed from scratch, add Creative Strategy.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">How many revisions are included?</div>
+        <div class="faq-a">1 round of revisions is included per batch.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Turnaround?</div>
+        <div class="faq-a">Within 48 hours after I receive all required assets.</div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- FINAL CTA + FORM -->
+<section class="band" id="start">
+  <div class="wrap">
+    <h2 class="reveal">Start your <em>project.</em></h2>
+    <p class="reveal d1">Fill this out and I'll reply within 24 hours.</p>
+  </div>
+</section>
+
+<div class="narrow form-section">
+  <form id="projectForm">
+    <div class="field field-row">
+      <div>
+        <label for="firstName">Name (required)</label>
+        <input type="text" id="firstName" name="Name" required>
+      </div>
+      <div>
+        <label for="email">Email (required)</label>
+        <input type="email" id="email" name="Email" required>
+      </div>
+    </div>
+
+    <div class="field">
+      <label for="brand">Brand / Website (required)</label>
+      <input type="text" id="brand" name="Brand" required>
+    </div>
+
+    <div class="field">
+      <label for="package">Package</label>
+      <select id="package" name="Package">
+        <option value="Static Ads — $400">Static Ads — $400</option>
+        <option value="Static Ads + Creative Strategy — $800">Static Ads + Creative Strategy — $800</option>
+        <option value="Not sure yet">Not sure yet</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label for="message">Brief, angles, or links (optional)</label>
+      <textarea id="message" name="Message" placeholder="Product, audience, angles you want to test — or leave blank and I'll follow up."></textarea>
+    </div>
+
+    <button type="submit" class="submit-btn">Get 20 Static Ads</button>
+  </form>
+
+  <div class="confirm" id="confirmMsg">
+    <h3>Thank you — <em>I'll reply within 24 hours.</em></h3>
+    <p>Talk soon.</p>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap foot">
+    <span class="logo">noelntrl</span>
+    <div class="foot-mid">
+      <a class="fmail" href="mailto:noel@noelntrl.com">noel@noelntrl.com</a>
+      <a class="fsocial" href="https://www.instagram.com/noelntrl/" target="_blank" rel="noopener">Instagram</a>
+    </div>
+    <span class="fmeta">Seoul — AI-native creative production</span>
+  </div>
+</footer>
+
+<script>
+  const io = new IntersectionObserver((es)=>{
+    es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+  },{threshold:0.15});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  document.getElementById('projectForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    var form = document.getElementById('projectForm');
+    var submitBtn = form.querySelector('.submit-btn');
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending…';
+
+    fetch('https://formsubmit.co/ajax/noel@noelntrl.com', {
+      method: 'POST',
+      headers: { 'Accept': 'application/json' },
+      body: new FormData(form)
+    })
+    .then(function(res){ return res.json(); })
+    .then(function(){
+      form.style.display = 'none';
+      document.getElementById('confirmMsg').style.display = 'block';
+    })
+    .catch(function(){
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Get 20 Static Ads';
+      alert("Something went wrong sending your message — please email noel@noelntrl.com directly.");
+    });
+  });
+</script>
+
+</body>
+</html>
