@@ -46,6 +46,7 @@
     display:none;position:absolute;top:100%;left:50%;transform:translateX(-50%);padding-top:14px;min-width:150px;
   }
   .nav-dropdown:hover .dropdown-menu{display:block;}
+  .nav-dropdown.open .dropdown-menu{display:block;}
   .dropdown-menu .inner{
     background:#1C1B17;border:1px solid var(--line);padding:6px 0;
   }
@@ -280,7 +281,7 @@
   <a class="logo" href="/">noelntrl</a>
   <div class="nav-links">
     <div class="nav-dropdown">
-      <a href="/#work">Work</a>
+      <a href="#" class="nav-toggle">Work</a>
       <div class="dropdown-menu"><div class="inner">
         <a href="/amore-pacific-case-study">Amore Pacific</a>
         <a href="/bfrc-case-study">BFRC</a>
@@ -591,6 +592,22 @@
     es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
   },{threshold:0.15});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  document.querySelectorAll('.nav-dropdown').forEach(function(dd){
+    var trigger = dd.querySelector(':scope > a');
+    if(!trigger) return;
+    trigger.addEventListener('click', function(e){
+      e.preventDefault();
+      var willOpen = !dd.classList.contains('open');
+      document.querySelectorAll('.nav-dropdown.open').forEach(function(o){ o.classList.remove('open'); });
+      if(willOpen) dd.classList.add('open');
+    });
+  });
+  document.addEventListener('click', function(e){
+    document.querySelectorAll('.nav-dropdown.open').forEach(function(dd){
+      if(!dd.contains(e.target)) dd.classList.remove('open');
+    });
+  });
 
   document.getElementById('projectForm').addEventListener('submit', function(e){
     e.preventDefault();
