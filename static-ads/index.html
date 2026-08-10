@@ -81,6 +81,9 @@
   .hero h1 .word{display:block;overflow:hidden;}
   .hero h1 .word i{display:inline-block;transform:translateY(110%);font-style:normal;}
   .hero h1 .l1 i{animation:rise 1.1s .22s cubic-bezier(.2,.7,.2,1) forwards;}
+  .hero h1 .l2 i{animation:rise 1.1s .34s cubic-bezier(.2,.7,.2,1) forwards;}
+  .hero h1 .l2{font-size:.42em;letter-spacing:.02em;color:var(--accent);margin-top:.5em;}
+  .hero h1 .l2 i{font-style:italic;}
   .hero .sub{
     display:flex;flex-direction:column;align-items:flex-start;gap:26px;
     margin-top:34px;
@@ -139,15 +142,15 @@
     border:1px solid var(--line);background:var(--card);border-radius:4px;
     padding:44px;display:flex;flex-direction:column;gap:28px;
   }
-  .price-card .amount{font-family:'Fraunces',serif;font-size:clamp(38px,5vw,56px);font-weight:300;color:var(--fg);white-space:nowrap;}
+  .price-card .amount{font-family:'Fraunces',serif;font-size:clamp(38px,5vw,56px);font-weight:300;color:var(--fg);white-space:nowrap;height:100px;display:flex;flex-direction:column;justify-content:center;}
   .price-card .amount span{font-size:14px;color:var(--dim);display:block;letter-spacing:1px;text-transform:uppercase;margin-top:8px;font-family:'Inter',sans-serif;}
   .price-list{list-style:none;display:flex;flex-direction:column;gap:12px;}
   .price-list li{font-size:14px;color:var(--fg);opacity:.9;padding-left:20px;position:relative;line-height:1.5;}
   .price-list li::before{content:'';position:absolute;left:0;top:9px;width:9px;height:1px;background:var(--accent);}
 
   /* NEED BLOCK */
-  .need-block{border:1px solid var(--line);background:var(--card);border-radius:4px;padding:44px;}
-  .need-block h3{font-family:'Fraunces',serif;font-weight:300;font-size:22px;letter-spacing:-.01em;margin-bottom:24px;color:var(--fg);}
+  .need-block{border:1px solid var(--line);background:var(--card);border-radius:4px;padding:44px;display:flex;flex-direction:column;gap:28px;}
+  .need-block h3{font-family:'Fraunces',serif;font-weight:300;font-size:40px;letter-spacing:-.01em;color:var(--fg);height:100px;display:flex;flex-direction:column;justify-content:center;margin:0;}
   .need-block h3 em{font-style:italic;color:var(--dim);}
   .need-list{list-style:none;display:flex;flex-direction:column;gap:12px;}
   .need-list li{font-size:14px;color:var(--fg);opacity:.9;padding-left:20px;position:relative;line-height:1.5;}
@@ -300,10 +303,11 @@
       <div class="mark">noelntrl</div>
       <div class="eyebrow"><span>// STATIC AD PRODUCTION</span></div>
       <h1>
-        <span class="word l1"><i>20 finished static ads in 48 hours.</i></span>
+        <span class="word l1"><i>20 finished Meta static ads in 48 hours.</i></span>
+        <span class="word l2"><i>First batch: $400</i></span>
       </h1>
       <div class="sub">
-        <p>Send the approved angles. I turn them into polished, platform-ready static ads using AI-assisted production and human quality control&mdash;for <span class="price-mark">$400</span>, with no retainer or meetings.</p>
+        <p>You send approved angles, product information, and brand assets. I handle production from brief to finished creative. No retainer. No meetings required.</p>
         <div class="hero-actions">
           <a href="#start" class="cta solid">Get 20 Static Ads</a>
           <ul class="guarantees">
@@ -401,23 +405,22 @@
     </div>
     <div class="package-grid reveal d1">
       <div class="price-card">
-        <div class="amount">$400<span>Per batch</span></div>
+        <div class="amount">$400<span>First batch</span></div>
         <ul class="price-list">
-          <li>20 custom statics</li>
-          <li>Social-ready formats</li>
-          <li>1 revision included</li>
-          <li>Delivered in 48 hours</li>
+          <li>20 finished static ad variations</li>
+          <li>Across up to 4 approved creative angles</li>
+          <li>1 selected aspect ratio</li>
+          <li>1 revision round</li>
+          <li>48-hour turnaround</li>
         </ul>
       </div>
       <div class="need-block">
         <h3>What I need <em>from you</em></h3>
         <ul class="need-list">
-          <li><b>Product info</b> — what it is, what it does</li>
-          <li><b>Brand assets</b> — logo, fonts, product shots</li>
-          <li><b>Target audience</b> — who you're selling to</li>
-          <li><b>Up to 4 creative angles</b> — what angles to test</li>
-          <li><b>Existing copy or claims</b> — approved language</li>
-          <li><b>References</b> — optional</li>
+          <li><b>Approved angles</b> / existing brief</li>
+          <li><b>Product, offer</b> &amp; approved claims</li>
+          <li><b>Brand assets</b> / product imagery</li>
+          <li><b>Brand guidelines</b> or references, if available</li>
         </ul>
       </div>
     </div>
@@ -431,29 +434,14 @@
     </div>
     <div class="addon-list reveal d1">
       <div class="addon-item">
-        <div class="addon-top"><span class="addon-name">Creative Strategy</span><span class="addon-price">+$400</span></div>
-        <p class="addon-desc">For undefined angles — market &amp; competitor research, review mining, avatar definition, and a production-ready brief.</p>
+        <div class="addon-top"><span class="addon-name">Brief Setup</span><span class="addon-price">+$200</span></div>
+        <p class="addon-desc">Organizes what they already have into a production-ready brief. No real research, no angle creation.</p>
       </div>
       <div class="addon-item">
-        <div class="addon-top"><span class="addon-name">Additional Static Ads</span><span class="addon-price">+$180 / +$320</span></div>
-        <p class="addon-desc">10 or 20 more, added to your batch.</p>
-      </div>
-      <div class="addon-item">
-        <div class="addon-top"><span class="addon-name">Additional Aspect Ratio</span><span class="addon-price">+$99 per batch</span></div>
-        <p class="addon-desc">Adapt the full batch to another format.</p>
-      </div>
-      <div class="addon-item">
-        <div class="addon-top"><span class="addon-name">Motion Adaptation</span><span class="addon-price">+$99 each / +$399 for 5</span></div>
-        <p class="addon-desc">Turn approved statics into short motion ads.</p>
-      </div>
-      <div class="addon-item">
-        <div class="addon-top"><span class="addon-name">Additional Correction Round</span><span class="addon-price">+$49</span></div>
-      </div>
-      <div class="addon-item">
-        <div class="addon-top"><span class="addon-name">24-Hour Rush Delivery</span><span class="addon-price">+50%</span></div>
+        <div class="addon-top"><span class="addon-name">Creative Research &amp; Concept Development</span><span class="addon-price">+$400</span></div>
+        <p class="addon-desc">Market/competitor research, review mining, audience insights, angle/concept development, then the brief.</p>
       </div>
     </div>
-    <p class="addon-info reveal d1">Larger orders and additional formats may require extra delivery time.</p>
   </section>
 
   <!-- WHY -->
