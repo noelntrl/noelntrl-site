@@ -83,7 +83,7 @@
   .hero h1 .l1 i{animation:rise 1.1s .22s cubic-bezier(.2,.7,.2,1) forwards;}
   .hero h1 .l2 i{animation:rise 1.1s .34s cubic-bezier(.2,.7,.2,1) forwards;}
   .hero h1 .l2{font-size:.42em;letter-spacing:.02em;color:var(--accent);margin-top:.5em;}
-  .hero h1 .l2 i{font-style:italic;}
+  .hero h1 .l2 i{font-style:normal;}
   .hero .sub{
     display:flex;flex-direction:column;align-items:flex-start;gap:26px;
     margin-top:34px;
@@ -165,7 +165,8 @@
   .addon-name{font-family:'Fraunces',serif;font-weight:400;font-size:16px;letter-spacing:-.01em;color:var(--fg);}
   .addon-price{font-size:13px;color:var(--accent);white-space:nowrap;}
   .addon-desc{font-size:13px;color:var(--dim);margin-top:5px;line-height:1.5;}
-  .addon-info{font-size:12px;color:var(--faint);margin-top:16px;line-height:1.5;}
+  .addon-best{font-size:12px;color:var(--dim);margin-top:8px;line-height:1.5;font-style:italic;}
+  .addon-info{font-size:12px;color:var(--fg);margin-top:16px;line-height:1.5;}
 
   /* SIMPLE LIST */
   .simple-list{list-style:none;display:flex;flex-direction:column;gap:16px;}
@@ -304,7 +305,7 @@
       <div class="eyebrow"><span>// STATIC AD PRODUCTION</span></div>
       <h1>
         <span class="word l1"><i>20 finished Meta static ads in 48 hours.</i></span>
-        <span class="word l2"><i>First batch: $400</i></span>
+        <span class="word l2"><i>Pilot batch: $400</i></span>
       </h1>
       <div class="sub">
         <p>You send approved angles, product information, and brand assets. I handle production from brief to finished creative. No retainer. No meetings required.</p>
@@ -405,13 +406,13 @@
     </div>
     <div class="package-grid reveal d1">
       <div class="price-card">
-        <div class="amount">$400<span>First batch</span></div>
+        <div class="amount">$400<span>Pilot batch</span></div>
         <ul class="price-list">
           <li>20 finished static ad variations</li>
           <li>Across up to 4 approved creative angles</li>
           <li>1 selected aspect ratio</li>
           <li>1 revision round</li>
-          <li>48-hour turnaround</li>
+          <li>Delivery within 2 business days</li>
         </ul>
       </div>
       <div class="need-block">
@@ -424,6 +425,7 @@
         </ul>
       </div>
     </div>
+    <p class="addon-info reveal d1">Delivery within 2 business days, beginning once payment, the approved brief, and required assets are received.</p>
   </section>
 
   <!-- ADD-ONS -->
@@ -435,11 +437,25 @@
     <div class="addon-list reveal d1">
       <div class="addon-item">
         <div class="addon-top"><span class="addon-name">Brief Setup</span><span class="addon-price">+$200</span></div>
-        <p class="addon-desc">Organizes what they already have into a production-ready brief. No real research, no angle creation.</p>
+        <p class="addon-desc">Organizes your existing product info, messaging, angles, claims, and references into a production-ready brief. No research or new angle development.</p>
+        <p class="addon-best">Best for brands that already know their audience, offer, and angles, but need everything organized into a production-ready brief.</p>
       </div>
       <div class="addon-item">
         <div class="addon-top"><span class="addon-name">Creative Research &amp; Concept Development</span><span class="addon-price">+$400</span></div>
-        <p class="addon-desc">Market/competitor research, review mining, audience insights, angle/concept development, then the brief.</p>
+        <p class="addon-desc">Market and competitor research, review mining, audience insights, and new angle/concept development. Includes the production-ready brief.</p>
+        <p class="addon-best">Best for brands that need the messaging, angles, and concepts developed from scratch.</p>
+      </div>
+      <div class="addon-item">
+        <div class="addon-top"><span class="addon-name">Additional Static Ads</span><span class="addon-price">+$200 / +$360</span></div>
+        <p class="addon-desc">Add 10 or 20 more finished static ads to the batch.</p>
+      </div>
+      <div class="addon-item">
+        <div class="addon-top"><span class="addon-name">Additional Aspect Ratio</span><span class="addon-price">+50% of static production fee</span></div>
+        <p class="addon-desc">Need the same concepts in another format, like 9:16 or 1:1? I rebuild each creative for the new canvas so the product, composition,<br>and text stay clean and intentional. This is not a simple crop or resize.</p>
+      </div>
+      <div class="addon-item">
+        <div class="addon-top"><span class="addon-name">24-Hour Rush Delivery</span><span class="addon-price">+50%</span></div>
+        <p class="addon-desc">Priority production and delivery within 24 hours once the approved brief, assets, and payment are received. Subject to availability.</p>
       </div>
     </div>
   </section>
@@ -451,9 +467,9 @@
       <h2>Why work <em>with me</em></h2>
     </div>
     <ul class="simple-list reveal d1">
-      <li>48-hour production</li>
+      <li>Delivery within 2 business days</li>
       <li>AI-assisted speed, human quality control</li>
-      <li>No retainer or meetings</li>
+      <li>No retainer or meetings required</li>
       <li><a href="/amore-pacific-case-study">Amore Pacific</a> award-winning visual work</li>
     </ul>
   </section>
@@ -477,8 +493,8 @@
       </div>
       <div class="p-item">
         <div class="p-num">03</div>
-        <div class="p-title">Start — or strategize</div>
-        <p class="p-desc">If it's ready, production starts immediately. If not, I recommend Creative Strategy first.</p>
+        <div class="p-title">Start — or develop</div>
+        <p class="p-desc">If it's production-ready, I start. If not, I'll recommend Brief Setup or Creative Research &amp; Concept Development.</p>
       </div>
     </div>
   </section>
@@ -492,23 +508,23 @@
     <div class="faq reveal d1">
       <div class="faq-item">
         <div class="faq-q">Do I need a brief?</div>
-        <div class="faq-a">Yes. A completed brief and brand assets are required before production starts.</div>
+        <div class="faq-a">Yes. If you already have an approved brief, send it over. If not, I'll provide a simple production brief for you to complete.</div>
       </div>
       <div class="faq-item">
-        <div class="faq-q">What if I don't have one?</div>
-        <div class="faq-a">Add Creative Strategy (+$400) — I'll do the research and build your angles and brief before production begins.</div>
+        <div class="faq-q">What if my angles or messaging aren't ready?</div>
+        <div class="faq-a">Brief Setup (+$200) organizes your existing ideas into a production-ready brief. If you need research and new angles developed from scratch, Creative Research &amp; Concept Development is +$400.</div>
       </div>
       <div class="faq-item">
         <div class="faq-q">Do you write copy?</div>
-        <div class="faq-a">Yes—light ad copy is included. You provide the approved angle, product facts, offer, and claims, and I turn them into headline and CTA variations. If you need the angles and messaging developed from scratch, add Creative Strategy.</div>
+        <div class="faq-a">Light ad copy is included. You provide the approved angles, product facts, offer, and claims; I turn them into headline and CTA variations.</div>
       </div>
       <div class="faq-item">
         <div class="faq-q">How many revisions are included?</div>
-        <div class="faq-a">1 round of revisions is included per batch.</div>
+        <div class="faq-a">One consolidated revision round is included per batch. Additional scope or revisions are quoted separately.</div>
       </div>
       <div class="faq-item">
         <div class="faq-q">Turnaround?</div>
-        <div class="faq-a">Within 48 hours after I receive all required assets.</div>
+        <div class="faq-a">Delivery within 2 business days of payment and receipt of an approved brief and all required assets.</div>
       </div>
     </div>
   </section>
@@ -542,16 +558,7 @@
     </div>
 
     <div class="field">
-      <label for="package">Package</label>
-      <select id="package" name="Package">
-        <option value="Static Ads — $400">Static Ads — $400</option>
-        <option value="Static Ads + Creative Strategy — $800">Static Ads + Creative Strategy — $800</option>
-        <option value="Not sure yet">Not sure yet</option>
-      </select>
-    </div>
-
-    <div class="field">
-      <label for="message">Brief, angles, or links (optional)</label>
+      <label for="message">Message (optional)</label>
       <textarea id="message" name="Message" placeholder="Product, audience, angles you want to test — or leave blank and I'll follow up."></textarea>
     </div>
 
