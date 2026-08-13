@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>noelntrl — white-label production for agencies</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500&family=Young+Serif&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#151411;
+  --surface:#1C1B17;
+  --shot:#191814;
+  --line:rgba(239,236,229,0.10);
+  --text:#EFECE5;
+  --muted:#7D7A73;
+  --faint:#4A4638;
+  --brass:#C9A96A;
+  --sans:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+  --serif:'Fraunces',serif;
+  --display:'Young Serif',serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+a{text-decoration:none;color:inherit}
+body{
+  background:var(--bg);color:var(--text);
+  font-family:var(--sans);font-weight:300;
+  -webkit-font-smoothing:antialiased;
+  line-height:1.5;
+}
+.wrap{max-width:1360px;margin:0 auto;padding:0 40px}
+.narrow{max-width:640px;margin:0 auto;padding:0 40px}
+
+/* ---------- nav ---------- */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:50;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:24px 42px;mix-blend-mode:difference;
+}
+nav .logo{font-family:var(--display);font-size:19px;letter-spacing:-.02em;color:var(--text)}
+.nav-links{display:flex;gap:32px;font-size:12px;letter-spacing:.5px;color:var(--text)}
+.nav-links a{opacity:.6;transition:opacity .3s}
+.nav-links a:hover{opacity:1}
+.nav-dropdown{position:relative}
+.dropdown-menu{
+  display:none;position:absolute;top:100%;left:50%;transform:translateX(-50%);padding-top:14px;min-width:150px;
+}
+.nav-dropdown:hover .dropdown-menu{display:block}
+.nav-dropdown.open .dropdown-menu{display:block}
+.dropdown-menu .inner{background:var(--surface);border:1px solid var(--line);padding:6px 0}
+.dropdown-menu a{
+  display:block;padding:9px 14px;font-family:var(--serif);font-size:14px;
+  color:var(--muted);opacity:1;transition:color .2s,background .2s;white-space:nowrap;
+}
+.dropdown-menu a:hover{color:var(--text);background:rgba(239,236,229,.04)}
+
+/* ---------- hero ---------- */
+.hero{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:150px 42px 60px;max-width:1040px;margin:0 auto;
+  text-align:center;border-bottom:1px solid var(--line);
+}
+.hero .mark{
+  font-family:var(--display);font-size:22px;color:var(--text);
+  margin-bottom:20px;opacity:0;animation:fade 1s .05s forwards;
+}
+.hero-eyebrow{
+  font-size:12px;letter-spacing:4px;text-transform:uppercase;color:var(--muted);
+  margin-bottom:22px;overflow:hidden;
+}
+.hero-eyebrow span{display:inline-block;transform:translateY(120%);animation:rise 1s .1s cubic-bezier(.2,.7,.2,1) forwards;}
+.hero h1{
+  font-family:var(--serif);font-weight:300;
+  font-size:clamp(28px,4.1vw,55px);line-height:1.14;letter-spacing:-.02em;
+  max-width:38ch;
+}
+.hero h1 .word{display:block;overflow:hidden}
+.hero h1 .word i{display:inline-block;transform:translateY(110%);font-style:normal}
+.hero h1 .l1 i{animation:rise 1.1s .22s cubic-bezier(.2,.7,.2,1) forwards}
+.hero h1 .l2 i{animation:rise 1.1s .32s cubic-bezier(.2,.7,.2,1) forwards}
+.hero h1 em{font-style:italic;font-weight:400;color:var(--muted)}
+.hero .sub{
+  display:flex;flex-direction:column;align-items:center;gap:20px;
+  margin-top:24px;
+  opacity:0;animation:fade 1s .85s forwards;
+}
+.hero .sub p{max-width:500px;font-size:16px;line-height:1.7;color:var(--muted)}
+
+@keyframes rise{to{transform:translateY(0)}}
+@keyframes fade{to{opacity:1}}
+
+/* ---------- section label ---------- */
+.eyebrow{
+  display:flex;align-items:baseline;gap:18px;
+  padding:78px 0 30px;flex-wrap:wrap;
+}
+.eyebrow .num{font-family:var(--sans);font-size:12px;color:var(--brass)}
+.eyebrow h2{
+  font-size:13px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;
+}
+.eyebrow .note{color:var(--muted);font-size:14px}
+
+/* ---------- brief card ---------- */
+.brief{
+  border:1px solid var(--line);background:var(--surface);
+  padding:26px 28px;font-family:var(--sans);font-size:13px;
+  line-height:1.85;max-width:660px;margin-bottom:26px;
+}
+.brief .k{color:var(--muted);display:inline-block;min-width:96px}
+.brief .tag{
+  display:block;font-size:10px;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--brass);margin-bottom:14px;
+}
+
+/* ---------- grids ---------- */
+.grid{display:grid;gap:14px}
+.g4{grid-template-columns:repeat(4,1fr)}
+.shot{
+  position:relative;background:var(--shot);border:1px solid var(--line);
+  overflow:hidden;
+}
+.shot img{display:block;width:100%;height:100%;object-fit:cover}
+.shot.sq{aspect-ratio:4/5}
+.shot .ph{
+  position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  font-family:var(--sans);font-size:11px;color:var(--faint);text-align:center;padding:12px;
+}
+.cap{
+  margin-top:10px;font-family:var(--sans);font-size:11px;color:var(--muted);
+  letter-spacing:.04em;
+}
+
+/* ---------- process ---------- */
+.process{border-top:1px solid var(--line);margin-top:96px;padding-top:0}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.step{background:var(--bg);padding:30px 26px 34px}
+.step .n{font-family:var(--sans);font-size:11px;color:var(--brass);display:block;margin-bottom:16px}
+.step p{font-size:15px;line-height:1.45}
+
+/* ---------- terms ---------- */
+.terms{
+  display:grid;grid-template-columns:1.1fr 1fr;gap:60px;
+  padding:78px 0 0;align-items:start;
+}
+.price{font-family:var(--serif);font-size:clamp(24px,2.6vw,34px);font-weight:300;letter-spacing:-.01em;line-height:1.3}
+.price span{color:var(--muted)}
+.termlist{font-family:var(--sans);font-size:13px;line-height:2.1;color:var(--muted)}
+.termlist b{color:var(--text);font-weight:400}
+
+a:focus-visible{outline:2px solid var(--brass);outline-offset:4px}
+
+/* ---------- inquiry band + form ---------- */
+.band{padding:100px 0 20px;text-align:center;border-top:1px solid var(--line);margin-top:96px}
+.band h2{
+  font-family:var(--serif);font-weight:300;
+  font-size:clamp(28px,4.4vw,54px);line-height:1.12;letter-spacing:-.01em;
+  max-width:680px;margin:0 auto 16px;
+}
+.band h2 em{font-style:italic;color:var(--muted)}
+.band p{font-size:15px;color:var(--muted);margin-bottom:0}
+
+form{padding-top:60px}
+.field{margin-bottom:22px}
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+label{display:block;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+input,textarea{
+  width:100%;background:var(--surface);border:1px solid var(--line);border-radius:4px;
+  padding:14px 16px;color:var(--text);font-family:var(--sans);font-weight:300;font-size:14px;
+  transition:border-color .3s;
+}
+input:focus,textarea:focus{outline:none;border-color:var(--brass)}
+textarea{resize:vertical;min-height:110px}
+::placeholder{color:var(--faint)}
+
+.submit-btn{
+  display:inline-block;font-size:12px;letter-spacing:2px;text-transform:uppercase;
+  border:1px solid var(--line);border-radius:40px;padding:16px 34px;
+  background:var(--text);color:var(--bg);border-color:var(--text);
+  transition:background .4s,color .4s,border-color .4s;
+  cursor:pointer;margin-top:8px;font-family:var(--sans);width:100%;
+}
+.submit-btn:hover{background:transparent;color:var(--text);border-color:var(--line)}
+.submit-btn:disabled{opacity:.5;cursor:default}
+
+.confirm{display:none;padding-top:60px;text-align:center}
+.confirm h3{
+  font-family:var(--serif);font-weight:300;
+  font-size:clamp(24px,3vw,34px);letter-spacing:-.01em;margin-bottom:14px;
+}
+.confirm p{font-size:14px;color:var(--muted)}
+
+.form-section{padding-bottom:130px}
+
+/* ---------- footer ---------- */
+footer{border-top:1px solid var(--line);padding:44px 0}
+.foot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+.foot .logo{font-family:var(--display);font-size:18px}
+.foot-mid{display:flex;align-items:center;gap:22px}
+.foot .fmail{font-size:14px;color:var(--muted)}
+.foot .fmail:hover{color:var(--text)}
+.foot .fsocial{font-size:14px;color:var(--muted)}
+.foot .fsocial:hover{color:var(--text)}
+.foot .fmeta{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--faint)}
+
+/* ---------- responsive ---------- */
+@media(max-width:1000px){
+  .wrap{padding:0 24px}
+  .narrow{padding:0 24px}
+  nav{padding:18px 24px}
+  .g4{grid-template-columns:repeat(2,1fr)}
+  .steps{grid-template-columns:repeat(2,1fr)}
+  .terms{grid-template-columns:1fr;gap:36px}
+  .hero{padding:110px 24px 50px}
+  .field-row{grid-template-columns:1fr}
+  .band{padding:70px 0 10px}
+}
+@media(max-width:560px){
+  .g4{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr}
+  .brief{font-size:12px;padding:20px}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .hero-eyebrow span,.hero h1 .word i{transform:none}
+  .hero .mark,.hero .sub{opacity:1}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="logo" href="/">noelntrl</a>
+  <div class="nav-links">
+    <div class="nav-dropdown">
+      <a href="#" class="nav-toggle">Work</a>
+      <div class="dropdown-menu"><div class="inner">
+        <a href="/amore-pacific-case-study">Amore Pacific</a>
+        <a href="/bfrc-case-study">BFRC</a>
+        <a href="/leon-goods-case-study">LEÒN Goods</a>
+      </div></div>
+    </div>
+    <a href="/portfolio">Selected Work</a>
+    <a href="https://www.instagram.com/noelntrl/" target="_blank" rel="noopener">Instagram</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="mark">noelntrl</div>
+  <div class="hero-eyebrow"><span>// White-label production for agencies</span></div>
+  <h1>
+    <span class="word l1"><i>White-label production capacity</i></span>
+    <span class="word l2"><i>for performance <em>agencies.</em></i></span>
+  </h1>
+  <div class="sub">
+    <p>Send a brief when overflow hits. Finished ad variations come back fast — your client never sees my name.</p>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <!-- ===== BRIEF 01 ===== -->
+  <div class="eyebrow">
+    <span class="num">BRIEF 01</span>
+    <h2>Skincare</h2>
+    <span class="note">— one brief, eight finished statics</span>
+  </div>
+
+  <div class="brief">
+    <span class="tag">Brief as received</span>
+    <div><span class="k">Product</span> Daily mineral SPF 30, 100ml tube</div>
+    <div><span class="k">Angle</span> Reapplication — "the scent is the point"</div>
+    <div><span class="k">Audience</span> 25–40, sensitive skin, lapsed sunscreen users</div>
+    <div><span class="k">Must include</span> SPF claim verbatim, dermatologist-tested</div>
+    <div><span class="k">Constraint</span> No before/after. 4:5 only.</div>
+  </div>
+
+  <div class="grid g4">
+    <div class="shot sq"><div class="ph">REPLACE — product hero</div><!-- <img src="/img/a1.jpg" alt="Static ad — product hero"> --></div>
+    <div class="shot sq"><div class="ph">REPLACE — question hook</div></div>
+    <div class="shot sq"><div class="ph">REPLACE — benefit stack</div></div>
+    <div class="shot sq"><div class="ph">REPLACE — in-hand / scale</div></div>
+    <div class="shot sq"><div class="ph">REPLACE — testimonial</div></div>
+    <div class="shot sq"><div class="ph">REPLACE — texture macro</div></div>
+    <div class="shot sq"><div class="ph">REPLACE — comparison</div></div>
+    <div class="shot sq"><div class="ph">REPLACE — offer / close</div></div>
+  </div>
+  <div class="cap">8 variations · one brand system · delivered 48 hours from approved brief</div>
+
+  <!-- ===== BRIEF 02 ===== -->
+  <div class="eyebrow">
+    <span class="num">BRIEF 02</span>
+    <h2>Beverage</h2>
+    <span class="note">— different category, different visual system</span>
+  </div>
+
+  <div class="brief">
+    <span class="tag">Brief as received</span>
+    <div><span class="k">Product</span> Prebiotic soda, 12oz can, 8-flavour range</div>
+    <div><span class="k">Angle</span> Cola swap — fibre without the trade-off</div>
+    <div><span class="k">Audience</span> 22–35, heavy soda drinkers, not health-first</div>
+    <div><span class="k">Must include</span> Fibre content, flavour name legible</div>
+    <div><span class="k">Constraint</span> Loud type. No lifestyle models.</div>
+  </div>
+
+  <div class="grid g4">
+    <div class="shot sq"><div class="ph">REPLACE — comparison hook</div></div>
+    <div class="shot sq"><div class="ph">REPLACE — big type</div></div>
+    <div class="shot sq"><div class="ph">REPLACE — flavour range</div></div>
+    <div class="shot sq"><div class="ph">REPLACE — review quote</div></div>
+    <div class="shot sq"><div class="ph">REPLACE — stat / claim</div></div>
+    <div class="shot sq"><div class="ph">REPLACE — pack shot</div></div>
+    <div class="shot sq"><div class="ph">REPLACE — occasion</div></div>
+    <div class="shot sq"><div class="ph">REPLACE — offer / close</div></div>
+  </div>
+  <div class="cap">Same production process. Nothing carried over from Brief 01 but the turnaround.</div>
+
+  <!-- ===== STUDIO-DAY ROW ===== -->
+  <div class="eyebrow">
+    <span class="num">ALSO</span>
+    <h2>Shots that normally need a studio day</h2>
+  </div>
+
+  <div class="grid g4">
+    <div class="shot sq"><div class="ph">REPLACE — texture macro</div></div>
+    <div class="shot sq"><div class="ph">REPLACE — product in hand</div></div>
+    <div class="shot sq"><div class="ph">REPLACE — light / surface</div></div>
+    <div class="shot sq"><div class="ph">REPLACE — product on skin</div></div>
+  </div>
+  <div class="cap">Macro, texture, product-in-hand, product-on-surface — no shoot, no studio booking, no scheduling.</div>
+
+  <!-- ===== RISK REMOVAL ===== -->
+  <section class="process" style="border-top:1px solid var(--line);margin-top:96px;padding-top:78px">
+    <p style="font-size:16px;line-height:1.8;max-width:56ch;color:var(--text)">
+      No client-facing footprint — your client never sees my name.
+      I work from your brief, not your strategy.
+      One correction round included.
+    </p>
+
+    <div class="terms">
+      <div>
+        <div class="price">$400 first batch<br><span>20 statics, up to 4 directions, one ratio. Delivered in 48 hours — proof of turnaround, not the pitch.</span></div>
+        <p style="margin-top:22px;color:var(--muted);font-size:15px;max-width:44ch">
+          The batch is how we test fit. Most agencies keep me on standby after that — no retainer, just a brief whenever overflow hits.
+        </p>
+      </div>
+      <div class="termlist">
+        <div><b>Turnaround</b> — 48 hours from approved brief</div>
+        <div><b>Ratios</b> — additional formats priced separately</div>
+        <div><b>Motion</b> — statics animated from $99</div>
+        <div><b>Strategy</b> — not included; I work from your direction</div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- ===== INQUIRY ===== -->
+<section class="band" id="start">
+  <div class="wrap">
+    <h2>Send a <em>brief.</em></h2>
+    <p>Or ask for samples in your client's category. I'll reply within 24 hours.</p>
+  </div>
+</section>
+
+<div class="narrow form-section">
+  <form id="projectForm">
+    <div class="field field-row">
+      <div>
+        <label for="firstName">Name (required)</label>
+        <input type="text" id="firstName" name="Name" required>
+      </div>
+      <div>
+        <label for="email">Email (required)</label>
+        <input type="email" id="email" name="Email" required>
+      </div>
+    </div>
+
+    <div class="field">
+      <label for="agency">Agency / Website (required)</label>
+      <input type="text" id="agency" name="Agency" required>
+    </div>
+
+    <div class="field">
+      <label for="message">Message (optional)</label>
+      <textarea id="message" name="Message" placeholder="Client category, brief, or leave blank and I'll follow up."></textarea>
+    </div>
+
+    <button type="submit" class="submit-btn">Send a Brief</button>
+  </form>
+
+  <div class="confirm" id="confirmMsg">
+    <h3>Thank you — <em>I'll reply within 24 hours.</em></h3>
+    <p>Talk soon.</p>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap foot">
+    <span class="logo">noelntrl</span>
+    <div class="foot-mid">
+      <a class="fmail" href="mailto:noel@noelntrl.com">noel@noelntrl.com</a>
+      <a class="fsocial" href="https://www.instagram.com/noelntrl/" target="_blank" rel="noopener">Instagram</a>
+    </div>
+    <span class="fmeta">Seoul — AI-native creative production</span>
+  </div>
+</footer>
+
+<script>
+  document.querySelectorAll('.nav-dropdown').forEach(function(dd){
+    var trigger = dd.querySelector(':scope > a');
+    if(!trigger) return;
+    trigger.addEventListener('click', function(e){
+      e.preventDefault();
+      var willOpen = !dd.classList.contains('open');
+      document.querySelectorAll('.nav-dropdown.open').forEach(function(o){ o.classList.remove('open'); });
+      if(willOpen) dd.classList.add('open');
+    });
+  });
+  document.addEventListener('click', function(e){
+    document.querySelectorAll('.nav-dropdown.open').forEach(function(dd){
+      if(!dd.contains(e.target)) dd.classList.remove('open');
+    });
+  });
+
+  document.getElementById('projectForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    var form = document.getElementById('projectForm');
+    var submitBtn = form.querySelector('.submit-btn');
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending…';
+
+    fetch('https://formsubmit.co/ajax/noel@noelntrl.com', {
+      method: 'POST',
+      headers: { 'Accept': 'application/json' },
+      body: new FormData(form)
+    })
+    .then(function(res){ return res.json(); })
+    .then(function(){
+      form.style.display = 'none';
+      document.getElementById('confirmMsg').style.display = 'block';
+    })
+    .catch(function(){
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Send a Brief';
+      alert("Something went wrong sending your message — please email noel@noelntrl.com directly.");
+    });
+  });
+</script>
+
+</body>
+</html>
