@@ -63,11 +63,6 @@
     font-family:'Young Serif',serif;font-size:22px;color:var(--fg);
     margin-bottom:30px;opacity:0;animation:fade 1s .05s forwards;
   }
-  .hero .eyebrow{
-    font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--dim);
-    margin-bottom:34px;overflow:hidden;
-  }
-  .hero .eyebrow span{display:inline-block;transform:translateY(120%);animation:rise 1s .1s cubic-bezier(.2,.7,.2,1) forwards;}
   .hero h1{
     font-family:'Fraunces',serif;font-weight:300;
     font-size:clamp(36px,6.4vw,84px);line-height:1.05;letter-spacing:-.02em;
@@ -87,6 +82,9 @@
   .hero .sub p b{color:var(--fg);font-weight:400;}
   .hero-actions{display:flex;flex-direction:column;gap:40px;align-items:center;}
   .cta-row{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;}
+  .award{font-size:12px;color:var(--dim);display:flex;align-items:center;gap:9px;letter-spacing:.3px;}
+  .award .dot{width:5px;height:5px;border-radius:50%;background:var(--accent);flex-shrink:0;}
+  .award a{color:var(--fg);border-bottom:1px solid var(--faint);}
   .cta{
     display:inline-block;font-size:12px;letter-spacing:2px;text-transform:uppercase;
     border:1px solid var(--line);border-radius:40px;padding:15px 30px;color:var(--fg);
@@ -100,9 +98,6 @@
   }
   .cta.sharp:hover{background:transparent;color:var(--accent);}
   .cta.solid:hover{background:transparent;color:var(--fg);border-color:var(--line);}
-  .award{font-size:12px;color:var(--dim);display:flex;align-items:center;gap:9px;letter-spacing:.3px;}
-  .award .dot{width:5px;height:5px;border-radius:50%;background:var(--accent);flex-shrink:0;}
-  .award a{color:var(--fg);border-bottom:1px solid var(--faint);}
 
   @keyframes rise{to{transform:translateY(0);}}
   @keyframes fade{to{opacity:1;}}
@@ -117,29 +112,15 @@
   }
   .sec-head h2 em{font-style:italic;color:var(--dim);}
 
-  /* WAYS */
-  .ways{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);}
-  .way-card{background:var(--bg);padding:26px 24px 24px;position:relative;overflow:hidden;}
+  /* WAYS / SERVICES */
+  .ways{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);}
+  .way-card{background:var(--bg);padding:30px 28px 32px;position:relative;overflow:hidden;}
   .way-title{
     font-family:'Fraunces',serif;font-weight:300;font-size:21px;line-height:1.15;
-    letter-spacing:-.01em;margin-bottom:8px;position:relative;z-index:1;
+    letter-spacing:-.01em;margin-bottom:10px;position:relative;z-index:1;
   }
   .way-num{color:var(--accent);font-variant-numeric:tabular-nums;margin-right:2px;}
-  .way-desc{font-size:13px;line-height:1.5;color:var(--dim);margin-bottom:18px;position:relative;z-index:1;max-width:280px;}
-  .way-list{list-style:none;display:flex;flex-direction:column;gap:9px;position:relative;z-index:1;}
-  .way-list li{font-size:13px;color:var(--fg);opacity:.85;padding-left:18px;position:relative;}
-  .way-list li::before{content:'';position:absolute;left:0;top:8px;width:8px;height:1px;background:var(--accent);}
-
-  /* PROCESS */
-  .process{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--line);}
-  .p-item{padding:36px 26px 40px;border-right:1px solid var(--line);}
-  .p-item:last-child{border-right:none;}
-  .p-num{
-    font-family:'Fraunces',serif;font-size:44px;font-weight:300;color:var(--accent);
-    margin-bottom:20px;font-variant-numeric:tabular-nums;
-  }
-  .p-title{font-family:'Fraunces',serif;font-size:19px;font-weight:400;margin-bottom:12px;line-height:1.25;}
-  .p-desc{font-size:14px;line-height:1.65;color:var(--dim);}
+  .way-desc{font-size:14px;line-height:1.6;color:var(--dim);position:relative;z-index:1;max-width:420px;}
 
   /* CTA BAND */
   .band{padding:130px 0;text-align:center;border-top:1px solid var(--line);}
@@ -171,9 +152,6 @@
     .wrap{padding:0 24px;}
     .hero{padding:110px 24px 60px;}
     .ways{grid-template-columns:1fr;}
-    .process{grid-template-columns:1fr;}
-    .p-item{border-right:none;border-bottom:1px solid var(--line);}
-    .p-item:last-child{border-bottom:none;}
     .section{padding:80px 0;}
     .sec-head{flex-direction:column;gap:10px;margin-bottom:40px;}
     .band{padding:90px 0;}
@@ -181,7 +159,7 @@
   @media(prefers-reduced-motion:reduce){
     *{animation:none!important;transition:none!important;}
     .reveal{opacity:1;transform:none;}
-    .hero .eyebrow span,.hero h1 .word i{transform:none;}
+    .hero h1 .word i{transform:none;}
     .hero .sub{opacity:1;}
   }
 </style>
@@ -207,18 +185,16 @@
 <!-- HERO -->
 <header class="hero">
   <div class="mark">noelntrl</div>
-  <div class="eyebrow"><span>// AI-native creative production</span></div>
   <h1>
-    <span class="word l1"><i>Creative production</i></span>
-    <span class="word l2"><i>without <em>another shoot.</em></i></span>
+    <span class="word l1"><i>Creative production,</i></span>
+    <span class="word l2"><i>without <em>the shoot.</em></i></span>
   </h1>
   <div class="sub">
-    <p>AI-native creative production for DTC brands and agencies — <b>static ads, motion, and campaign visuals created faster without traditional production constraints.</b></p>
+    <p>Research-led concepts, <b>produced AI-native.</b> Static ads, motion, and campaign visuals for DTC and ecommerce brands — without a physical shoot.</p>
     <div class="hero-actions">
       <div class="award"><span class="dot"></span>Award recipient — <a href="/amore-pacific-case-study">Amore Pacific AI Creative Competition 2026</a></div>
       <div class="cta-row">
-        <a href="/start-a-project" class="cta solid">Start a project</a>
-        <a href="/portfolio" class="cta sharp">View work →</a>
+        <a href="/portfolio" class="cta solid">View Work</a>
       </div>
     </div>
   </div>
@@ -226,77 +202,27 @@
 
 <div class="wrap">
 
-  <!-- WAYS -->
-  <section class="section" id="work">
+  <!-- SERVICES -->
+  <section class="section">
     <div class="sec-head reveal">
       <span class="idx">01</span>
-      <h2>3 ways to <em>work together</em></h2>
+      <h2>Services</h2>
     </div>
     <div class="ways reveal d1">
       <div class="way-card">
-        <div class="way-title"><span class="way-num">01</span> Creative Production</div>
-        <p class="way-desc">For brands that need ongoing ad creative.</p>
-        <ul class="way-list">
-          <li>Static ads</li>
-          <li>Motion assets</li>
-          <li>Creative variations</li>
-          <li>Product visuals</li>
-        </ul>
+        <div class="way-title"><span class="way-num">01</span> Performance Creative</div>
+        <p class="way-desc">Research-led paid-social concepts and static/video production.</p>
       </div>
       <div class="way-card">
-        <div class="way-title"><span class="way-num">02</span> Campaign Visuals</div>
-        <p class="way-desc">For launches and brand moments.</p>
-        <ul class="way-list">
-          <li>Hero imagery</li>
-          <li>Product worlds</li>
-          <li>Campaign concepts</li>
-        </ul>
-      </div>
-      <div class="way-card">
-        <div class="way-title"><span class="way-num">03</span> Agency Production</div>
-        <p class="way-desc">For agencies needing extra capacity.</p>
-        <ul class="way-list">
-          <li>White-label delivery</li>
-          <li>Client-ready assets</li>
-          <li>Overflow production</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- PROCESS -->
-  <section class="section">
-    <div class="sec-head reveal">
-      <span class="idx">02</span>
-      <h2>How it <em>works</em></h2>
-    </div>
-    <div class="process reveal d1">
-      <div class="p-item">
-        <div class="p-num">01</div>
-        <div class="p-title">Brief</div>
-        <p class="p-desc">You share the product, goals, references and requirements.</p>
-      </div>
-      <div class="p-item">
-        <div class="p-num">02</div>
-        <div class="p-title">Creative Direction</div>
-        <p class="p-desc">I develop concepts and visual directions.</p>
-      </div>
-      <div class="p-item">
-        <div class="p-num">03</div>
-        <div class="p-title">Production</div>
-        <p class="p-desc">Images, motion, retouching and final assets are created.</p>
-      </div>
-      <div class="p-item">
-        <div class="p-num">04</div>
-        <div class="p-title">Delivery</div>
-        <p class="p-desc">Ready-to-use files delivered for your channels.</p>
+        <div class="way-title"><span class="way-num">02</span> GenAI Production</div>
+        <p class="way-desc">AI-native product films, campaign visuals and branded content.</p>
       </div>
     </div>
   </section>
 
 </div>
 
-<!-- CTA BAND -->
+<!-- CONTACT -->
 <section class="band">
   <div class="wrap">
     <h2 class="reveal">Have a project <em>in mind?</em></h2>
