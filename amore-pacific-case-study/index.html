@@ -33,7 +33,7 @@
   nav{
     position:fixed;top:0;left:0;right:0;z-index:50;
     display:flex;align-items:center;justify-content:space-between;
-    padding:24px 42px;mix-blend-mode:difference;
+    padding:24px 42px;
   }
   nav .logo{font-family:'Young Serif',serif;font-size:22px;letter-spacing:-.01em;color:#efece5;}
   .nav-links{display:flex;gap:32px;font-size:12px;letter-spacing:.5px;color:#efece5;}
@@ -53,6 +53,12 @@
     color:var(--dim);opacity:1;transition:color .2s,background .2s;white-space:nowrap;
   }
   .dropdown-menu a:hover{color:var(--fg);background:rgba(239,236,229,.04);}
+
+  .nav-toggle-btn{display:none;background:none;border:none;cursor:pointer;padding:6px;flex-direction:column;gap:5px;z-index:60;}
+  .nav-toggle-btn span{display:block;width:22px;height:1.5px;background:#efece5;transition:transform .3s ease,opacity .3s ease;}
+  nav.nav-open .nav-toggle-btn span:nth-child(1){transform:translateY(6.5px) rotate(45deg);}
+  nav.nav-open .nav-toggle-btn span:nth-child(2){opacity:0;}
+  nav.nav-open .nav-toggle-btn span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg);}
   .dropdown-menu a.active{color:var(--fg);}
 
   /* HERO */
@@ -112,7 +118,17 @@
 
   @media(max-width:860px){
     nav{padding:18px 24px;}
-    .nav-links{gap:16px;}
+    .nav-toggle-btn{display:flex;}
+    .nav-links{
+      display:none;position:absolute;top:100%;left:0;right:0;
+      flex-direction:column;align-items:center;gap:22px;
+      background:var(--bg);border-top:1px solid var(--line);
+      padding:28px 24px 32px;
+    }
+    nav.nav-open .nav-links{display:flex;}
+    .nav-dropdown{display:flex;flex-direction:column;align-items:center;}
+    .dropdown-menu{position:static;transform:none;padding-top:18px;}
+    .dropdown-menu .inner{display:flex;flex-direction:column;align-items:center;gap:2px;background:none;border:none;padding:0;}
     .wrap{padding:0 24px;}
     .hero{padding:130px 0 40px;}
     h1{font-size:26px;}
@@ -137,7 +153,11 @@
     </div>
     <a href="/portfolio">Selected Work</a>
     <a href="https://www.instagram.com/noelntrl/" target="_blank" rel="noopener">Instagram</a>
+    <a href="https://www.linkedin.com/in/noellee098/" target="_blank" rel="noopener">LinkedIn</a>
   </div>
+  <button class="nav-toggle-btn" aria-label="Menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
 
 <div class="wrap">
@@ -209,10 +229,29 @@
       if(willOpen) dd.classList.add('open');
     });
   });
+  var navEl = document.querySelector('nav');
+  var navToggleBtn = document.querySelector('.nav-toggle-btn');
+  if(navEl && navToggleBtn){
+    navToggleBtn.addEventListener('click', function(e){
+      e.stopPropagation();
+      var isOpen = navEl.classList.toggle('nav-open');
+      navToggleBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+    document.querySelectorAll('.nav-links a:not(.nav-toggle)').forEach(function(a){
+      a.addEventListener('click', function(){
+        navEl.classList.remove('nav-open');
+        navToggleBtn.setAttribute('aria-expanded','false');
+      });
+    });
+  }
   document.addEventListener('click', function(e){
     document.querySelectorAll('.nav-dropdown.open').forEach(function(dd){
       if(!dd.contains(e.target)) dd.classList.remove('open');
     });
+    if(navEl && navEl.classList.contains('nav-open') && !navEl.contains(e.target)){
+      navEl.classList.remove('nav-open');
+      if(navToggleBtn) navToggleBtn.setAttribute('aria-expanded','false');
+    }
   });
 </script>
 
