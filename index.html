@@ -72,7 +72,6 @@
     font-family:var(--mono);font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--dim);
     margin-bottom:26px;opacity:0;animation:fade 1s .05s forwards;
   }
-  .hero .mark span{color:var(--accent);}
   .hero h1{
     font-family:'Fraunces',serif;font-weight:300;
     font-size:clamp(36px,6.2vw,80px);line-height:1.06;letter-spacing:-.02em;
@@ -136,26 +135,16 @@
   .sec-head h2 em{font-style:italic;color:var(--dim);}
   .sec-head .sec-note{margin-left:auto;max-width:280px;font-size:13px;line-height:1.6;color:var(--dim);align-self:flex-end;}
 
-  /* FEATURED WORK — large case-study cards */
-  .work-feature{
-    display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;
-    padding:56px 0;border-top:1px solid var(--line);
+  /* WORK VIDEOS */
+  .video-row{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
+  .video-placeholder{
+    aspect-ratio:16/9;border-radius:2px;background:var(--card);
+    border:1px solid var(--line);display:flex;align-items:center;justify-content:center;
   }
-  .work-feature:first-of-type{border-top:none;padding-top:0;}
-  .work-feature.rev{grid-template-columns:1fr 1fr;}
-  .work-feature.rev .wf-media{order:2;}
-  .work-feature.rev .wf-text{order:1;}
-  .wf-media{aspect-ratio:4/3;overflow:hidden;border-radius:2px;background:var(--card);}
-  .wf-media img,.wf-media video{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s cubic-bezier(.2,.7,.2,1);}
-  .work-feature:hover .wf-media img,.work-feature:hover .wf-media video{transform:scale(1.04);}
-  .wf-tc{font-family:var(--mono);font-size:11px;color:var(--accent);letter-spacing:1px;margin-bottom:16px;}
-  .wf-text h3{font-family:'Fraunces',serif;font-weight:300;font-size:clamp(22px,2.4vw,30px);margin-bottom:14px;letter-spacing:-.01em;}
-  .wf-text p{font-size:14px;line-height:1.75;color:var(--dim);max-width:400px;margin-bottom:22px;}
-  .wf-tags{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px;}
-  .wf-tags span{font-size:10.5px;letter-spacing:1px;text-transform:uppercase;color:var(--dim);border:1px solid var(--line);border-radius:20px;padding:6px 12px;}
+  .vp-label{font-family:var(--mono);font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--faint);}
 
   /* SUPPORTING GRID */
-  .more-work{margin-top:90px;}
+  .more-work{margin-top:64px;}
   .more-work-label{
     font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:var(--dim);
     margin-bottom:18px;padding-bottom:14px;border-bottom:1px solid var(--line);
@@ -231,9 +220,7 @@
     .hero{padding:120px 24px 50px;}
     .sec-head{flex-direction:column;gap:10px;margin-bottom:40px;}
     .sec-head .sec-note{margin-left:0;max-width:none;align-self:flex-start;}
-    .work-feature,.work-feature.rev{grid-template-columns:1fr;gap:28px;}
-    .work-feature.rev .wf-media{order:1;}
-    .work-feature.rev .wf-text{order:2;}
+    .video-row{grid-template-columns:1fr;gap:16px;}
     .more-work-grid{grid-template-columns:repeat(3,1fr);}
     .approach{grid-template-columns:1fr;gap:34px;}
     .ways{grid-template-columns:1fr;}
@@ -273,7 +260,7 @@
 
 <!-- HERO -->
 <header class="hero">
-  <div class="mark">Seoul <span>—</span> Premium AI Commercial Production</div>
+  <div class="mark">Premium AI Commercial Production</div>
   <h1>
     <span class="word l1"><i>Commercial-grade visuals,</i></span>
     <span class="word l2"><i>without <em>the shoot.</em></i></span>
@@ -293,16 +280,18 @@
 <!-- TIMECODE STRIP -->
 <div class="tc-strip" aria-hidden="true">
   <div class="tc-track">
-    <span><em>00:00:00:00</em>SEOUL, KR</span>
-    <span><em>00:00:04:12</em>AI-NATIVE PRODUCTION</span>
-    <span><em>00:00:09:03</em>FILM · SOUND · MUSIC BACKGROUND</span>
-    <span><em>00:00:14:21</em>AMORE PACIFIC AI CREATIVE AWARD, 2026</span>
-    <span><em>00:00:19:07</em>NO PHYSICAL SHOOT REQUIRED</span>
-    <span><em>00:00:00:00</em>SEOUL, KR</span>
-    <span><em>00:00:04:12</em>AI-NATIVE PRODUCTION</span>
-    <span><em>00:00:09:03</em>FILM · SOUND · MUSIC BACKGROUND</span>
-    <span><em>00:00:14:21</em>AMORE PACIFIC AI CREATIVE AWARD, 2026</span>
-    <span><em>00:00:19:07</em>NO PHYSICAL SHOOT REQUIRED</span>
+    <span><em>01</em>CONCEPT</span>
+    <span><em>02</em>LIGHT &amp; FRAME</span>
+    <span><em>03</em>MOTION</span>
+    <span><em>04</em>COLOR</span>
+    <span><em>05</em>SOUND</span>
+    <span><em>06</em>FINAL CUT</span>
+    <span><em>01</em>CONCEPT</span>
+    <span><em>02</em>LIGHT &amp; FRAME</span>
+    <span><em>03</em>MOTION</span>
+    <span><em>04</em>COLOR</span>
+    <span><em>05</em>SOUND</span>
+    <span><em>06</em>FINAL CUT</span>
   </div>
 </div>
 
@@ -313,51 +302,37 @@
     <div class="sec-head reveal">
       <span class="idx">00:00:00:01</span>
       <h2>Selected <em>work</em></h2>
-      <p class="sec-note">A few recent commissions, shown in full. More in the archive.</p>
+      <p class="sec-note">Full case studies are in the Work menu above — this is a closer look at the frames.</p>
     </div>
 
-    <div class="work-feature reveal d1">
-      <div class="wf-media"><img src="/ASSETS/CASE STUDY/Amore pacific/awardproof.jpeg" alt="Amore Pacific campaign visual" loading="lazy"></div>
-      <div class="wf-text">
-        <div class="wf-tc">00:00:00:01 — AMORE PACIFIC</div>
-        <h3>AI Creative Competition, winning entry</h3>
-        <p>A campaign concept built end-to-end with AI-native production — from art direction to final frame — recognized with Amore Pacific's 2026 AI Creative Award.</p>
-        <div class="wf-tags"><span>Campaign visuals</span><span>Art direction</span></div>
-        <a href="/amore-pacific-case-study" class="cta sharp">View case study →</a>
-      </div>
-    </div>
-
-    <div class="work-feature rev reveal d1">
-      <div class="wf-media"><img src="/ASSETS/CASE STUDY/BFRC/bfrc product 1.jpg" alt="BFRC commercial visual" loading="lazy"></div>
-      <div class="wf-text">
-        <div class="wf-tc">00:00:00:02 — BFRC</div>
-        <h3>Commercial product visuals</h3>
-        <p>Product-led commercial stills built for paid and owned channels, produced without a physical set.</p>
-        <div class="wf-tags"><span>Product film</span><span>Stills</span></div>
-        <a href="/bfrc-case-study" class="cta sharp">View case study →</a>
-      </div>
-    </div>
-
-    <div class="work-feature reveal d1">
-      <div class="wf-media"><img src="/ASSETS/CASE STUDY/LEON GOODS/Leon Goods Afterv3.png" alt="LEÒN Goods brand visual" loading="lazy"></div>
-      <div class="wf-text">
-        <div class="wf-tc">00:00:00:03 — LEÒN GOODS</div>
-        <h3>Brand visual identity, produced AI-native</h3>
-        <p>A full set of brand and campaign visuals directed to match LEÒN Goods' identity, from concept through delivery.</p>
-        <div class="wf-tags"><span>Brand visuals</span><span>Campaign</span></div>
-        <a href="/leon-goods-case-study" class="cta sharp">View case study →</a>
-      </div>
+    <div class="video-row reveal d1">
+      <div class="video-placeholder"><span class="vp-label">16:9 — Video</span></div>
+      <div class="video-placeholder"><span class="vp-label">16:9 — Video</span></div>
     </div>
 
     <div class="more-work reveal d2">
-      <div class="more-work-label"><span>From the archive</span><a href="/portfolio" class="cta sharp">View all work →</a></div>
+      <div class="more-work-label"><span>Brand visuals</span><a href="/portfolio" class="cta sharp">View all work →</a></div>
       <div class="more-work-grid">
-        <div class="work-item"><img src="/ASSETS/Portfolio/image /Untitled-1_0006_7.jpg" alt="" loading="lazy"></div>
-        <div class="work-item"><img src="/ASSETS/Portfolio/image /Untitled-1_0007_8.jpg" alt="" loading="lazy"></div>
+        <div class="work-item"><img src="/ASSETS/Portfolio/image /Untitled-1_0000_1.jpg" alt="" loading="lazy"></div>
+        <div class="work-item"><img src="/ASSETS/Portfolio/image /Untitled-1_0001_2.jpg" alt="" loading="lazy"></div>
+        <div class="work-item"><img src="/ASSETS/Portfolio/image /Untitled-1_0002_3.jpg" alt="" loading="lazy"></div>
+        <div class="work-item"><img src="/ASSETS/Portfolio/image /Untitled-1_0003_4.jpg" alt="" loading="lazy"></div>
         <div class="work-item"><img src="/ASSETS/Portfolio/image /Untitled-1_0004_5.jpg" alt="" loading="lazy"></div>
         <div class="work-item"><img src="/ASSETS/Portfolio/image /Untitled-1_0005_6.jpg" alt="" loading="lazy"></div>
+        <div class="work-item"><img src="/ASSETS/Portfolio/image /Untitled-1_0006_7.jpg" alt="" loading="lazy"></div>
+        <div class="work-item"><img src="/ASSETS/Portfolio/image /Untitled-1_0007_8.jpg" alt="" loading="lazy"></div>
+        <div class="work-item"><img src="/ASSETS/Portfolio/image /Untitled-1_0008_9.jpg" alt="" loading="lazy"></div>
         <div class="work-item"><img src="/ASSETS/Portfolio/image /Untitled-1_0009_10.jpg" alt="" loading="lazy"></div>
+        <div class="work-item"><img src="/ASSETS/Portfolio/image /Untitled-1_0010_11.jpg" alt="" loading="lazy"></div>
         <div class="work-item"><img src="/ASSETS/Portfolio/image /Untitled-1_0011_12.jpg" alt="" loading="lazy"></div>
+        <div class="work-item"><img src="/ASSETS/Portfolio/image /Untitled-1_0012_13.jpg" alt="" loading="lazy"></div>
+        <div class="work-item"><img src="/ASSETS/Portfolio/image /Untitled-1_0013_14.jpg" alt="" loading="lazy"></div>
+        <div class="work-item"><img src="/ASSETS/Portfolio/image /Untitled-1_0014_15.jpg" alt="" loading="lazy"></div>
+        <div class="work-item"><img src="/ASSETS/Portfolio/image /b_0000_Layer 4.jpg" alt="" loading="lazy"></div>
+        <div class="work-item"><img src="/ASSETS/Portfolio/image /b_0000_Layer 5.jpg" alt="" loading="lazy"></div>
+        <div class="work-item"><img src="/ASSETS/Portfolio/image /b_0001_Layer 3.jpg" alt="" loading="lazy"></div>
+        <div class="work-item"><img src="/ASSETS/Portfolio/image /b_0002_Layer 2.jpg" alt="" loading="lazy"></div>
+        <div class="work-item"><img src="/ASSETS/Portfolio/image /b_0003_Layer 1.jpg" alt="" loading="lazy"></div>
       </div>
     </div>
   </section>
