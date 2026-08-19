@@ -111,19 +111,6 @@
   @keyframes rise{to{transform:translateY(0);}}
   @keyframes fade{to{opacity:1;}}
 
-  /* TIMECODE STRIP — signature element: a running SMPTE timecode, like scrubbing a timeline */
-  .tc-strip{
-    border-top:1px solid var(--line);border-bottom:1px solid var(--line);
-    overflow:hidden;white-space:nowrap;padding:14px 0;
-  }
-  .tc-track{
-    display:inline-flex;gap:56px;font-family:var(--mono);font-size:12px;letter-spacing:1px;color:var(--faint);
-    animation:scroll-tc 34s linear infinite;
-  }
-  .tc-track span{color:var(--dim);}
-  .tc-track em{font-style:normal;color:var(--accent);margin-right:10px;}
-  @keyframes scroll-tc{from{transform:translateX(0);}to{transform:translateX(-50%);}}
-
   /* SECTION */
   .section{padding:110px 0;border-top:1px solid var(--line);}
   .sec-head{display:flex;align-items:baseline;gap:20px;margin-bottom:56px;}
@@ -143,19 +130,25 @@
   }
   .vp-label{font-family:var(--mono);font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--faint);}
 
-  /* SUPPORTING GRID */
+  /* SUPPORTING GRIDS */
   .more-work{margin-top:64px;}
   .more-work-label{
     font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:var(--dim);
     margin-bottom:18px;padding-bottom:14px;border-bottom:1px solid var(--line);
     display:flex;justify-content:space-between;
   }
-  .more-work-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;}
+  .more-work-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;}
   .more-work-grid .work-item{overflow:hidden;border-radius:2px;background:var(--card);aspect-ratio:3/4;}
   .more-work-grid .work-item img,.more-work-grid .work-item video{
     width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s;
   }
   .more-work-grid .work-item:hover img,.more-work-grid .work-item:hover video{transform:scale(1.06);}
+
+  .more-on{
+    display:flex;align-items:center;justify-content:center;gap:14px;
+    margin-top:64px;padding-top:48px;border-top:1px solid var(--line);
+  }
+  .more-on-label{font-size:13px;color:var(--dim);}
 
   /* APPROACH */
   .approach{display:grid;grid-template-columns:.9fr 1.1fr;gap:70px;}
@@ -179,23 +172,12 @@
   .way-list li:first-child{border-top:none;}
   .way-list li b{color:var(--fg);font-weight:400;}
 
-  /* CTA BAND */
-  .band{padding:130px 0;text-align:center;border-top:1px solid var(--line);}
-  .band h2{
-    font-family:'Fraunces',serif;font-weight:300;
-    font-size:clamp(30px,5vw,60px);line-height:1.12;letter-spacing:-.01em;
-    max-width:760px;margin:0 auto 20px;
-  }
-  .band h2 em{font-style:italic;color:var(--dim);}
-  .band p{font-size:15px;color:var(--dim);margin-bottom:38px;}
-
   /* FOOTER */
   footer{border-top:1px solid var(--line);padding:44px 0;}
   .foot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
   .foot .logo{font-family:'Young Serif',serif;font-size:18px;}
-  .foot .fmail{font-size:14px;color:var(--dim);}
-  .foot .fmail:hover{color:var(--fg);}
-  .foot .fmeta{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--faint);}
+  .foot-contact{display:flex;gap:22px;font-size:13px;color:var(--dim);}
+  .foot-contact a:hover{color:var(--fg);}
 
   /* reveal */
   .reveal{opacity:0;transform:translateY(36px);transition:opacity 1s cubic-bezier(.2,.7,.2,1),transform 1s cubic-bezier(.2,.7,.2,1);}
@@ -221,11 +203,10 @@
     .sec-head{flex-direction:column;gap:10px;margin-bottom:40px;}
     .sec-head .sec-note{margin-left:0;max-width:none;align-self:flex-start;}
     .video-row{grid-template-columns:1fr;gap:16px;}
-    .more-work-grid{grid-template-columns:repeat(3,1fr);}
+    .more-work-grid{grid-template-columns:repeat(2,1fr);}
     .approach{grid-template-columns:1fr;gap:34px;}
     .ways{grid-template-columns:1fr;}
     .section{padding:80px 0;}
-    .band{padding:90px 0;}
   }
   @media(prefers-reduced-motion:reduce){
     *{animation:none!important;transition:none!important;}
@@ -248,9 +229,7 @@
         <a href="/leon-goods-case-study">LEÒN Goods</a>
       </div></div>
     </div>
-    <a href="#approach">Studio</a>
     <a href="https://www.instagram.com/noelntrl/" target="_blank" rel="noopener">Instagram</a>
-    <a href="https://www.linkedin.com/in/noellee098/" target="_blank" rel="noopener">LinkedIn</a>
     <a href="/start-a-project" class="cta" style="padding:10px 20px;">Start a project</a>
   </div>
   <button class="nav-toggle-btn" aria-label="Menu" aria-expanded="false">
@@ -277,30 +256,12 @@
   </div>
 </header>
 
-<!-- TIMECODE STRIP -->
-<div class="tc-strip" aria-hidden="true">
-  <div class="tc-track">
-    <span><em>01</em>CONCEPT</span>
-    <span><em>02</em>LIGHT &amp; FRAME</span>
-    <span><em>03</em>MOTION</span>
-    <span><em>04</em>COLOR</span>
-    <span><em>05</em>SOUND</span>
-    <span><em>06</em>FINAL CUT</span>
-    <span><em>01</em>CONCEPT</span>
-    <span><em>02</em>LIGHT &amp; FRAME</span>
-    <span><em>03</em>MOTION</span>
-    <span><em>04</em>COLOR</span>
-    <span><em>05</em>SOUND</span>
-    <span><em>06</em>FINAL CUT</span>
-  </div>
-</div>
-
 <div class="wrap">
 
   <!-- SELECTED WORK -->
   <section class="section" id="work">
     <div class="sec-head reveal">
-      <span class="idx">00:00:00:01</span>
+      <span class="idx">01</span>
       <h2>Selected <em>work</em></h2>
       <p class="sec-note">Full case studies are in the Work menu above — this is a closer look at the frames.</p>
     </div>
@@ -311,36 +272,43 @@
     </div>
 
     <div class="more-work reveal d2">
-      <div class="more-work-label"><span>Brand visuals</span><a href="/portfolio" class="cta sharp">View all work →</a></div>
+      <div class="more-work-label"><span>Editorial</span><a href="/portfolio" class="cta sharp">View all work →</a></div>
       <div class="more-work-grid">
-        <div class="work-item"><img src="/ASSETS/Portfolio/image /Untitled-1_0000_1.jpg" alt="" loading="lazy"></div>
-        <div class="work-item"><img src="/ASSETS/Portfolio/image /Untitled-1_0001_2.jpg" alt="" loading="lazy"></div>
-        <div class="work-item"><img src="/ASSETS/Portfolio/image /Untitled-1_0002_3.jpg" alt="" loading="lazy"></div>
-        <div class="work-item"><img src="/ASSETS/Portfolio/image /Untitled-1_0003_4.jpg" alt="" loading="lazy"></div>
-        <div class="work-item"><img src="/ASSETS/Portfolio/image /Untitled-1_0004_5.jpg" alt="" loading="lazy"></div>
-        <div class="work-item"><img src="/ASSETS/Portfolio/image /Untitled-1_0005_6.jpg" alt="" loading="lazy"></div>
-        <div class="work-item"><img src="/ASSETS/Portfolio/image /Untitled-1_0006_7.jpg" alt="" loading="lazy"></div>
-        <div class="work-item"><img src="/ASSETS/Portfolio/image /Untitled-1_0007_8.jpg" alt="" loading="lazy"></div>
-        <div class="work-item"><img src="/ASSETS/Portfolio/image /Untitled-1_0008_9.jpg" alt="" loading="lazy"></div>
-        <div class="work-item"><img src="/ASSETS/Portfolio/image /Untitled-1_0009_10.jpg" alt="" loading="lazy"></div>
-        <div class="work-item"><img src="/ASSETS/Portfolio/image /Untitled-1_0010_11.jpg" alt="" loading="lazy"></div>
-        <div class="work-item"><img src="/ASSETS/Portfolio/image /Untitled-1_0011_12.jpg" alt="" loading="lazy"></div>
-        <div class="work-item"><img src="/ASSETS/Portfolio/image /Untitled-1_0012_13.jpg" alt="" loading="lazy"></div>
-        <div class="work-item"><img src="/ASSETS/Portfolio/image /Untitled-1_0013_14.jpg" alt="" loading="lazy"></div>
-        <div class="work-item"><img src="/ASSETS/Portfolio/image /Untitled-1_0014_15.jpg" alt="" loading="lazy"></div>
-        <div class="work-item"><img src="/ASSETS/Portfolio/image /b_0000_Layer 4.jpg" alt="" loading="lazy"></div>
-        <div class="work-item"><img src="/ASSETS/Portfolio/image /b_0000_Layer 5.jpg" alt="" loading="lazy"></div>
-        <div class="work-item"><img src="/ASSETS/Portfolio/image /b_0001_Layer 3.jpg" alt="" loading="lazy"></div>
-        <div class="work-item"><img src="/ASSETS/Portfolio/image /b_0002_Layer 2.jpg" alt="" loading="lazy"></div>
-        <div class="work-item"><img src="/ASSETS/Portfolio/image /b_0003_Layer 1.jpg" alt="" loading="lazy"></div>
+        <div class="work-item"><img src="/ASSETS/Portfolio/editorial/1.jpg" alt="" loading="lazy"></div>
+        <div class="work-item"><img src="/ASSETS/Portfolio/editorial/2.jpg" alt="" loading="lazy"></div>
+        <div class="work-item"><img src="/ASSETS/Portfolio/editorial/3.jpg" alt="" loading="lazy"></div>
+        <div class="work-item"><img src="/ASSETS/Portfolio/editorial/4.jpg" alt="" loading="lazy"></div>
+        <div class="work-item"><img src="/ASSETS/Portfolio/editorial/5.jpg" alt="" loading="lazy"></div>
+        <div class="work-item"><img src="/ASSETS/Portfolio/editorial/6.jpg" alt="" loading="lazy"></div>
+        <div class="work-item"><img src="/ASSETS/Portfolio/editorial/7.jpg" alt="" loading="lazy"></div>
+        <div class="work-item"><img src="/ASSETS/Portfolio/editorial/8.jpg" alt="" loading="lazy"></div>
       </div>
+    </div>
+
+    <div class="more-work reveal d2">
+      <div class="more-work-label"><span>Static ads</span><a href="/static-ads" class="cta sharp">View all →</a></div>
+      <div class="more-work-grid">
+        <div class="work-item"><img src="/ASSETS/Portfolio/static ads/1.jpg" alt="" loading="lazy"></div>
+        <div class="work-item"><img src="/ASSETS/Portfolio/static ads/2.jpg" alt="" loading="lazy"></div>
+        <div class="work-item"><img src="/ASSETS/Portfolio/static ads/3.jpg" alt="" loading="lazy"></div>
+        <div class="work-item"><img src="/ASSETS/Portfolio/static ads/4.jpg" alt="" loading="lazy"></div>
+        <div class="work-item"><img src="/ASSETS/Portfolio/static ads/5.jpg" alt="" loading="lazy"></div>
+        <div class="work-item"><img src="/ASSETS/Portfolio/static ads/6.jpg" alt="" loading="lazy"></div>
+        <div class="work-item"><img src="/ASSETS/Portfolio/static ads/7.jpg" alt="" loading="lazy"></div>
+        <div class="work-item"><img src="/ASSETS/Portfolio/static ads/8.jpg" alt="" loading="lazy"></div>
+      </div>
+    </div>
+
+    <div class="more-on reveal d2">
+      <span class="more-on-label">More on</span>
+      <a href="https://www.instagram.com/noelntrl/" target="_blank" rel="noopener" class="cta">Instagram</a>
     </div>
   </section>
 
   <!-- APPROACH -->
   <section class="section" id="approach">
     <div class="sec-head reveal">
-      <span class="idx">00:00:00:02</span>
+      <span class="idx">02</span>
       <h2>The <em>approach</em></h2>
     </div>
     <div class="approach">
@@ -360,7 +328,7 @@
   <!-- CAPABILITIES -->
   <section class="section">
     <div class="sec-head reveal">
-      <span class="idx">00:00:00:03</span>
+      <span class="idx">03</span>
       <h2>Who I <em>work with</em></h2>
     </div>
     <div class="ways reveal d1">
@@ -389,20 +357,14 @@
 
 </div>
 
-<!-- CONTACT -->
-<section class="band">
-  <div class="wrap">
-    <h2 class="reveal">Have a project <em>in mind?</em></h2>
-    <p class="reveal d1">Tell me about the brief — I'll tell you honestly if it's a fit.</p>
-    <a href="/start-a-project" class="cta solid reveal d1">Start a project</a>
-  </div>
-</section>
-
 <footer>
   <div class="wrap foot">
     <span class="logo">noelntrl</span>
-    <a class="fmail" href="mailto:noel@noelntrl.com">noel@noelntrl.com</a>
-    <span class="fmeta">Seoul — Premium AI Commercial Production</span>
+    <div class="foot-contact">
+      <a href="https://www.instagram.com/noelntrl/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.linkedin.com/in/noellee098/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="mailto:noel@noelntrl.com">Email</a>
+    </div>
   </div>
 </footer>
 
