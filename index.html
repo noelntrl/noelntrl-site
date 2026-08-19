@@ -121,6 +121,10 @@
   }
   .sec-head h2 em{font-style:italic;color:var(--dim);}
   .sec-head .sec-note{margin-left:auto;max-width:280px;font-size:13px;line-height:1.6;color:var(--dim);align-self:flex-end;}
+  .sec-head h2.work-title{
+    font-family:'Inter',sans-serif;font-weight:400;letter-spacing:-.01em;
+  }
+  .sec-head h2.work-title em{font-style:normal;font-weight:300;color:var(--dim);}
 
   /* WORK VIDEOS */
   .video-row{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
@@ -132,11 +136,6 @@
 
   /* SUPPORTING GRIDS */
   .more-work{margin-top:64px;}
-  .more-work-label{
-    font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:var(--dim);
-    margin-bottom:18px;padding-bottom:14px;border-bottom:1px solid var(--line);
-    display:flex;justify-content:space-between;
-  }
   .more-work-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;}
   .more-work-grid .work-item{overflow:hidden;border-radius:2px;background:var(--card);aspect-ratio:3/4;}
   .more-work-grid .work-item img,.more-work-grid .work-item video{
@@ -145,10 +144,10 @@
   .more-work-grid .work-item:hover img,.more-work-grid .work-item:hover video{transform:scale(1.06);}
 
   .more-on{
-    display:flex;align-items:center;justify-content:center;gap:14px;
-    margin-top:64px;padding-top:48px;border-top:1px solid var(--line);
+    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;
+    text-align:center;margin:120px 0 40px;
   }
-  .more-on-label{font-size:13px;color:var(--dim);}
+  .more-on-label{font-size:13px;letter-spacing:.5px;color:var(--dim);}
 
   /* APPROACH */
   .approach{display:grid;grid-template-columns:.9fr 1.1fr;gap:70px;}
@@ -262,8 +261,7 @@
   <section class="section" id="work">
     <div class="sec-head reveal">
       <span class="idx">01</span>
-      <h2>Selected <em>work</em></h2>
-      <p class="sec-note">Full case studies are in the Work menu above — this is a closer look at the frames.</p>
+      <h2 class="work-title">Selected <em>work</em></h2>
     </div>
 
     <div class="video-row reveal d1">
@@ -272,7 +270,6 @@
     </div>
 
     <div class="more-work reveal d2">
-      <div class="more-work-label"><span>Editorial</span><a href="/portfolio" class="cta sharp">View all work →</a></div>
       <div class="more-work-grid">
         <div class="work-item"><img src="/ASSETS/Portfolio/editorial/1.jpg" alt="" loading="lazy"></div>
         <div class="work-item"><img src="/ASSETS/Portfolio/editorial/2.jpg" alt="" loading="lazy"></div>
@@ -285,23 +282,9 @@
       </div>
     </div>
 
-    <div class="more-work reveal d2">
-      <div class="more-work-label"><span>Static ads</span><a href="/static-ads" class="cta sharp">View all →</a></div>
-      <div class="more-work-grid">
-        <div class="work-item"><img src="/ASSETS/Portfolio/static ads/1.jpg" alt="" loading="lazy"></div>
-        <div class="work-item"><img src="/ASSETS/Portfolio/static ads/2.jpg" alt="" loading="lazy"></div>
-        <div class="work-item"><img src="/ASSETS/Portfolio/static ads/3.jpg" alt="" loading="lazy"></div>
-        <div class="work-item"><img src="/ASSETS/Portfolio/static ads/4.jpg" alt="" loading="lazy"></div>
-        <div class="work-item"><img src="/ASSETS/Portfolio/static ads/5.jpg" alt="" loading="lazy"></div>
-        <div class="work-item"><img src="/ASSETS/Portfolio/static ads/6.jpg" alt="" loading="lazy"></div>
-        <div class="work-item"><img src="/ASSETS/Portfolio/static ads/7.jpg" alt="" loading="lazy"></div>
-        <div class="work-item"><img src="/ASSETS/Portfolio/static ads/8.jpg" alt="" loading="lazy"></div>
-      </div>
-    </div>
-
     <div class="more-on reveal d2">
       <span class="more-on-label">More on</span>
-      <a href="https://www.instagram.com/noelntrl/" target="_blank" rel="noopener" class="cta">Instagram</a>
+      <a href="https://www.instagram.com/noelntrl/" target="_blank" rel="noopener" class="cta">Follow @noelntrl</a>
     </div>
   </section>
 
