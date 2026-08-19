@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>noelntrl — AI-native creative production</title>
+<title>noelntrl — Premium AI Commercial Production</title>
 <link rel="icon" type="image/png" href="/ASSETS/Logo/web logo.png">
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500&family=Young+Serif&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500&family=Young+Serif&family=JetBrains+Mono:wght@400;500&display=swap');
 
   :root{
     --bg:#151411;
@@ -16,6 +16,7 @@
     --accent:#c9a96a;
     --line:rgba(239,236,229,0.10);
     --card:#1C1B17;
+    --mono:'JetBrains Mono',monospace;
   }
   *{margin:0;padding:0;box-sizing:border-box;}
   html{scroll-behavior:smooth;}
@@ -26,6 +27,7 @@
   }
   ::selection{background:var(--accent);color:#0a0a0a;}
   a{text-decoration:none;color:inherit;}
+  img{background:var(--card);}
   .wrap{max-width:1240px;margin:0 auto;padding:0 42px;}
 
   /* NAV */
@@ -35,12 +37,13 @@
     padding:24px 42px;
   }
   nav .logo{font-family:'Young Serif',serif;font-size:22px;letter-spacing:-.01em;color:#efece5;}
-  .nav-links{display:flex;gap:32px;font-size:12px;letter-spacing:.5px;color:#efece5;}
+  .nav-links{display:flex;align-items:center;gap:32px;font-size:12px;letter-spacing:.5px;color:#efece5;}
   .nav-links a{opacity:.6;transition:opacity .3s;}
   .nav-links a:hover,.nav-links a.active{opacity:1;}
+  .nav-links .cta{opacity:1;}
   .nav-dropdown{position:relative;}
   .dropdown-menu{
-    display:none;position:absolute;top:100%;left:50%;transform:translateX(-50%);padding-top:14px;min-width:150px;
+    display:none;position:absolute;top:100%;left:50%;transform:translateX(-50%);padding-top:14px;min-width:170px;
   }
   .nav-dropdown:hover .dropdown-menu{display:block;}
   .nav-dropdown.open .dropdown-menu{display:block;}
@@ -61,18 +64,19 @@
 
   /* HERO */
   .hero{
-    min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;
-    padding:130px 42px 70px;max-width:900px;margin:0 auto;
+    min-height:96vh;display:flex;flex-direction:column;align-items:center;justify-content:center;
+    padding:150px 42px 60px;max-width:920px;margin:0 auto;
     text-align:center;
   }
   .hero .mark{
-    font-family:'Young Serif',serif;font-size:22px;color:var(--fg);
-    margin-bottom:30px;opacity:0;animation:fade 1s .05s forwards;
+    font-family:var(--mono);font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--dim);
+    margin-bottom:26px;opacity:0;animation:fade 1s .05s forwards;
   }
+  .hero .mark span{color:var(--accent);}
   .hero h1{
     font-family:'Fraunces',serif;font-weight:300;
-    font-size:clamp(36px,6.4vw,84px);line-height:1.05;letter-spacing:-.02em;
-    max-width:16ch;
+    font-size:clamp(36px,6.2vw,80px);line-height:1.06;letter-spacing:-.02em;
+    max-width:17ch;
   }
   .hero h1 .word{display:block;overflow:hidden;}
   .hero h1 .word i{display:inline-block;transform:translateY(110%);font-style:normal;}
@@ -80,13 +84,13 @@
   .hero h1 .l2 i{animation:rise 1.1s .32s cubic-bezier(.2,.7,.2,1) forwards;}
   .hero h1 em{font-style:italic;font-weight:400;color:var(--dim);}
   .hero .sub{
-    display:flex;flex-direction:column;align-items:center;gap:20px;
-    margin-top:40px;
+    display:flex;flex-direction:column;align-items:center;gap:22px;
+    margin-top:36px;
     opacity:0;animation:fade 1s .85s forwards;
   }
-  .hero .sub p{max-width:480px;font-size:15px;line-height:1.7;color:var(--dim);}
+  .hero .sub p{max-width:500px;font-size:15px;line-height:1.7;color:var(--dim);}
   .hero .sub p b{color:var(--fg);font-weight:400;}
-  .hero-actions{display:flex;flex-direction:column;gap:40px;align-items:center;}
+  .hero-actions{display:flex;flex-direction:column;gap:36px;align-items:center;}
   .cta-row{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;}
   .award{font-size:12px;color:var(--dim);display:flex;align-items:center;gap:9px;letter-spacing:.3px;}
   .award .dot{width:5px;height:5px;border-radius:50%;background:var(--accent);flex-shrink:0;}
@@ -108,39 +112,83 @@
   @keyframes rise{to{transform:translateY(0);}}
   @keyframes fade{to{opacity:1;}}
 
+  /* TIMECODE STRIP — signature element: a running SMPTE timecode, like scrubbing a timeline */
+  .tc-strip{
+    border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+    overflow:hidden;white-space:nowrap;padding:14px 0;
+  }
+  .tc-track{
+    display:inline-flex;gap:56px;font-family:var(--mono);font-size:12px;letter-spacing:1px;color:var(--faint);
+    animation:scroll-tc 34s linear infinite;
+  }
+  .tc-track span{color:var(--dim);}
+  .tc-track em{font-style:normal;color:var(--accent);margin-right:10px;}
+  @keyframes scroll-tc{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+
   /* SECTION */
   .section{padding:110px 0;border-top:1px solid var(--line);}
   .sec-head{display:flex;align-items:baseline;gap:20px;margin-bottom:56px;}
-  .sec-head .idx{font-size:11px;letter-spacing:2px;color:var(--accent);font-variant-numeric:tabular-nums;}
+  .sec-head .idx{font-family:var(--mono);font-size:11px;letter-spacing:1px;color:var(--accent);}
   .sec-head h2{
     font-family:'Fraunces',serif;font-weight:300;
     font-size:clamp(28px,4vw,48px);line-height:1.1;letter-spacing:-.01em;
   }
   .sec-head h2 em{font-style:italic;color:var(--dim);}
+  .sec-head .sec-note{margin-left:auto;max-width:280px;font-size:13px;line-height:1.6;color:var(--dim);align-self:flex-end;}
 
-  /* SELECTED WORK */
-  .work-split{display:grid;grid-template-columns:1fr 1fr;gap:56px;}
-  .work-col-label{
+  /* FEATURED WORK — large case-study cards */
+  .work-feature{
+    display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;
+    padding:56px 0;border-top:1px solid var(--line);
+  }
+  .work-feature:first-of-type{border-top:none;padding-top:0;}
+  .work-feature.rev{grid-template-columns:1fr 1fr;}
+  .work-feature.rev .wf-media{order:2;}
+  .work-feature.rev .wf-text{order:1;}
+  .wf-media{aspect-ratio:4/3;overflow:hidden;border-radius:2px;background:var(--card);}
+  .wf-media img,.wf-media video{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s cubic-bezier(.2,.7,.2,1);}
+  .work-feature:hover .wf-media img,.work-feature:hover .wf-media video{transform:scale(1.04);}
+  .wf-tc{font-family:var(--mono);font-size:11px;color:var(--accent);letter-spacing:1px;margin-bottom:16px;}
+  .wf-text h3{font-family:'Fraunces',serif;font-weight:300;font-size:clamp(22px,2.4vw,30px);margin-bottom:14px;letter-spacing:-.01em;}
+  .wf-text p{font-size:14px;line-height:1.75;color:var(--dim);max-width:400px;margin-bottom:22px;}
+  .wf-tags{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px;}
+  .wf-tags span{font-size:10.5px;letter-spacing:1px;text-transform:uppercase;color:var(--dim);border:1px solid var(--line);border-radius:20px;padding:6px 12px;}
+
+  /* SUPPORTING GRID */
+  .more-work{margin-top:90px;}
+  .more-work-label{
     font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:var(--dim);
     margin-bottom:18px;padding-bottom:14px;border-bottom:1px solid var(--line);
+    display:flex;justify-content:space-between;
   }
-  .work-col-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;}
-  .work-col-grid .work-item{overflow:hidden;border-radius:2px;background:var(--card);aspect-ratio:1/1;}
-  .work-col-grid .work-item img,.work-col-grid .work-item video{
+  .more-work-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;}
+  .more-work-grid .work-item{overflow:hidden;border-radius:2px;background:var(--card);aspect-ratio:3/4;}
+  .more-work-grid .work-item img,.more-work-grid .work-item video{
     width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s;
   }
-  .work-col-grid .work-item:hover img,.work-col-grid .work-item:hover video{transform:scale(1.05);}
-  .work-more{text-align:center;margin-top:48px;}
+  .more-work-grid .work-item:hover img,.more-work-grid .work-item:hover video{transform:scale(1.06);}
 
-  /* WAYS / SERVICES */
+  /* APPROACH */
+  .approach{display:grid;grid-template-columns:.9fr 1.1fr;gap:70px;}
+  .approach-lead{font-family:'Fraunces',serif;font-weight:300;font-style:italic;font-size:clamp(20px,2.2vw,28px);line-height:1.4;color:var(--fg);}
+  .approach-body p{font-size:14.5px;line-height:1.85;color:var(--dim);margin-bottom:20px;max-width:520px;}
+  .approach-body p b{color:var(--fg);font-weight:400;}
+  .approach-facts{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px;}
+  .approach-facts span{font-family:var(--mono);font-size:11px;letter-spacing:.5px;color:var(--dim);border:1px solid var(--line);border-radius:20px;padding:7px 14px;}
+
+  /* CAPABILITIES / SERVICES */
   .ways{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);}
-  .way-card{background:var(--bg);padding:30px 28px 32px;position:relative;overflow:hidden;}
+  .way-card{background:var(--bg);padding:36px 32px 38px;position:relative;overflow:hidden;}
+  .way-tc{font-family:var(--mono);font-size:11px;color:var(--accent);letter-spacing:1px;margin-bottom:14px;position:relative;z-index:1;}
   .way-title{
-    font-family:'Fraunces',serif;font-weight:300;font-size:21px;line-height:1.15;
-    letter-spacing:-.01em;margin-bottom:10px;position:relative;z-index:1;
+    font-family:'Fraunces',serif;font-weight:300;font-size:23px;line-height:1.2;
+    letter-spacing:-.01em;margin-bottom:14px;position:relative;z-index:1;
   }
-  .way-num{color:var(--accent);font-variant-numeric:tabular-nums;margin-right:2px;}
-  .way-desc{font-size:14px;line-height:1.6;color:var(--dim);position:relative;z-index:1;max-width:420px;}
+  .way-desc{font-size:14px;line-height:1.7;color:var(--dim);position:relative;z-index:1;max-width:420px;}
+  .way-list{list-style:none;margin-top:18px;position:relative;z-index:1;}
+  .way-list li{font-size:13px;color:var(--dim);padding:8px 0;border-top:1px solid var(--line);}
+  .way-list li:first-child{border-top:none;}
+  .way-list li b{color:var(--fg);font-weight:400;}
 
   /* CTA BAND */
   .band{padding:130px 0;text-align:center;border-top:1px solid var(--line);}
@@ -180,12 +228,16 @@
     .dropdown-menu{position:static;transform:none;padding-top:18px;}
     .dropdown-menu .inner{display:flex;flex-direction:column;align-items:center;gap:2px;background:none;border:none;padding:0;}
     .wrap{padding:0 24px;}
-    .hero{padding:110px 24px 60px;}
-    .work-split{grid-template-columns:1fr;gap:36px;}
-    .work-col-grid{grid-template-columns:repeat(4,1fr);}
+    .hero{padding:120px 24px 50px;}
+    .sec-head{flex-direction:column;gap:10px;margin-bottom:40px;}
+    .sec-head .sec-note{margin-left:0;max-width:none;align-self:flex-start;}
+    .work-feature,.work-feature.rev{grid-template-columns:1fr;gap:28px;}
+    .work-feature.rev .wf-media{order:1;}
+    .work-feature.rev .wf-text{order:2;}
+    .more-work-grid{grid-template-columns:repeat(3,1fr);}
+    .approach{grid-template-columns:1fr;gap:34px;}
     .ways{grid-template-columns:1fr;}
     .section{padding:80px 0;}
-    .sec-head{flex-direction:column;gap:10px;margin-bottom:40px;}
     .band{padding:90px 0;}
   }
   @media(prefers-reduced-motion:reduce){
@@ -209,9 +261,10 @@
         <a href="/leon-goods-case-study">LEÒN Goods</a>
       </div></div>
     </div>
-    <a href="/portfolio">Selected Work</a>
+    <a href="#approach">Studio</a>
     <a href="https://www.instagram.com/noelntrl/" target="_blank" rel="noopener">Instagram</a>
     <a href="https://www.linkedin.com/in/noellee098/" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="/start-a-project" class="cta" style="padding:10px 20px;">Start a project</a>
   </div>
   <button class="nav-toggle-btn" aria-label="Menu" aria-expanded="false">
     <span></span><span></span><span></span>
@@ -220,73 +273,141 @@
 
 <!-- HERO -->
 <header class="hero">
-  <div class="mark">noelntrl</div>
+  <div class="mark">Seoul <span>—</span> Premium AI Commercial Production</div>
   <h1>
-    <span class="word l1"><i>Creative production,</i></span>
+    <span class="word l1"><i>Commercial-grade visuals,</i></span>
     <span class="word l2"><i>without <em>the shoot.</em></i></span>
   </h1>
   <div class="sub">
-    <p>Research-led concepts, <b>produced AI-native.</b> Static ads, motion, and campaign visuals for DTC and ecommerce brands — without a physical shoot.</p>
+    <p>I direct high-end commercial and campaign visuals for <b>agencies, production companies, and select brands</b> — built AI-native, with a filmmaker's eye for light, motion, and story rather than a prompt.</p>
     <div class="hero-actions">
       <div class="award"><span class="dot"></span>Award recipient — <a href="/amore-pacific-case-study">Amore Pacific AI Creative Competition 2026</a></div>
       <div class="cta-row">
-        <a href="#work" class="cta solid">View Work</a>
+        <a href="#work" class="cta solid">View work</a>
+        <a href="/start-a-project" class="cta">Start a project</a>
       </div>
     </div>
   </div>
 </header>
+
+<!-- TIMECODE STRIP -->
+<div class="tc-strip" aria-hidden="true">
+  <div class="tc-track">
+    <span><em>00:00:00:00</em>SEOUL, KR</span>
+    <span><em>00:00:04:12</em>AI-NATIVE PRODUCTION</span>
+    <span><em>00:00:09:03</em>FILM · SOUND · MUSIC BACKGROUND</span>
+    <span><em>00:00:14:21</em>AMORE PACIFIC AI CREATIVE AWARD, 2026</span>
+    <span><em>00:00:19:07</em>NO PHYSICAL SHOOT REQUIRED</span>
+    <span><em>00:00:00:00</em>SEOUL, KR</span>
+    <span><em>00:00:04:12</em>AI-NATIVE PRODUCTION</span>
+    <span><em>00:00:09:03</em>FILM · SOUND · MUSIC BACKGROUND</span>
+    <span><em>00:00:14:21</em>AMORE PACIFIC AI CREATIVE AWARD, 2026</span>
+    <span><em>00:00:19:07</em>NO PHYSICAL SHOOT REQUIRED</span>
+  </div>
+</div>
 
 <div class="wrap">
 
   <!-- SELECTED WORK -->
   <section class="section" id="work">
     <div class="sec-head reveal">
-      <span class="idx">01</span>
+      <span class="idx">00:00:00:01</span>
       <h2>Selected <em>work</em></h2>
+      <p class="sec-note">A few recent commissions, shown in full. More in the archive.</p>
     </div>
-    <div class="work-split reveal d1">
-      <div class="work-col">
-        <div class="work-col-label">GenAI Production</div>
-        <div class="work-col-grid">
-          <div class="work-item"><img src="/ASSETS/Portfolio/image /Untitled-1_0006_7.jpg" alt="" loading="lazy"></div>
-          <div class="work-item"><img src="/ASSETS/Portfolio/image /Untitled-1_0007_8.jpg" alt="" loading="lazy"></div>
-          <div class="work-item"><img src="/ASSETS/Portfolio/image /Untitled-1_0004_5.jpg" alt="" loading="lazy"></div>
-          <div class="work-item"><img src="/ASSETS/Portfolio/image /Untitled-1_0005_6.jpg" alt="" loading="lazy"></div>
-          <div class="work-item"><img src="/ASSETS/Portfolio/image /Untitled-1_0009_10.jpg" alt="" loading="lazy"></div>
-          <div class="work-item"><img src="/ASSETS/Portfolio/image /Untitled-1_0011_12.jpg" alt="" loading="lazy"></div>
-        </div>
-      </div>
-      <div class="work-col">
-        <div class="work-col-label">Paid Social Creative</div>
-        <div class="work-col-grid">
-          <div class="work-item"><img src="/ASSETS/Landing Page Originals/7.jpg" alt="" loading="lazy"></div>
-          <div class="work-item"><img src="/ASSETS/Landing Page Originals/8.jpg" alt="" loading="lazy"></div>
-          <div class="work-item"><img src="/ASSETS/Landing Page Originals/4.jpg" alt="" loading="lazy"></div>
-          <div class="work-item"><img src="/ASSETS/Landing Page Originals/5.jpg" alt="" loading="lazy"></div>
-          <div class="work-item"><img src="/ASSETS/Landing Page Originals/9.jpg" alt="" loading="lazy"></div>
-          <div class="work-item"><img src="/ASSETS/Landing Page Originals/10.jpg" alt="" loading="lazy"></div>
-        </div>
+
+    <div class="work-feature reveal d1">
+      <div class="wf-media"><img src="/ASSETS/CASE STUDY/Amore pacific/awardproof.jpeg" alt="Amore Pacific campaign visual" loading="lazy"></div>
+      <div class="wf-text">
+        <div class="wf-tc">00:00:00:01 — AMORE PACIFIC</div>
+        <h3>AI Creative Competition, winning entry</h3>
+        <p>A campaign concept built end-to-end with AI-native production — from art direction to final frame — recognized with Amore Pacific's 2026 AI Creative Award.</p>
+        <div class="wf-tags"><span>Campaign visuals</span><span>Art direction</span></div>
+        <a href="/amore-pacific-case-study" class="cta sharp">View case study →</a>
       </div>
     </div>
-    <div class="work-more reveal d2">
-      <a href="/portfolio" class="cta sharp">View all work →</a>
+
+    <div class="work-feature rev reveal d1">
+      <div class="wf-media"><img src="/ASSETS/CASE STUDY/BFRC/bfrc product 1.jpg" alt="BFRC commercial visual" loading="lazy"></div>
+      <div class="wf-text">
+        <div class="wf-tc">00:00:00:02 — BFRC</div>
+        <h3>Commercial product visuals</h3>
+        <p>Product-led commercial stills built for paid and owned channels, produced without a physical set.</p>
+        <div class="wf-tags"><span>Product film</span><span>Stills</span></div>
+        <a href="/bfrc-case-study" class="cta sharp">View case study →</a>
+      </div>
+    </div>
+
+    <div class="work-feature reveal d1">
+      <div class="wf-media"><img src="/ASSETS/CASE STUDY/LEON GOODS/Leon Goods Afterv3.png" alt="LEÒN Goods brand visual" loading="lazy"></div>
+      <div class="wf-text">
+        <div class="wf-tc">00:00:00:03 — LEÒN GOODS</div>
+        <h3>Brand visual identity, produced AI-native</h3>
+        <p>A full set of brand and campaign visuals directed to match LEÒN Goods' identity, from concept through delivery.</p>
+        <div class="wf-tags"><span>Brand visuals</span><span>Campaign</span></div>
+        <a href="/leon-goods-case-study" class="cta sharp">View case study →</a>
+      </div>
+    </div>
+
+    <div class="more-work reveal d2">
+      <div class="more-work-label"><span>From the archive</span><a href="/portfolio" class="cta sharp">View all work →</a></div>
+      <div class="more-work-grid">
+        <div class="work-item"><img src="/ASSETS/Portfolio/image /Untitled-1_0006_7.jpg" alt="" loading="lazy"></div>
+        <div class="work-item"><img src="/ASSETS/Portfolio/image /Untitled-1_0007_8.jpg" alt="" loading="lazy"></div>
+        <div class="work-item"><img src="/ASSETS/Portfolio/image /Untitled-1_0004_5.jpg" alt="" loading="lazy"></div>
+        <div class="work-item"><img src="/ASSETS/Portfolio/image /Untitled-1_0005_6.jpg" alt="" loading="lazy"></div>
+        <div class="work-item"><img src="/ASSETS/Portfolio/image /Untitled-1_0009_10.jpg" alt="" loading="lazy"></div>
+        <div class="work-item"><img src="/ASSETS/Portfolio/image /Untitled-1_0011_12.jpg" alt="" loading="lazy"></div>
+      </div>
     </div>
   </section>
 
-  <!-- SERVICES -->
+  <!-- APPROACH -->
+  <section class="section" id="approach">
+    <div class="sec-head reveal">
+      <span class="idx">00:00:00:02</span>
+      <h2>The <em>approach</em></h2>
+    </div>
+    <div class="approach">
+      <div class="approach-lead reveal d1">"AI is how the work gets made — not what makes it good."</div>
+      <div class="approach-body reveal d1">
+        <p>I trained in <b>film, sound design, and music production</b> before moving into AI-native visual production. That background is what directs every project: framing, light, pacing, and story come first — the AI tooling is just how it gets built, not the pitch.</p>
+        <p>That's what I bring that a generic AI-content shop can't: <b>craft and taste</b>, applied through a production pipeline that skips the cost and timeline of a traditional shoot.</p>
+        <div class="approach-facts">
+          <span>Seoul-based</span>
+          <span>English · Korean · German</span>
+          <span>Amore Pacific AI Creative Award, 2026</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CAPABILITIES -->
   <section class="section">
     <div class="sec-head reveal">
-      <span class="idx">02</span>
-      <h2>Services</h2>
+      <span class="idx">00:00:00:03</span>
+      <h2>Who I <em>work with</em></h2>
     </div>
     <div class="ways reveal d1">
       <div class="way-card">
-        <div class="way-title"><span class="way-num">01</span> Performance Creative</div>
-        <p class="way-desc">Research-led paid-social concepts and static/video production.</p>
+        <div class="way-tc">FOR AGENCIES &amp; PRODUCTION COMPANIES</div>
+        <div class="way-title">Premium production capacity, on your timeline</div>
+        <p class="way-desc">Extra hands for high-end commercial and campaign visuals when the brief doesn't fit a traditional shoot — or the schedule won't allow one.</p>
+        <ul class="way-list">
+          <li><b>Product &amp; commercial film</b> — cinematic, not templated</li>
+          <li><b>Campaign stills</b> — concept through final frame</li>
+          <li><b>White-label delivery</b> — under your relationship with the client</li>
+        </ul>
       </div>
       <div class="way-card">
-        <div class="way-title"><span class="way-num">02</span> GenAI Production</div>
-        <p class="way-desc">AI-native product films, campaign visuals and branded content.</p>
+        <div class="way-tc">FOR BRANDS</div>
+        <div class="way-title">Commercial visuals, directed end to end</div>
+        <p class="way-desc">Direct commissions for brands who want campaign-grade visuals without booking a set, crew, and location.</p>
+        <ul class="way-list">
+          <li><b>Campaign concepts</b> — developed and produced</li>
+          <li><b>Brand visual sets</b> — consistent across a full campaign</li>
+          <li><b>Fast turnaround</b> — no shoot-day dependency</li>
+        </ul>
       </div>
     </div>
   </section>
@@ -297,7 +418,7 @@
 <section class="band">
   <div class="wrap">
     <h2 class="reveal">Have a project <em>in mind?</em></h2>
-    <p class="reveal d1">Tell me what you're working on — I'll point you the right direction.</p>
+    <p class="reveal d1">Tell me about the brief — I'll tell you honestly if it's a fit.</p>
     <a href="/start-a-project" class="cta solid reveal d1">Start a project</a>
   </div>
 </section>
@@ -306,7 +427,7 @@
   <div class="wrap foot">
     <span class="logo">noelntrl</span>
     <a class="fmail" href="mailto:noel@noelntrl.com">noel@noelntrl.com</a>
-    <span class="fmeta">Seoul — AI-native creative production</span>
+    <span class="fmeta">Seoul — Premium AI Commercial Production</span>
   </div>
 </footer>
 
