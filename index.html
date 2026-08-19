@@ -146,11 +146,10 @@
   .more-on-label{font-size:13px;letter-spacing:.5px;color:var(--dim);}
 
   /* APPROACH */
-  .approach{display:grid;grid-template-columns:.9fr 1.1fr;gap:70px;}
-  .approach-lead{font-family:'Fraunces',serif;font-weight:300;font-style:italic;font-size:clamp(20px,2.2vw,28px);line-height:1.4;color:var(--fg);}
-  .approach-body p{font-size:14.5px;line-height:1.85;color:var(--dim);margin-bottom:20px;max-width:520px;}
-  .approach-body p b{color:var(--fg);font-weight:400;}
-  .approach-facts{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px;}
+  .approach{max-width:640px;margin:0 auto;text-align:center;}
+  .approach-lead{font-family:'Fraunces',serif;font-weight:300;font-style:italic;font-size:clamp(20px,2.2vw,28px);line-height:1.4;color:var(--fg);margin-bottom:20px;}
+  .approach-line{font-size:14.5px;line-height:1.7;color:var(--dim);margin-bottom:28px;}
+  .approach-facts{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;}
   .approach-facts span{font-family:var(--mono);font-size:11px;letter-spacing:.5px;color:var(--dim);border:1px solid var(--line);border-radius:20px;padding:7px 14px;}
 
   /* CAPABILITIES / SERVICES */
@@ -199,7 +198,6 @@
     .sec-head .sec-note{margin-left:0;max-width:none;align-self:flex-start;}
     .video-row{grid-template-columns:1fr;gap:16px;}
     .more-work-grid{grid-template-columns:repeat(2,1fr);}
-    .approach{grid-template-columns:1fr;gap:34px;}
     .ways{grid-template-columns:1fr;}
     .section{padding:80px 0;}
   }
@@ -285,20 +283,13 @@
 
   <!-- APPROACH -->
   <section class="section" id="approach">
-    <div class="sec-head reveal">
-      <span class="idx">02</span>
-      <h2>The <em>approach</em></h2>
-    </div>
-    <div class="approach">
-      <div class="approach-lead reveal d1">"AI is how the work gets made — not what makes it good."</div>
-      <div class="approach-body reveal d1">
-        <p>I trained in <b>film, sound design, and music production</b> before moving into AI-native visual production. That background is what directs every project: framing, light, pacing, and story come first — the AI tooling is just how it gets built, not the pitch.</p>
-        <p>That's what I bring that a generic AI-content shop can't: <b>craft and taste</b>, applied through a production pipeline that skips the cost and timeline of a traditional shoot.</p>
-        <div class="approach-facts">
-          <span>Seoul-based</span>
-          <span>English · Korean · German</span>
-          <span>Amore Pacific AI Creative Award, 2026</span>
-        </div>
+    <div class="approach reveal">
+      <p class="approach-lead">"AI is how the work gets made — not what makes it good."</p>
+      <p class="approach-line">Trained in film, sound design, and music production — that's what directs the work, not the AI.</p>
+      <div class="approach-facts">
+        <span>Seoul-based</span>
+        <span>English · Korean · German</span>
+        <span>Amore Pacific AI Creative Award, 2026</span>
       </div>
     </div>
   </section>
@@ -306,7 +297,7 @@
   <!-- CAPABILITIES -->
   <section class="section">
     <div class="sec-head reveal">
-      <span class="idx">03</span>
+      <span class="idx">02</span>
       <h2>Who I <em>work with</em></h2>
     </div>
     <div class="ways reveal d1">
