@@ -10,7 +10,7 @@
   @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500&family=Young+Serif&display=swap');
 
   :root{
-    --bg:#151411;
+    --bg:#000000;
     --fg:#efece5;
     --dim:#7d7a73;
     --faint:#3a3833;
@@ -36,9 +36,10 @@
     padding:24px 42px;
   }
   nav .logo{font-family:'Young Serif',serif;font-size:22px;letter-spacing:-.01em;color:#efece5;}
-  .nav-links{display:flex;gap:32px;font-size:12px;letter-spacing:.5px;color:#efece5;}
+  .nav-links{display:flex;align-items:center;gap:32px;font-size:12px;letter-spacing:.5px;color:#efece5;}
   .nav-links a{opacity:.6;transition:opacity .3s;}
   .nav-links a:hover,.nav-links a.active{opacity:1;}
+  .nav-links .cta{opacity:1;}
   .nav-dropdown{position:relative;}
   .dropdown-menu{
     display:none;position:absolute;top:100%;left:50%;transform:translateX(-50%);padding-top:14px;min-width:150px;
@@ -112,9 +113,8 @@
   footer{border-top:1px solid var(--line);padding:44px 0;}
   .foot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
   .foot .logo{font-family:'Young Serif',serif;font-size:18px;}
-  .foot .fmail{font-size:14px;color:var(--dim);}
-  .foot .fmail:hover{color:var(--fg);}
-  .foot .fmeta{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--faint);}
+  .foot-contact{display:flex;gap:22px;font-size:13px;color:var(--dim);}
+  .foot-contact a:hover{color:var(--fg);}
 
   @media(max-width:860px){
     nav{padding:18px 24px;}
@@ -151,9 +151,7 @@
         <a href="/leon-goods-case-study">LEÒN Goods</a>
       </div></div>
     </div>
-    <a href="/portfolio">Selected Work</a>
-    <a href="https://www.instagram.com/noelntrl/" target="_blank" rel="noopener">Instagram</a>
-    <a href="https://www.linkedin.com/in/noellee098/" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="/start-a-project" class="cta" style="padding:10px 20px;">Start a project</a>
   </div>
   <button class="nav-toggle-btn" aria-label="Menu" aria-expanded="false">
     <span></span><span></span><span></span>
@@ -213,8 +211,11 @@
 <footer>
   <div class="wrap foot">
     <span class="logo">noelntrl</span>
-    <a class="fmail" href="mailto:noel@noelntrl.com">noel@noelntrl.com</a>
-    <span class="fmeta">Seoul — Campaign &amp; ad creative</span>
+    <div class="foot-contact">
+      <a href="https://www.instagram.com/noelntrl/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.linkedin.com/in/noellee098/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="mailto:noel@noelntrl.com">Email</a>
+    </div>
   </div>
 </footer>
 
