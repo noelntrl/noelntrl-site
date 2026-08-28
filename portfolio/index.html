@@ -36,9 +36,10 @@
     padding:24px 42px;
   }
   nav .logo{font-family:'Young Serif',serif;font-size:22px;letter-spacing:-.01em;color:#efece5;}
-  .nav-links{display:flex;gap:32px;font-size:12px;letter-spacing:.5px;color:#efece5;}
+  .nav-links{display:flex;align-items:center;gap:32px;font-size:12px;letter-spacing:.5px;color:#efece5;}
   .nav-links a{opacity:.6;transition:opacity .3s;}
   .nav-links a:hover,.nav-links a.active{opacity:1;}
+  .nav-links .cta{opacity:1;}
   .nav-dropdown{position:relative;}
   .dropdown-menu{
     display:none;position:absolute;top:100%;left:50%;transform:translateX(-50%);padding-top:14px;min-width:150px;
@@ -61,61 +62,53 @@
   nav.nav-open .nav-toggle-btn span:nth-child(2){opacity:0;}
   nav.nav-open .nav-toggle-btn span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg);}
 
-  /* HERO */
-  .hero{padding:180px 0 70px;border-bottom:1px solid var(--line);text-align:center;}
-  .eyebrow{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--dim);margin-bottom:20px;}
-  h1{
-    font-family:'Fraunces',serif;font-weight:300;font-style:italic;color:var(--fg);
-    font-size:clamp(48px,8vw,100px);line-height:1.1;letter-spacing:-.01em;
-    max-width:820px;margin:0 auto;
-  }
-  .meta-line{font-size:13px;color:var(--dim);max-width:560px;line-height:1.6;margin:0 auto;}
+  /* MAIN */
+  main.wrap{padding-top:150px;padding-bottom:120px;min-height:40vh;}
 
-  /* BRAND VISUALS */
-  .brand-visuals{padding:64px 0 20px;}
-  .section-label{font-size:16px;letter-spacing:3px;text-transform:uppercase;color:var(--fg);margin-bottom:20px;}
-  .section-label .idx{color:var(--accent);font-size:13px;letter-spacing:2px;font-variant-numeric:tabular-nums;margin-right:10px;}
-  .section-note{
-    text-transform:none;letter-spacing:normal;font-weight:400;font-size:13px;color:var(--dim);
-    font-family:'Inter',sans-serif;margin-left:6px;
+  /* VIDEO GRID */
+  .video-row-9x16{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;max-width:640px;margin:0 auto 40px;}
+  .video-row-9x16 .vid-box{aspect-ratio:9/16;}
+  .video-row-16x9{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  .video-row-16x9 .vid-box{aspect-ratio:16/9;}
+  .vid-box{position:relative;overflow:hidden;cursor:pointer;padding:0;border-radius:2px;background:var(--card);border:1px solid var(--line);}
+  .vid-box video{width:100%;height:100%;object-fit:cover;display:block;}
+  .vid-controls{
+    position:absolute;left:0;right:0;bottom:0;display:flex;align-items:center;gap:12px;
+    padding:16px;background:linear-gradient(to top, rgba(0,0,0,.6), transparent);
+    opacity:0;transition:opacity .25s ease;pointer-events:none;
   }
-  .brand-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
-  .brand-grid .p-item{overflow:hidden;border-radius:2px;background:var(--card);}
-  .brand-grid img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block;transition:transform .5s;}
-  .brand-grid .p-item:hover img{transform:scale(1.03);}
+  .vid-box:hover .vid-controls,.vid-box:focus-within .vid-controls{opacity:1;pointer-events:auto;}
+  .vid-play{
+    width:26px;height:26px;flex-shrink:0;border:none;background:none;color:var(--fg);
+    cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0;
+  }
+  .vid-play svg{width:100%;height:100%;}
+  .vid-bar{flex:1;height:3px;background:rgba(239,236,229,.25);border-radius:2px;cursor:pointer;}
+  .vid-bar-fill{height:100%;width:0%;background:var(--accent);border-radius:2px;}
+  .vid-fullscreen{
+    width:18px;height:18px;flex-shrink:0;border:none;background:none;color:var(--fg);
+    cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0;opacity:.85;
+  }
+  .vid-fullscreen:hover{opacity:1;}
+  .vid-fullscreen svg{width:100%;height:100%;}
+  .vid-box:fullscreen video,.vid-box:-webkit-full-screen video{object-fit:contain;background:#000;}
+  .vid-box:fullscreen,.vid-box:-webkit-full-screen{aspect-ratio:auto;}
+  .vid-label{font-size:12px;letter-spacing:.5px;color:var(--dim);margin-top:10px;}
 
-  /* CTA BAND */
-  .cta-band{padding:100px 0;text-align:center;border-top:1px solid var(--line);}
-  .cta-band h2{
-    font-family:'Fraunces',serif;font-weight:300;
-    font-size:clamp(26px,3.4vw,40px);letter-spacing:-.01em;margin-bottom:16px;
-  }
-  .cta-band p{font-size:14px;color:var(--dim);margin-bottom:30px;}
+  /* CTA */
   .cta{
     display:inline-block;font-size:12px;letter-spacing:2px;text-transform:uppercase;
-    border:1px solid var(--fg);border-radius:40px;padding:15px 30px;
-    background:var(--fg);color:var(--bg);
-    transition:background .4s,color .4s,border-color .4s;
+    border:1px solid var(--line);border-radius:40px;padding:15px 30px;color:var(--fg);
+    transition:background .4s,color .4s,border-color .4s;white-space:nowrap;
   }
-  .cta:hover{background:transparent;color:var(--fg);border-color:var(--line);}
-  .cta.outline{background:transparent;color:var(--fg);}
-  .cta.outline:hover{background:var(--fg);color:var(--bg);}
-
-  /* IG BAND */
-  .ig-band{padding:80px 0;text-align:center;border-top:1px solid var(--line);}
-  .ig-band h2{
-    font-family:'Fraunces',serif;font-weight:300;
-    font-size:clamp(22px,3vw,32px);letter-spacing:-.01em;margin-bottom:26px;
-  }
-  .ig-band .social-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+  .cta:hover{background:var(--fg);color:var(--bg);border-color:var(--fg);}
 
   /* FOOTER */
   footer{border-top:1px solid var(--line);padding:44px 0;}
   .foot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
   .foot .logo{font-family:'Young Serif',serif;font-size:18px;}
-  .foot .fmail{font-size:14px;color:var(--dim);}
-  .foot .fmail:hover{color:var(--fg);}
-  .foot .fmeta{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--faint);}
+  .foot-contact{display:flex;gap:22px;font-size:13px;color:var(--dim);}
+  .foot-contact a:hover{color:var(--fg);}
 
   @media(max-width:860px){
     nav{padding:18px 24px;}
@@ -131,10 +124,9 @@
     .dropdown-menu{position:static;transform:none;padding-top:18px;}
     .dropdown-menu .inner{display:flex;flex-direction:column;align-items:center;gap:2px;background:none;border:none;padding:0;}
     .wrap{padding:0 24px;}
-    .hero{padding:130px 0 40px;}
-    h1{font-size:26px;}
-    .brand-grid{grid-template-columns:repeat(2,1fr);gap:10px;}
-    .cta-band{padding:70px 0;}
+    main.wrap{padding-top:110px;padding-bottom:70px;}
+    .video-row-9x16{gap:12px;max-width:100%;margin-bottom:24px;}
+    .video-row-16x9{grid-template-columns:1fr;gap:16px;}
   }
 </style>
 </head>
@@ -151,72 +143,114 @@
         <a href="/leon-goods-case-study">LEÒN Goods</a>
       </div></div>
     </div>
-    <a href="/portfolio" class="active">Selected Work</a>
-    <a href="https://www.instagram.com/noelntrl/" target="_blank" rel="noopener">Instagram</a>
-    <a href="https://www.linkedin.com/in/noellee098/" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="/start-a-project" class="cta" style="padding:10px 20px;">Start a project</a>
   </div>
   <button class="nav-toggle-btn" aria-label="Menu" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
 </nav>
 
-<div class="wrap">
+<main class="wrap">
 
-  <section class="hero">
-    <h1>Selected Work</h1>
-  </section>
-
-  <section class="brand-visuals">
-    <div class="section-label"><span class="idx">01</span>Brand Visuals <span class="section-note">— Curated art direction, true to your brand — not random generation.</span></div>
-    <div class="brand-grid">
-      <div class="p-item"><img src="/ASSETS/Portfolio/image /Untitled-1_0006_7.jpg" alt="" loading="lazy"></div>
-      <div class="p-item"><img src="/ASSETS/Portfolio/image /Untitled-1_0007_8.jpg" alt="" loading="lazy"></div>
-      <div class="p-item"><img src="/ASSETS/Portfolio/image /Untitled-1_0004_5.jpg" alt="" loading="lazy"></div>
-      <div class="p-item"><img src="/ASSETS/Portfolio/image /Untitled-1_0005_6.jpg" alt="" loading="lazy"></div>
-      <div class="p-item"><img src="/ASSETS/Portfolio/image /Untitled-1_0009_10.jpg" alt="" loading="lazy"></div>
-      <div class="p-item"><img src="/ASSETS/Portfolio/image /Untitled-1_0011_12.jpg" alt="" loading="lazy"></div>
-      <div class="p-item"><img src="/ASSETS/Portfolio/image /Untitled-1_0013_14.jpg" alt="" loading="lazy"></div>
-      <div class="p-item"><img src="/ASSETS/Portfolio/image /Untitled-1_0014_15.jpg" alt="" loading="lazy"></div>
+  <div class="video-row-9x16">
+    <div>
+      <div class="vid-box">
+        <video id="workVideo1" preload="metadata" playsinline src="/ASSETS/Portfolio/videos/aesop%20spec.mp4"></video>
+        <div class="vid-controls">
+          <button class="vid-play" type="button" aria-label="Play">
+            <svg viewBox="0 0 24 24" fill="currentColor" class="i-play"><path d="M8 5v14l11-7z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor" class="i-pause" style="display:none;"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
+          </button>
+          <div class="vid-bar"><div class="vid-bar-fill"></div></div>
+          <button class="vid-fullscreen" type="button" aria-label="Fullscreen">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3M16 3h3a2 2 0 0 1 2 2v3M21 16v3a2 2 0 0 1-2 2h-3M8 21H5a2 2 0 0 1-2-2v-3"/></svg>
+          </button>
+        </div>
+      </div>
+      <div class="vid-label">Aesop — Spec</div>
     </div>
-  </section>
 
-  <section class="brand-visuals">
-    <div class="section-label"><span class="idx">02</span>Static Ads <span class="section-note">— AI-driven research to find the angle, then generated to convert.</span></div>
-    <div class="brand-grid">
-      <div class="p-item"><img src="/ASSETS/Landing Page Originals/7.jpg" alt="" loading="lazy"></div>
-      <div class="p-item"><img src="/ASSETS/Landing Page Originals/8.jpg" alt="" loading="lazy"></div>
-      <div class="p-item"><img src="/ASSETS/Landing Page Originals/4.jpg" alt="" loading="lazy"></div>
-      <div class="p-item"><img src="/ASSETS/Landing Page Originals/5.jpg" alt="" loading="lazy"></div>
-      <div class="p-item"><img src="/ASSETS/Landing Page Originals/9.jpg" alt="" loading="lazy"></div>
-      <div class="p-item"><img src="/ASSETS/Landing Page Originals/10.jpg" alt="" loading="lazy"></div>
-      <div class="p-item"><img src="/ASSETS/Landing Page Originals/11.jpg" alt="" loading="lazy"></div>
-      <div class="p-item"><img src="/ASSETS/Landing Page Originals/12.jpg" alt="" loading="lazy"></div>
+    <div>
+      <div class="vid-box">
+        <video id="workVideo3" preload="metadata" playsinline src="/ASSETS/Portfolio/videos/neccessaire%20spec.mp4"></video>
+        <div class="vid-controls">
+          <button class="vid-play" type="button" aria-label="Play">
+            <svg viewBox="0 0 24 24" fill="currentColor" class="i-play"><path d="M8 5v14l11-7z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor" class="i-pause" style="display:none;"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
+          </button>
+          <div class="vid-bar"><div class="vid-bar-fill"></div></div>
+          <button class="vid-fullscreen" type="button" aria-label="Fullscreen">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3M16 3h3a2 2 0 0 1 2 2v3M21 16v3a2 2 0 0 1-2 2h-3M8 21H5a2 2 0 0 1-2-2v-3"/></svg>
+          </button>
+        </div>
+      </div>
+      <div class="vid-label">Necessaire — Spec</div>
     </div>
-  </section>
-
-  <section class="ig-band">
-    <h2>More on</h2>
-    <div class="social-row">
-      <a href="https://www.instagram.com/noelntrl/" target="_blank" rel="noopener" class="cta outline">Instagram</a>
-      <a href="https://www.linkedin.com/in/noellee098/" target="_blank" rel="noopener" class="cta outline">LinkedIn</a>
-    </div>
-  </section>
-
-</div>
-
-<section class="cta-band">
-  <div class="wrap">
-    <h2>Need visuals like this?</h2>
-    <p>Static and motion, built around your product — no shoot required.</p>
-    <a href="/start-a-project" class="cta">Start a project</a>
   </div>
-</section>
+
+  <div class="video-row-16x9">
+    <div>
+      <div class="vid-box">
+        <video id="workVideo2" preload="metadata" playsinline data-thumb-time="0" src="/ASSETS/Portfolio/videos/amorepacific%20award%20video.mp4"></video>
+        <div class="vid-controls">
+          <button class="vid-play" type="button" aria-label="Play">
+            <svg viewBox="0 0 24 24" fill="currentColor" class="i-play"><path d="M8 5v14l11-7z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor" class="i-pause" style="display:none;"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
+          </button>
+          <div class="vid-bar"><div class="vid-bar-fill"></div></div>
+          <button class="vid-fullscreen" type="button" aria-label="Fullscreen">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3M16 3h3a2 2 0 0 1 2 2v3M21 16v3a2 2 0 0 1-2 2h-3M8 21H5a2 2 0 0 1-2-2v-3"/></svg>
+          </button>
+        </div>
+      </div>
+      <div class="vid-label">Amore Pacific — Award video</div>
+    </div>
+
+    <div>
+      <div class="vid-box">
+        <video id="workVideo4" preload="metadata" playsinline data-thumb-time="2" src="/ASSETS/Portfolio/videos/redbull%20spec.mp4"></video>
+        <div class="vid-controls">
+          <button class="vid-play" type="button" aria-label="Play">
+            <svg viewBox="0 0 24 24" fill="currentColor" class="i-play"><path d="M8 5v14l11-7z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor" class="i-pause" style="display:none;"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
+          </button>
+          <div class="vid-bar"><div class="vid-bar-fill"></div></div>
+          <button class="vid-fullscreen" type="button" aria-label="Fullscreen">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3M16 3h3a2 2 0 0 1 2 2v3M21 16v3a2 2 0 0 1-2 2h-3M8 21H5a2 2 0 0 1-2-2v-3"/></svg>
+          </button>
+        </div>
+      </div>
+      <div class="vid-label">Red Bull — Spec</div>
+    </div>
+
+    <div>
+      <div class="vid-box">
+        <video id="workVideo5" preload="metadata" playsinline src="/ASSETS/Portfolio/videos/salomon%20spec.mp4"></video>
+        <div class="vid-controls">
+          <button class="vid-play" type="button" aria-label="Play">
+            <svg viewBox="0 0 24 24" fill="currentColor" class="i-play"><path d="M8 5v14l11-7z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor" class="i-pause" style="display:none;"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
+          </button>
+          <div class="vid-bar"><div class="vid-bar-fill"></div></div>
+          <button class="vid-fullscreen" type="button" aria-label="Fullscreen">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3M16 3h3a2 2 0 0 1 2 2v3M21 16v3a2 2 0 0 1-2 2h-3M8 21H5a2 2 0 0 1-2-2v-3"/></svg>
+          </button>
+        </div>
+      </div>
+      <div class="vid-label">Salomon — Spec</div>
+    </div>
+  </div>
+
+</main>
 
 <footer>
   <div class="wrap foot">
     <span class="logo">noelntrl</span>
-    <a class="fmail" href="mailto:noel@noelntrl.com">noel@noelntrl.com</a>
-    <span class="fmeta">Seoul — AI-native creative production</span>
+    <div class="foot-contact">
+      <a href="https://www.instagram.com/noelntrl/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.linkedin.com/in/noellee098/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="mailto:noel@noelntrl.com">Email</a>
+    </div>
   </div>
 </footer>
 
@@ -253,6 +287,77 @@
     if(navEl && navEl.classList.contains('nav-open') && !navEl.contains(e.target)){
       navEl.classList.remove('nav-open');
       if(navToggleBtn) navToggleBtn.setAttribute('aria-expanded','false');
+    }
+  });
+
+  // Custom controls: hidden by default, shown only on hover, with a
+  // last-frame "thumbnail" before the first play.
+  document.querySelectorAll('.vid-box').forEach(function(box){
+    var v = box.querySelector('video');
+    var playBtn = box.querySelector('.vid-play');
+    var iPlay = box.querySelector('.i-play');
+    var iPause = box.querySelector('.i-pause');
+    var bar = box.querySelector('.vid-bar');
+    var fill = box.querySelector('.vid-bar-fill');
+    var fsBtn = box.querySelector('.vid-fullscreen');
+    if (!v) return;
+    var startedFromEnd = false;
+
+    v.addEventListener('loadedmetadata', function(){
+      var thumbAttr = v.getAttribute('data-thumb-time');
+      var t = thumbAttr !== null && isFinite(parseFloat(thumbAttr))
+        ? parseFloat(thumbAttr)
+        : (v.duration && isFinite(v.duration) ? Math.max(0, v.duration - 0.15) : undefined);
+      if (t !== undefined) {
+        v.currentTime = Math.min(t, v.duration && isFinite(v.duration) ? v.duration : t);
+        startedFromEnd = true;
+      }
+    });
+    v.addEventListener('play', function(){
+      if (startedFromEnd) {
+        startedFromEnd = false;
+        v.currentTime = 0;
+      }
+      iPlay.style.display = 'none';
+      iPause.style.display = '';
+      playBtn.setAttribute('aria-label', 'Pause');
+    });
+    v.addEventListener('pause', function(){
+      iPlay.style.display = '';
+      iPause.style.display = 'none';
+      playBtn.setAttribute('aria-label', 'Play');
+    });
+    v.addEventListener('timeupdate', function(){
+      if (v.duration && isFinite(v.duration) && !startedFromEnd) {
+        fill.style.width = (v.currentTime / v.duration * 100) + '%';
+      }
+    });
+
+    function toggle(){ v.paused ? v.play() : v.pause(); }
+    playBtn.addEventListener('click', function(e){ e.stopPropagation(); toggle(); });
+    box.addEventListener('click', toggle);
+
+    function seek(e){
+      var r = bar.getBoundingClientRect();
+      var pct = Math.min(1, Math.max(0, (e.clientX - r.left) / r.width));
+      if (v.duration && isFinite(v.duration)) v.currentTime = pct * v.duration;
+    }
+    bar.addEventListener('click', function(e){ e.stopPropagation(); seek(e); });
+
+    if (fsBtn) {
+      fsBtn.addEventListener('click', function(e){
+        e.stopPropagation();
+        var fsEl = document.fullscreenElement || document.webkitFullscreenElement;
+        if (fsEl) {
+          (document.exitFullscreen || document.webkitExitFullscreen).call(document);
+        } else if (box.requestFullscreen) {
+          box.requestFullscreen();
+        } else if (box.webkitRequestFullscreen) {
+          box.webkitRequestFullscreen();
+        } else if (v.webkitEnterFullscreen) {
+          v.webkitEnterFullscreen(); // iOS Safari: video-only native fullscreen
+        }
+      });
     }
   });
 </script>
