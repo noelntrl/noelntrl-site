@@ -67,6 +67,7 @@
 
   /* VIDEO GRID */
   .video-row-9x16{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;max-width:640px;margin:0 auto 40px;}
+  .video-row-9x16.row-4{grid-template-columns:repeat(4,1fr);gap:16px;max-width:1120px;}
   .video-row-9x16 .vid-box{aspect-ratio:9/16;}
   .video-row-16x9{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
   .video-row-16x9 .vid-box{aspect-ratio:16/9;}
@@ -126,6 +127,7 @@
     .wrap{padding:0 24px;}
     main.wrap{padding-top:110px;padding-bottom:70px;}
     .video-row-9x16{gap:12px;max-width:100%;margin-bottom:24px;}
+    .video-row-9x16.row-4{grid-template-columns:repeat(2,1fr);}
     .video-row-16x9{grid-template-columns:1fr;gap:16px;}
   }
 </style>
@@ -152,7 +154,7 @@
 
 <main class="wrap">
 
-  <div class="video-row-9x16">
+  <div class="video-row-9x16 row-4">
     <div>
       <div class="vid-box">
         <video id="workVideo1" preload="metadata" playsinline src="/ASSETS/Portfolio/videos/aesop%20spec.mp4"></video>
@@ -185,6 +187,40 @@
         </div>
       </div>
       <div class="vid-label">Necessaire — Spec</div>
+    </div>
+
+    <div>
+      <div class="vid-box">
+        <video id="workVideo7" preload="metadata" playsinline src="/ASSETS/Portfolio/videos/byredo%20spec.mp4"></video>
+        <div class="vid-controls">
+          <button class="vid-play" type="button" aria-label="Play">
+            <svg viewBox="0 0 24 24" fill="currentColor" class="i-play"><path d="M8 5v14l11-7z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor" class="i-pause" style="display:none;"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
+          </button>
+          <div class="vid-bar"><div class="vid-bar-fill"></div></div>
+          <button class="vid-fullscreen" type="button" aria-label="Fullscreen">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3M16 3h3a2 2 0 0 1 2 2v3M21 16v3a2 2 0 0 1-2 2h-3M8 21H5a2 2 0 0 1-2-2v-3"/></svg>
+          </button>
+        </div>
+      </div>
+      <div class="vid-label">Byredo — Spec</div>
+    </div>
+
+    <div>
+      <div class="vid-box">
+        <video id="workVideo8" preload="metadata" playsinline src="/ASSETS/Portfolio/videos/aesop%20spec%202.mp4"></video>
+        <div class="vid-controls">
+          <button class="vid-play" type="button" aria-label="Play">
+            <svg viewBox="0 0 24 24" fill="currentColor" class="i-play"><path d="M8 5v14l11-7z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor" class="i-pause" style="display:none;"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
+          </button>
+          <div class="vid-bar"><div class="vid-bar-fill"></div></div>
+          <button class="vid-fullscreen" type="button" aria-label="Fullscreen">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3M16 3h3a2 2 0 0 1 2 2v3M21 16v3a2 2 0 0 1-2 2h-3M8 21H5a2 2 0 0 1-2-2v-3"/></svg>
+          </button>
+        </div>
+      </div>
+      <div class="vid-label">Aesop — Spec 2</div>
     </div>
   </div>
 
