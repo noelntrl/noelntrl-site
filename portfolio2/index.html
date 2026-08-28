@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>noelntrl — Fashion</title>
+<link rel="icon" type="image/png" href="/ASSETS/Logo/web logo.png">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500&family=Young+Serif&display=swap');
+
+  :root{
+    --bg:#000000;
+    --fg:#efece5;
+    --dim:#7d7a73;
+    --faint:#3a3833;
+    --accent:#c9a96a;
+    --line:rgba(239,236,229,0.10);
+    --card:#1C1B17;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg);color:var(--fg);
+    font-family:'Inter',sans-serif;font-weight:300;
+    -webkit-font-smoothing:antialiased;overflow-x:hidden;
+  }
+  ::selection{background:var(--accent);color:#0a0a0a;}
+  a{text-decoration:none;color:inherit;}
+  .wrap{max-width:100%;margin:0;padding:0 48px;}
+
+  /* NAV */
+  nav{
+    position:fixed;top:0;left:0;right:0;z-index:50;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:24px 42px;
+  }
+  nav .logo{font-family:'Young Serif',serif;font-size:22px;letter-spacing:-.01em;color:#efece5;}
+  .nav-links{display:flex;align-items:center;gap:32px;font-size:12px;letter-spacing:.5px;color:#efece5;}
+  .nav-links a{opacity:.6;transition:opacity .3s;}
+  .nav-links a:hover,.nav-links a.active{opacity:1;}
+  .nav-links .cta{opacity:1;}
+
+  .nav-toggle-btn{display:none;background:none;border:none;cursor:pointer;padding:6px;flex-direction:column;gap:5px;z-index:60;}
+  .nav-toggle-btn span{display:block;width:22px;height:1.5px;background:#efece5;transition:transform .3s ease,opacity .3s ease;}
+  nav.nav-open .nav-toggle-btn span:nth-child(1){transform:translateY(6.5px) rotate(45deg);}
+  nav.nav-open .nav-toggle-btn span:nth-child(2){opacity:0;}
+  nav.nav-open .nav-toggle-btn span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg);}
+
+  /* MAIN */
+  main.wrap{padding-top:150px;padding-bottom:120px;min-height:40vh;}
+
+  .page-head{margin-bottom:48px;}
+  .page-head .eyebrow{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--dim);margin-bottom:14px;}
+  .page-head h1{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(32px,4vw,48px);letter-spacing:-.01em;color:var(--fg);}
+
+  /* MASONRY GALLERY */
+  .gallery{column-count:3;column-gap:20px;}
+  .g-item{
+    break-inside:avoid;margin-bottom:20px;overflow:hidden;
+    border-radius:2px;background:var(--card);border:1px solid var(--line);
+    cursor:zoom-in;
+  }
+  .g-item img{display:block;width:100%;height:auto;transition:transform .5s ease;}
+  .g-item:hover img{transform:scale(1.02);}
+
+  /* LIGHTBOX */
+  .lightbox{
+    position:fixed;inset:0;z-index:100;background:rgba(0,0,0,.94);
+    display:none;align-items:center;justify-content:center;padding:40px;
+  }
+  .lightbox.open{display:flex;}
+  .lightbox img{max-width:100%;max-height:100%;display:block;border-radius:2px;}
+  .lb-close,.lb-prev,.lb-next{
+    position:absolute;background:none;border:none;color:var(--fg);cursor:pointer;
+    display:flex;align-items:center;justify-content:center;opacity:.7;transition:opacity .2s;
+  }
+  .lb-close:hover,.lb-prev:hover,.lb-next:hover{opacity:1;}
+  .lb-close{top:24px;right:32px;width:28px;height:28px;}
+  .lb-close svg{width:100%;height:100%;}
+  .lb-prev,.lb-next{top:50%;transform:translateY(-50%);width:44px;height:44px;}
+  .lb-prev{left:16px;}
+  .lb-next{right:16px;}
+  .lb-prev svg,.lb-next svg{width:100%;height:100%;}
+  .lb-count{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);font-size:12px;letter-spacing:.5px;color:var(--dim);}
+
+  /* CTA */
+  .cta{
+    display:inline-block;font-size:12px;letter-spacing:2px;text-transform:uppercase;
+    border:1px solid var(--line);border-radius:40px;padding:15px 30px;color:var(--fg);
+    transition:background .4s,color .4s,border-color .4s;white-space:nowrap;
+  }
+  .cta:hover{background:var(--fg);color:var(--bg);border-color:var(--fg);}
+
+  /* FOOTER */
+  footer{border-top:1px solid var(--line);padding:44px 0;}
+  .foot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
+  .foot .logo{font-family:'Young Serif',serif;font-size:18px;}
+  .foot-contact{display:flex;gap:22px;font-size:13px;color:var(--dim);}
+  .foot-contact a:hover{color:var(--fg);}
+
+  @media(max-width:1100px){
+    .gallery{column-count:2;}
+  }
+  @media(max-width:860px){
+    nav{padding:18px 24px;}
+    .nav-toggle-btn{display:flex;}
+    .nav-links{
+      display:none;position:absolute;top:100%;left:0;right:0;
+      flex-direction:column;align-items:center;gap:22px;
+      background:var(--bg);border-top:1px solid var(--line);
+      padding:28px 24px 32px;
+    }
+    nav.nav-open .nav-links{display:flex;}
+    .wrap{padding:0 24px;}
+    main.wrap{padding-top:110px;padding-bottom:70px;}
+    .gallery{column-count:1;}
+    .lb-prev,.lb-next{width:34px;height:34px;}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="logo" href="/">noelntrl</a>
+  <div class="nav-links">
+    <a href="/portfolio">Work</a>
+    <a href="/start-a-project" class="cta" style="padding:10px 20px;">Start a project</a>
+  </div>
+  <button class="nav-toggle-btn" aria-label="Menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<main class="wrap">
+
+  <div class="page-head">
+    <div class="eyebrow">Selected Work</div>
+    <h1>Fashion</h1>
+  </div>
+
+  <div class="gallery" id="gallery">
+    <div class="g-item"><img loading="lazy" src="/ASSETS/fashion/web/1.jpg" alt="Fashion 1"></div>
+    <div class="g-item"><img loading="lazy" src="/ASSETS/fashion/web/2.jpg" alt="Fashion 2"></div>
+    <div class="g-item"><img loading="lazy" src="/ASSETS/fashion/web/3.jpg" alt="Fashion 3"></div>
+    <div class="g-item"><img loading="lazy" src="/ASSETS/fashion/web/4.jpg" alt="Fashion 4"></div>
+    <div class="g-item"><img loading="lazy" src="/ASSETS/fashion/web/5.jpg" alt="Fashion 5"></div>
+    <div class="g-item"><img loading="lazy" src="/ASSETS/fashion/web/6.jpg" alt="Fashion 6"></div>
+    <div class="g-item"><img loading="lazy" src="/ASSETS/fashion/web/7.jpg" alt="Fashion 7"></div>
+    <div class="g-item"><img loading="lazy" src="/ASSETS/fashion/web/8.jpg" alt="Fashion 8"></div>
+    <div class="g-item"><img loading="lazy" src="/ASSETS/fashion/web/9.jpg" alt="Fashion 9"></div>
+    <div class="g-item"><img loading="lazy" src="/ASSETS/fashion/web/10.jpg" alt="Fashion 10"></div>
+    <div class="g-item"><img loading="lazy" src="/ASSETS/fashion/web/14.jpg" alt="Fashion 14"></div>
+    <div class="g-item"><img loading="lazy" src="/ASSETS/fashion/web/15.jpg" alt="Fashion 15"></div>
+    <div class="g-item"><img loading="lazy" src="/ASSETS/fashion/web/16.jpg" alt="Fashion 16"></div>
+    <div class="g-item"><img loading="lazy" src="/ASSETS/fashion/web/17.jpg" alt="Fashion 17"></div>
+    <div class="g-item"><img loading="lazy" src="/ASSETS/fashion/web/18.jpg" alt="Fashion 18"></div>
+    <div class="g-item"><img loading="lazy" src="/ASSETS/fashion/web/19.jpg" alt="Fashion 19"></div>
+    <div class="g-item"><img loading="lazy" src="/ASSETS/fashion/web/20.jpg" alt="Fashion 20"></div>
+    <div class="g-item"><img loading="lazy" src="/ASSETS/fashion/web/21.jpg" alt="Fashion 21"></div>
+    <div class="g-item"><img loading="lazy" src="/ASSETS/fashion/web/21a.jpg" alt="Fashion 21a"></div>
+    <div class="g-item"><img loading="lazy" src="/ASSETS/fashion/web/22.jpg" alt="Fashion 22"></div>
+    <div class="g-item"><img loading="lazy" src="/ASSETS/fashion/web/23.jpg" alt="Fashion 23"></div>
+    <div class="g-item"><img loading="lazy" src="/ASSETS/fashion/web/24.jpg" alt="Fashion 24"></div>
+    <div class="g-item"><img loading="lazy" src="/ASSETS/fashion/web/25.jpg" alt="Fashion 25"></div>
+    <div class="g-item"><img loading="lazy" src="/ASSETS/fashion/web/26.jpg" alt="Fashion 26"></div>
+    <div class="g-item"><img loading="lazy" src="/ASSETS/fashion/web/27.jpg" alt="Fashion 27"></div>
+  </div>
+
+</main>
+
+<div class="lightbox" id="lightbox">
+  <button class="lb-close" aria-label="Close">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M5 5l14 14M19 5L5 19"/></svg>
+  </button>
+  <button class="lb-prev" aria-label="Previous">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg>
+  </button>
+  <img id="lb-img" src="" alt="">
+  <button class="lb-next" aria-label="Next">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg>
+  </button>
+  <div class="lb-count" id="lb-count"></div>
+</div>
+
+<footer>
+  <div class="wrap foot">
+    <span class="logo">noelntrl</span>
+    <div class="foot-contact">
+      <a href="https://www.instagram.com/noelntrl/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.linkedin.com/in/noellee098/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="mailto:noel@noelntrl.com">Email</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  var navEl = document.querySelector('nav');
+  var navToggleBtn = document.querySelector('.nav-toggle-btn');
+  if(navEl && navToggleBtn){
+    navToggleBtn.addEventListener('click', function(e){
+      e.stopPropagation();
+      var isOpen = navEl.classList.toggle('nav-open');
+      navToggleBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+    document.querySelectorAll('.nav-links a').forEach(function(a){
+      a.addEventListener('click', function(){
+        navEl.classList.remove('nav-open');
+        navToggleBtn.setAttribute('aria-expanded','false');
+      });
+    });
+  }
+  document.addEventListener('click', function(e){
+    if(navEl && navEl.classList.contains('nav-open') && !navEl.contains(e.target)){
+      navEl.classList.remove('nav-open');
+      if(navToggleBtn) navToggleBtn.setAttribute('aria-expanded','false');
+    }
+  });
+
+  // Lightbox
+  var items = Array.prototype.map.call(document.querySelectorAll('#gallery img'), function(img){ return img.getAttribute('src'); });
+  var lb = document.getElementById('lightbox');
+  var lbImg = document.getElementById('lb-img');
+  var lbCount = document.getElementById('lb-count');
+  var current = 0;
+
+  function show(i){
+    current = (i + items.length) % items.length;
+    lbImg.src = items[current];
+    lbCount.textContent = (current + 1) + ' / ' + items.length;
+  }
+  function open(i){
+    show(i);
+    lb.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function close(){
+    lb.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  document.querySelectorAll('#gallery .g-item').forEach(function(el, i){
+    el.addEventListener('click', function(){ open(i); });
+  });
+  document.querySelector('.lb-close').addEventListener('click', close);
+  document.querySelector('.lb-prev').addEventListener('click', function(e){ e.stopPropagation(); show(current - 1); });
+  document.querySelector('.lb-next').addEventListener('click', function(e){ e.stopPropagation(); show(current + 1); });
+  lb.addEventListener('click', function(e){ if(e.target === lb) close(); });
+  document.addEventListener('keydown', function(e){
+    if(!lb.classList.contains('open')) return;
+    if(e.key === 'Escape') close();
+    if(e.key === 'ArrowLeft') show(current - 1);
+    if(e.key === 'ArrowRight') show(current + 1);
+  });
+</script>
+
+</body>
+</html>

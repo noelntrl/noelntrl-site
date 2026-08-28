@@ -1,0 +1,7 @@
+# Raw/full-res source images — not needed for the live site.
+# Optimized web-ready versions live in ASSETS/fashion/web/ and stay tracked.
+ASSETS/fashion/*.png
+ASSETS/fashion/*.jpg
+ASSETS/fashion/*.jpeg
+
+.DS_Store
