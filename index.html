@@ -299,7 +299,19 @@
           </button>
         </div>
       </div>
-      <div class="video-placeholder"><span class="vp-label">16:9 — Video</span></div>
+      <div class="video-placeholder vid-box">
+        <video id="workVideo2" preload="metadata" playsinline src="/ASSETS/Portfolio/videos/GM-V3.mp4"></video>
+        <div class="vid-controls">
+          <button class="vid-play" type="button" aria-label="Play">
+            <svg viewBox="0 0 24 24" fill="currentColor" class="i-play"><path d="M8 5v14l11-7z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor" class="i-pause" style="display:none;"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
+          </button>
+          <div class="vid-bar"><div class="vid-bar-fill"></div></div>
+          <button class="vid-fullscreen" type="button" aria-label="Fullscreen">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3M16 3h3a2 2 0 0 1 2 2v3M21 16v3a2 2 0 0 1-2 2h-3M8 21H5a2 2 0 0 1-2-2v-3"/></svg>
+          </button>
+        </div>
+      </div>
     </div>
 
     <div class="more-work reveal d2">
