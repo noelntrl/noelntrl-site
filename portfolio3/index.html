@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>noelntrl — UGC</title>
+<link rel="icon" type="image/png" href="/ASSETS/Logo/web logo.png">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500&family=Young+Serif&display=swap');
+
+  :root{
+    --bg:#000000;
+    --fg:#efece5;
+    --dim:#7d7a73;
+    --faint:#3a3833;
+    --accent:#c9a96a;
+    --line:rgba(239,236,229,0.10);
+    --card:#1C1B17;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg);color:var(--fg);
+    font-family:'Inter',sans-serif;font-weight:300;
+    -webkit-font-smoothing:antialiased;overflow-x:hidden;
+  }
+  ::selection{background:var(--accent);color:#0a0a0a;}
+  a{text-decoration:none;color:inherit;}
+  .wrap{max-width:100%;margin:0;padding:0 48px;}
+
+  /* NAV */
+  nav{
+    position:fixed;top:0;left:0;right:0;z-index:50;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:24px 42px;
+  }
+  nav .logo{font-family:'Young Serif',serif;font-size:22px;letter-spacing:-.01em;color:#efece5;}
+  .nav-links{display:flex;align-items:center;gap:32px;font-size:12px;letter-spacing:.5px;color:#efece5;}
+  .nav-links a{opacity:.6;transition:opacity .3s;}
+  .nav-links a:hover,.nav-links a.active{opacity:1;}
+  .nav-links .cta{opacity:1;}
+  .nav-dropdown{position:relative;}
+  .dropdown-menu{
+    display:none;position:absolute;top:100%;left:50%;transform:translateX(-50%);padding-top:14px;min-width:150px;
+  }
+  .nav-dropdown:hover .dropdown-menu{display:block;}
+  .nav-dropdown.open .dropdown-menu{display:block;}
+  .dropdown-menu .inner{
+    background:#1C1B17;border:1px solid var(--line);padding:6px 0;
+  }
+  .dropdown-menu a{
+    display:block;padding:9px 14px;font-family:'Fraunces',serif;font-size:14px;
+    color:var(--dim);opacity:1;transition:color .2s,background .2s;white-space:nowrap;
+  }
+  .dropdown-menu a:hover{color:var(--fg);background:rgba(239,236,229,.04);}
+  .dropdown-menu a.active{color:var(--fg);}
+
+  .nav-toggle-btn{display:none;background:none;border:none;cursor:pointer;padding:6px;flex-direction:column;gap:5px;z-index:60;}
+  .nav-toggle-btn span{display:block;width:22px;height:1.5px;background:#efece5;transition:transform .3s ease,opacity .3s ease;}
+  nav.nav-open .nav-toggle-btn span:nth-child(1){transform:translateY(6.5px) rotate(45deg);}
+  nav.nav-open .nav-toggle-btn span:nth-child(2){opacity:0;}
+  nav.nav-open .nav-toggle-btn span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg);}
+
+  /* MAIN */
+  main.wrap{padding-top:150px;padding-bottom:120px;min-height:40vh;}
+
+  .page-head{margin-bottom:48px;}
+  .page-head .eyebrow{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--dim);margin-bottom:14px;}
+  .page-head h1{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(32px,4vw,48px);letter-spacing:-.01em;color:var(--fg);}
+
+  /* VIDEO GRID */
+  .video-row-9x16{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;max-width:640px;margin:0 auto 40px;}
+  .video-row-9x16.row-4{grid-template-columns:repeat(4,1fr);gap:16px;max-width:1120px;}
+  .video-row-9x16 .vid-box{aspect-ratio:9/16;}
+  .video-row-16x9{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  .video-row-16x9 .vid-box{aspect-ratio:16/9;}
+  .video-row-16x9.row-2{grid-template-columns:repeat(2,1fr);margin-bottom:40px;}
+  .video-row-16x9.row-1{grid-template-columns:1fr;max-width:640px;margin:0 auto;}
+  .vid-box{position:relative;overflow:hidden;cursor:pointer;padding:0;border-radius:2px;background:var(--card);border:1px solid var(--line);}
+  .vid-box video{width:100%;height:100%;object-fit:cover;display:block;}
+  .vid-controls{
+    position:absolute;left:0;right:0;bottom:0;display:flex;align-items:center;gap:12px;
+    padding:16px;background:linear-gradient(to top, rgba(0,0,0,.6), transparent);
+    opacity:0;transition:opacity .25s ease;pointer-events:none;
+  }
+  .vid-box:hover .vid-controls,.vid-box:focus-within .vid-controls{opacity:1;pointer-events:auto;}
+  .vid-play{
+    width:26px;height:26px;flex-shrink:0;border:none;background:none;color:var(--fg);
+    cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0;
+  }
+  .vid-play svg{width:100%;height:100%;}
+  .vid-bar{position:relative;flex:1;height:20px;display:flex;align-items:center;cursor:pointer;touch-action:none;}
+  .vid-bar-track{position:relative;width:100%;height:3px;background:rgba(239,236,229,.25);border-radius:2px;transition:height .15s ease;}
+  .vid-bar:hover .vid-bar-track,.vid-bar.dragging .vid-bar-track{height:5px;}
+  .vid-bar-fill{height:100%;width:0%;background:var(--accent);border-radius:2px;}
+  .vid-bar-thumb{
+    position:absolute;top:50%;left:0%;width:11px;height:11px;border-radius:50%;
+    background:var(--accent);transform:translate(-50%,-50%);opacity:0;
+    transition:opacity .15s ease;pointer-events:none;box-shadow:0 0 0 3px rgba(0,0,0,.35);
+  }
+  .vid-bar:hover .vid-bar-thumb,.vid-bar.dragging .vid-bar-thumb{opacity:1;}
+  .vid-fullscreen{
+    width:18px;height:18px;flex-shrink:0;border:none;background:none;color:var(--fg);
+    cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0;opacity:.85;
+  }
+  .vid-fullscreen:hover{opacity:1;}
+  .vid-fullscreen svg{width:100%;height:100%;}
+  .vid-box:fullscreen video,.vid-box:-webkit-full-screen video{object-fit:contain;background:#000;}
+  .vid-box:fullscreen,.vid-box:-webkit-full-screen{aspect-ratio:auto;}
+  .vid-label{font-size:12px;letter-spacing:.5px;color:var(--dim);margin-top:10px;}
+
+  /* CTA */
+  .cta{
+    display:inline-block;font-size:12px;letter-spacing:2px;text-transform:uppercase;
+    border:1px solid var(--line);border-radius:40px;padding:15px 30px;color:var(--fg);
+    transition:background .4s,color .4s,border-color .4s;white-space:nowrap;
+  }
+  .cta:hover{background:var(--fg);color:var(--bg);border-color:var(--fg);}
+
+  /* FOOTER */
+  footer{border-top:1px solid var(--line);padding:44px 0;}
+  .foot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
+  .foot .logo{font-family:'Young Serif',serif;font-size:18px;}
+  .foot-contact{display:flex;gap:22px;font-size:13px;color:var(--dim);}
+  .foot-contact a:hover{color:var(--fg);}
+
+  @media(max-width:860px){
+    nav{padding:18px 24px;}
+    .nav-toggle-btn{display:flex;}
+    .nav-links{
+      display:none;position:absolute;top:100%;left:0;right:0;
+      flex-direction:column;align-items:center;gap:22px;
+      background:var(--bg);border-top:1px solid var(--line);
+      padding:28px 24px 32px;
+    }
+    nav.nav-open .nav-links{display:flex;}
+    .nav-dropdown{display:flex;flex-direction:column;align-items:center;}
+    .dropdown-menu{position:static;transform:none;padding-top:18px;}
+    .dropdown-menu .inner{display:flex;flex-direction:column;align-items:center;gap:2px;background:none;border:none;padding:0;}
+    .wrap{padding:0 24px;}
+    main.wrap{padding-top:110px;padding-bottom:70px;}
+    .video-row-9x16{gap:12px;max-width:100%;margin-bottom:24px;}
+    .video-row-9x16.row-4{grid-template-columns:repeat(2,1fr);}
+    .video-row-16x9{grid-template-columns:1fr;gap:16px;}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="logo" href="/">noelntrl</a>
+  <div class="nav-links">
+    <div class="nav-dropdown">
+      <a href="#" class="nav-toggle">Work</a>
+      <div class="dropdown-menu"><div class="inner">
+        <a href="/amore-pacific-case-study">Amore Pacific</a>
+        <a href="/bfrc-case-study">BFRC</a>
+        <a href="/leon-goods-case-study">LEÒN Goods</a>
+      </div></div>
+    </div>
+    <a href="/start-a-project" class="cta" style="padding:10px 20px;">Start a project</a>
+  </div>
+  <button class="nav-toggle-btn" aria-label="Menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<main class="wrap">
+
+  <div class="page-head">
+    <div class="eyebrow">Selected Work</div>
+    <h1>Performance Creatives</h1>
+  </div>
+
+  <div class="video-row-9x16">
+    <div>
+      <div class="vid-box">
+        <video id="workVideo1" preload="metadata" playsinline data-thumb-time="1" src="/ASSETS/Portfolio/videos/UGC%20V1.mp4"></video>
+        <div class="vid-controls">
+          <button class="vid-play" type="button" aria-label="Play">
+            <svg viewBox="0 0 24 24" fill="currentColor" class="i-play"><path d="M8 5v14l11-7z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor" class="i-pause" style="display:none;"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
+          </button>
+          <div class="vid-bar"><div class="vid-bar-track"><div class="vid-bar-fill"></div></div><div class="vid-bar-thumb"></div></div>
+          <button class="vid-fullscreen" type="button" aria-label="Fullscreen">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3M16 3h3a2 2 0 0 1 2 2v3M21 16v3a2 2 0 0 1-2 2h-3M8 21H5a2 2 0 0 1-2-2v-3"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="vid-box">
+        <video id="workVideo2" preload="metadata" playsinline src="/ASSETS/Portfolio/videos/UGC%20V2.mp4"></video>
+        <div class="vid-controls">
+          <button class="vid-play" type="button" aria-label="Play">
+            <svg viewBox="0 0 24 24" fill="currentColor" class="i-play"><path d="M8 5v14l11-7z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor" class="i-pause" style="display:none;"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
+          </button>
+          <div class="vid-bar"><div class="vid-bar-track"><div class="vid-bar-fill"></div></div><div class="vid-bar-thumb"></div></div>
+          <button class="vid-fullscreen" type="button" aria-label="Fullscreen">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3M16 3h3a2 2 0 0 1 2 2v3M21 16v3a2 2 0 0 1-2 2h-3M8 21H5a2 2 0 0 1-2-2v-3"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span class="logo">noelntrl</span>
+    <div class="foot-contact">
+      <a href="https://www.instagram.com/noelntrl/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.linkedin.com/in/noellee098/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="mailto:noel@noelntrl.com">Email</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.querySelectorAll('.nav-dropdown').forEach(function(dd){
+    var trigger = dd.querySelector(':scope > a');
+    if(!trigger) return;
+    trigger.addEventListener('click', function(e){
+      e.preventDefault();
+      var willOpen = !dd.classList.contains('open');
+      document.querySelectorAll('.nav-dropdown.open').forEach(function(o){ o.classList.remove('open'); });
+      if(willOpen) dd.classList.add('open');
+    });
+  });
+  var navEl = document.querySelector('nav');
+  var navToggleBtn = document.querySelector('.nav-toggle-btn');
+  if(navEl && navToggleBtn){
+    navToggleBtn.addEventListener('click', function(e){
+      e.stopPropagation();
+      var isOpen = navEl.classList.toggle('nav-open');
+      navToggleBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+    document.querySelectorAll('.nav-links a:not(.nav-toggle)').forEach(function(a){
+      a.addEventListener('click', function(){
+        navEl.classList.remove('nav-open');
+        navToggleBtn.setAttribute('aria-expanded','false');
+      });
+    });
+  }
+  document.addEventListener('click', function(e){
+    document.querySelectorAll('.nav-dropdown.open').forEach(function(dd){
+      if(!dd.contains(e.target)) dd.classList.remove('open');
+    });
+    if(navEl && navEl.classList.contains('nav-open') && !navEl.contains(e.target)){
+      navEl.classList.remove('nav-open');
+      if(navToggleBtn) navToggleBtn.setAttribute('aria-expanded','false');
+    }
+  });
+
+  // Custom controls: hidden by default, shown only on hover, with a
+  // last-frame "thumbnail" before the first play.
+  document.querySelectorAll('.vid-box').forEach(function(box){
+    var v = box.querySelector('video');
+    var playBtn = box.querySelector('.vid-play');
+    var iPlay = box.querySelector('.i-play');
+    var iPause = box.querySelector('.i-pause');
+    var bar = box.querySelector('.vid-bar');
+    var fill = box.querySelector('.vid-bar-fill');
+    var fsBtn = box.querySelector('.vid-fullscreen');
+    if (!v) return;
+    var startedFromEnd = false;
+
+    v.addEventListener('loadedmetadata', function(){
+      var thumbAttr = v.getAttribute('data-thumb-time');
+      var t = thumbAttr !== null && isFinite(parseFloat(thumbAttr))
+        ? parseFloat(thumbAttr)
+        : (v.duration && isFinite(v.duration) ? Math.max(0, v.duration - 0.15) : undefined);
+      if (t !== undefined) {
+        v.currentTime = Math.min(t, v.duration && isFinite(v.duration) ? v.duration : t);
+        startedFromEnd = true;
+      }
+    });
+    v.addEventListener('play', function(){
+      if (startedFromEnd) {
+        startedFromEnd = false;
+        v.currentTime = 0;
+      }
+      iPlay.style.display = 'none';
+      iPause.style.display = '';
+      playBtn.setAttribute('aria-label', 'Pause');
+    });
+    v.addEventListener('pause', function(){
+      iPlay.style.display = '';
+      iPause.style.display = 'none';
+      playBtn.setAttribute('aria-label', 'Play');
+    });
+    v.addEventListener('timeupdate', function(){
+      if (v.duration && isFinite(v.duration) && !startedFromEnd) {
+        fill.style.width = (v.currentTime / v.duration * 100) + '%';
+      }
+    });
+
+    function toggle(){ v.paused ? v.play() : v.pause(); }
+    playBtn.addEventListener('click', function(e){ e.stopPropagation(); toggle(); });
+    box.addEventListener('click', toggle);
+
+    var thumb = box.querySelector('.vid-bar-thumb');
+    var dragging = false;
+    var wasPlaying = false;
+
+    function posToPct(clientX){
+      var r = bar.getBoundingClientRect();
+      return Math.min(1, Math.max(0, (clientX - r.left) / r.width));
+    }
+    function paintScrub(pct){
+      fill.style.width = (pct * 100) + '%';
+      if (thumb) thumb.style.left = (pct * 100) + '%';
+    }
+    function seekTo(pct){
+      if (v.duration && isFinite(v.duration)) v.currentTime = pct * v.duration;
+    }
+
+    bar.addEventListener('click', function(e){ e.stopPropagation(); });
+    bar.addEventListener('pointerdown', function(e){
+      e.stopPropagation();
+      dragging = true;
+      startedFromEnd = false;
+      bar.classList.add('dragging');
+      wasPlaying = !v.paused;
+      if (wasPlaying) v.pause();
+      if (bar.setPointerCapture) bar.setPointerCapture(e.pointerId);
+      var pct = posToPct(e.clientX);
+      paintScrub(pct);
+      seekTo(pct);
+    });
+    bar.addEventListener('pointermove', function(e){
+      if (!dragging) return;
+      e.stopPropagation();
+      var pct = posToPct(e.clientX);
+      paintScrub(pct);
+      seekTo(pct);
+    });
+    function endDrag(e){
+      if (!dragging) return;
+      e.stopPropagation();
+      dragging = false;
+      bar.classList.remove('dragging');
+      if (wasPlaying) v.play();
+    }
+    bar.addEventListener('pointerup', endDrag);
+    bar.addEventListener('pointercancel', endDrag);
+
+    if (fsBtn) {
+      fsBtn.addEventListener('click', function(e){
+        e.stopPropagation();
+        var fsEl = document.fullscreenElement || document.webkitFullscreenElement;
+        if (fsEl) {
+          (document.exitFullscreen || document.webkitExitFullscreen).call(document);
+        } else if (box.requestFullscreen) {
+          box.requestFullscreen();
+        } else if (box.webkitRequestFullscreen) {
+          box.webkitRequestFullscreen();
+        } else if (v.webkitEnterFullscreen) {
+          v.webkitEnterFullscreen(); // iOS Safari: video-only native fullscreen
+        }
+      });
+    }
+  });
+</script>
+
+</body>
+</html>
