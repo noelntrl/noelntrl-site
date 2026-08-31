@@ -65,12 +65,18 @@
   /* MAIN */
   main.wrap{padding-top:150px;padding-bottom:120px;min-height:40vh;}
 
+  .page-head{margin-bottom:48px;}
+  .page-head .eyebrow{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--dim);margin-bottom:14px;}
+  .page-head h1{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(32px,4vw,48px);letter-spacing:-.01em;color:var(--fg);}
+
   /* VIDEO GRID */
   .video-row-9x16{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;max-width:640px;margin:0 auto 40px;}
   .video-row-9x16.row-4{grid-template-columns:repeat(4,1fr);gap:16px;max-width:1120px;}
   .video-row-9x16 .vid-box{aspect-ratio:9/16;}
   .video-row-16x9{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
   .video-row-16x9 .vid-box{aspect-ratio:16/9;}
+  .video-row-16x9.row-2{grid-template-columns:repeat(2,1fr);margin-bottom:40px;}
+  .video-row-16x9.row-1{grid-template-columns:1fr;max-width:640px;margin:0 auto;}
   .vid-box{position:relative;overflow:hidden;cursor:pointer;padding:0;border-radius:2px;background:var(--card);border:1px solid var(--line);}
   .vid-box video{width:100%;height:100%;object-fit:cover;display:block;}
   .vid-controls{
@@ -84,8 +90,16 @@
     cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0;
   }
   .vid-play svg{width:100%;height:100%;}
-  .vid-bar{flex:1;height:3px;background:rgba(239,236,229,.25);border-radius:2px;cursor:pointer;}
+  .vid-bar{position:relative;flex:1;height:20px;display:flex;align-items:center;cursor:pointer;touch-action:none;}
+  .vid-bar-track{position:relative;width:100%;height:3px;background:rgba(239,236,229,.25);border-radius:2px;transition:height .15s ease;}
+  .vid-bar:hover .vid-bar-track,.vid-bar.dragging .vid-bar-track{height:5px;}
   .vid-bar-fill{height:100%;width:0%;background:var(--accent);border-radius:2px;}
+  .vid-bar-thumb{
+    position:absolute;top:50%;left:0%;width:11px;height:11px;border-radius:50%;
+    background:var(--accent);transform:translate(-50%,-50%);opacity:0;
+    transition:opacity .15s ease;pointer-events:none;box-shadow:0 0 0 3px rgba(0,0,0,.35);
+  }
+  .vid-bar:hover .vid-bar-thumb,.vid-bar.dragging .vid-bar-thumb{opacity:1;}
   .vid-fullscreen{
     width:18px;height:18px;flex-shrink:0;border:none;background:none;color:var(--fg);
     cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0;opacity:.85;
@@ -154,109 +168,92 @@
 
 <main class="wrap">
 
+  <div class="page-head">
+    <div class="eyebrow">Selected Work</div>
+    <h1>Commercial Ads</h1>
+  </div>
+
   <div class="video-row-9x16 row-4">
     <div>
       <div class="vid-box">
-        <video id="workVideo1" preload="metadata" playsinline src="/ASSETS/Portfolio/videos/aesop%20spec.mp4"></video>
+        <video id="workVideo1" preload="metadata" playsinline data-thumb-time="3" src="/ASSETS/Portfolio/videos/aesop%20spec.mp4"></video>
         <div class="vid-controls">
           <button class="vid-play" type="button" aria-label="Play">
             <svg viewBox="0 0 24 24" fill="currentColor" class="i-play"><path d="M8 5v14l11-7z"/></svg>
             <svg viewBox="0 0 24 24" fill="currentColor" class="i-pause" style="display:none;"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
           </button>
-          <div class="vid-bar"><div class="vid-bar-fill"></div></div>
+          <div class="vid-bar"><div class="vid-bar-track"><div class="vid-bar-fill"></div></div><div class="vid-bar-thumb"></div></div>
           <button class="vid-fullscreen" type="button" aria-label="Fullscreen">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3M16 3h3a2 2 0 0 1 2 2v3M21 16v3a2 2 0 0 1-2 2h-3M8 21H5a2 2 0 0 1-2-2v-3"/></svg>
           </button>
         </div>
       </div>
-      <div class="vid-label">Aesop — Spec</div>
     </div>
 
     <div>
       <div class="vid-box">
-        <video id="workVideo3" preload="metadata" playsinline src="/ASSETS/Portfolio/videos/neccessaire%20spec.mp4"></video>
+        <video id="workVideo3" preload="metadata" playsinline data-thumb-time="8" src="/ASSETS/Portfolio/videos/neccessaire%20spec.mp4"></video>
         <div class="vid-controls">
           <button class="vid-play" type="button" aria-label="Play">
             <svg viewBox="0 0 24 24" fill="currentColor" class="i-play"><path d="M8 5v14l11-7z"/></svg>
             <svg viewBox="0 0 24 24" fill="currentColor" class="i-pause" style="display:none;"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
           </button>
-          <div class="vid-bar"><div class="vid-bar-fill"></div></div>
+          <div class="vid-bar"><div class="vid-bar-track"><div class="vid-bar-fill"></div></div><div class="vid-bar-thumb"></div></div>
           <button class="vid-fullscreen" type="button" aria-label="Fullscreen">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3M16 3h3a2 2 0 0 1 2 2v3M21 16v3a2 2 0 0 1-2 2h-3M8 21H5a2 2 0 0 1-2-2v-3"/></svg>
           </button>
         </div>
       </div>
-      <div class="vid-label">Necessaire — Spec</div>
     </div>
 
     <div>
       <div class="vid-box">
-        <video id="workVideo7" preload="metadata" playsinline src="/ASSETS/Portfolio/videos/byredo%20spec.mp4"></video>
+        <video id="workVideo7" preload="metadata" playsinline data-thumb-time="3" src="/ASSETS/Portfolio/videos/byredo%20spec.mp4"></video>
         <div class="vid-controls">
           <button class="vid-play" type="button" aria-label="Play">
             <svg viewBox="0 0 24 24" fill="currentColor" class="i-play"><path d="M8 5v14l11-7z"/></svg>
             <svg viewBox="0 0 24 24" fill="currentColor" class="i-pause" style="display:none;"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
           </button>
-          <div class="vid-bar"><div class="vid-bar-fill"></div></div>
+          <div class="vid-bar"><div class="vid-bar-track"><div class="vid-bar-fill"></div></div><div class="vid-bar-thumb"></div></div>
           <button class="vid-fullscreen" type="button" aria-label="Fullscreen">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3M16 3h3a2 2 0 0 1 2 2v3M21 16v3a2 2 0 0 1-2 2h-3M8 21H5a2 2 0 0 1-2-2v-3"/></svg>
           </button>
         </div>
       </div>
-      <div class="vid-label">Byredo — Spec</div>
     </div>
 
     <div>
       <div class="vid-box">
-        <video id="workVideo8" preload="metadata" playsinline src="/ASSETS/Portfolio/videos/aesop%20spec%202.mp4"></video>
+        <video id="workVideo8" preload="metadata" playsinline data-thumb-time="0" src="/ASSETS/Portfolio/videos/aesop%20spec%202.mp4"></video>
         <div class="vid-controls">
           <button class="vid-play" type="button" aria-label="Play">
             <svg viewBox="0 0 24 24" fill="currentColor" class="i-play"><path d="M8 5v14l11-7z"/></svg>
             <svg viewBox="0 0 24 24" fill="currentColor" class="i-pause" style="display:none;"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
           </button>
-          <div class="vid-bar"><div class="vid-bar-fill"></div></div>
+          <div class="vid-bar"><div class="vid-bar-track"><div class="vid-bar-fill"></div></div><div class="vid-bar-thumb"></div></div>
           <button class="vid-fullscreen" type="button" aria-label="Fullscreen">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3M16 3h3a2 2 0 0 1 2 2v3M21 16v3a2 2 0 0 1-2 2h-3M8 21H5a2 2 0 0 1-2-2v-3"/></svg>
           </button>
         </div>
       </div>
-      <div class="vid-label">Aesop — Spec 2</div>
     </div>
   </div>
 
-  <div class="video-row-16x9">
+  <div class="video-row-16x9 row-2">
     <div>
       <div class="vid-box">
-        <video id="workVideo2" preload="metadata" playsinline data-thumb-time="0" src="/ASSETS/Portfolio/videos/amorepacific%20award%20video.mp4"></video>
+        <video id="workVideo9" preload="metadata" playsinline src="/ASSETS/Portfolio/videos/GM-V3.mp4"></video>
         <div class="vid-controls">
           <button class="vid-play" type="button" aria-label="Play">
             <svg viewBox="0 0 24 24" fill="currentColor" class="i-play"><path d="M8 5v14l11-7z"/></svg>
             <svg viewBox="0 0 24 24" fill="currentColor" class="i-pause" style="display:none;"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
           </button>
-          <div class="vid-bar"><div class="vid-bar-fill"></div></div>
+          <div class="vid-bar"><div class="vid-bar-track"><div class="vid-bar-fill"></div></div><div class="vid-bar-thumb"></div></div>
           <button class="vid-fullscreen" type="button" aria-label="Fullscreen">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3M16 3h3a2 2 0 0 1 2 2v3M21 16v3a2 2 0 0 1-2 2h-3M8 21H5a2 2 0 0 1-2-2v-3"/></svg>
           </button>
         </div>
       </div>
-      <div class="vid-label">Amore Pacific — Award video</div>
-    </div>
-
-    <div>
-      <div class="vid-box">
-        <video id="workVideo4" preload="metadata" playsinline data-thumb-time="2" src="/ASSETS/Portfolio/videos/redbull%20spec.mp4"></video>
-        <div class="vid-controls">
-          <button class="vid-play" type="button" aria-label="Play">
-            <svg viewBox="0 0 24 24" fill="currentColor" class="i-play"><path d="M8 5v14l11-7z"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor" class="i-pause" style="display:none;"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
-          </button>
-          <div class="vid-bar"><div class="vid-bar-fill"></div></div>
-          <button class="vid-fullscreen" type="button" aria-label="Fullscreen">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3M16 3h3a2 2 0 0 1 2 2v3M21 16v3a2 2 0 0 1-2 2h-3M8 21H5a2 2 0 0 1-2-2v-3"/></svg>
-          </button>
-        </div>
-      </div>
-      <div class="vid-label">Red Bull — Spec</div>
     </div>
 
     <div>
@@ -267,13 +264,62 @@
             <svg viewBox="0 0 24 24" fill="currentColor" class="i-play"><path d="M8 5v14l11-7z"/></svg>
             <svg viewBox="0 0 24 24" fill="currentColor" class="i-pause" style="display:none;"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
           </button>
-          <div class="vid-bar"><div class="vid-bar-fill"></div></div>
+          <div class="vid-bar"><div class="vid-bar-track"><div class="vid-bar-fill"></div></div><div class="vid-bar-thumb"></div></div>
           <button class="vid-fullscreen" type="button" aria-label="Fullscreen">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3M16 3h3a2 2 0 0 1 2 2v3M21 16v3a2 2 0 0 1-2 2h-3M8 21H5a2 2 0 0 1-2-2v-3"/></svg>
           </button>
         </div>
       </div>
-      <div class="vid-label">Salomon — Spec</div>
+    </div>
+
+    <div>
+      <div class="vid-box">
+        <video id="workVideo11" preload="metadata" playsinline src="/ASSETS/Portfolio/videos/Nike%20Tennis%20spec.mp4"></video>
+        <div class="vid-controls">
+          <button class="vid-play" type="button" aria-label="Play">
+            <svg viewBox="0 0 24 24" fill="currentColor" class="i-play"><path d="M8 5v14l11-7z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor" class="i-pause" style="display:none;"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
+          </button>
+          <div class="vid-bar"><div class="vid-bar-track"><div class="vid-bar-fill"></div></div><div class="vid-bar-thumb"></div></div>
+          <button class="vid-fullscreen" type="button" aria-label="Fullscreen">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3M16 3h3a2 2 0 0 1 2 2v3M21 16v3a2 2 0 0 1-2 2h-3M8 21H5a2 2 0 0 1-2-2v-3"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="vid-box">
+        <video id="workVideo2" preload="metadata" playsinline data-thumb-time="34" src="/ASSETS/Portfolio/videos/amorepacific%20award%20video.mp4"></video>
+        <div class="vid-controls">
+          <button class="vid-play" type="button" aria-label="Play">
+            <svg viewBox="0 0 24 24" fill="currentColor" class="i-play"><path d="M8 5v14l11-7z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor" class="i-pause" style="display:none;"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
+          </button>
+          <div class="vid-bar"><div class="vid-bar-track"><div class="vid-bar-fill"></div></div><div class="vid-bar-thumb"></div></div>
+          <button class="vid-fullscreen" type="button" aria-label="Fullscreen">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3M16 3h3a2 2 0 0 1 2 2v3M21 16v3a2 2 0 0 1-2 2h-3M8 21H5a2 2 0 0 1-2-2v-3"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="video-row-16x9 row-1">
+    <div>
+      <div class="vid-box">
+        <video id="workVideo4" preload="metadata" playsinline data-thumb-time="2" src="/ASSETS/Portfolio/videos/redbull%20spec.mp4"></video>
+        <div class="vid-controls">
+          <button class="vid-play" type="button" aria-label="Play">
+            <svg viewBox="0 0 24 24" fill="currentColor" class="i-play"><path d="M8 5v14l11-7z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor" class="i-pause" style="display:none;"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
+          </button>
+          <div class="vid-bar"><div class="vid-bar-track"><div class="vid-bar-fill"></div></div><div class="vid-bar-thumb"></div></div>
+          <button class="vid-fullscreen" type="button" aria-label="Fullscreen">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3M16 3h3a2 2 0 0 1 2 2v3M21 16v3a2 2 0 0 1-2 2h-3M8 21H5a2 2 0 0 1-2-2v-3"/></svg>
+          </button>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -373,12 +419,51 @@
     playBtn.addEventListener('click', function(e){ e.stopPropagation(); toggle(); });
     box.addEventListener('click', toggle);
 
-    function seek(e){
+    var thumb = box.querySelector('.vid-bar-thumb');
+    var dragging = false;
+    var wasPlaying = false;
+
+    function posToPct(clientX){
       var r = bar.getBoundingClientRect();
-      var pct = Math.min(1, Math.max(0, (e.clientX - r.left) / r.width));
+      return Math.min(1, Math.max(0, (clientX - r.left) / r.width));
+    }
+    function paintScrub(pct){
+      fill.style.width = (pct * 100) + '%';
+      if (thumb) thumb.style.left = (pct * 100) + '%';
+    }
+    function seekTo(pct){
       if (v.duration && isFinite(v.duration)) v.currentTime = pct * v.duration;
     }
-    bar.addEventListener('click', function(e){ e.stopPropagation(); seek(e); });
+
+    bar.addEventListener('click', function(e){ e.stopPropagation(); });
+    bar.addEventListener('pointerdown', function(e){
+      e.stopPropagation();
+      dragging = true;
+      startedFromEnd = false;
+      bar.classList.add('dragging');
+      wasPlaying = !v.paused;
+      if (wasPlaying) v.pause();
+      if (bar.setPointerCapture) bar.setPointerCapture(e.pointerId);
+      var pct = posToPct(e.clientX);
+      paintScrub(pct);
+      seekTo(pct);
+    });
+    bar.addEventListener('pointermove', function(e){
+      if (!dragging) return;
+      e.stopPropagation();
+      var pct = posToPct(e.clientX);
+      paintScrub(pct);
+      seekTo(pct);
+    });
+    function endDrag(e){
+      if (!dragging) return;
+      e.stopPropagation();
+      dragging = false;
+      bar.classList.remove('dragging');
+      if (wasPlaying) v.play();
+    }
+    bar.addEventListener('pointerup', endDrag);
+    bar.addEventListener('pointercancel', endDrag);
 
     if (fsBtn) {
       fsBtn.addEventListener('click', function(e){
