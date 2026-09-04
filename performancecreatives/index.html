@@ -69,6 +69,10 @@
   .page-head .eyebrow{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--dim);margin-bottom:14px;}
   .page-head h1{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(32px,4vw,48px);letter-spacing:-.01em;color:var(--fg);}
 
+  /* SECTION HEADS + DIVIDER */
+  .section-head{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--dim);margin-bottom:20px;}
+  .section-divider{border:none;border-top:1px solid var(--line);margin:56px 0 40px;}
+
   /* VIDEO GRID */
   .video-row-9x16{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;max-width:640px;margin:0 auto 40px;}
   .video-row-9x16.row-4{grid-template-columns:repeat(4,1fr);gap:16px;max-width:1120px;}
@@ -79,6 +83,8 @@
   .video-row-16x9.row-1{grid-template-columns:1fr;max-width:640px;margin:0 auto;}
   .vid-box{position:relative;overflow:hidden;cursor:pointer;padding:0;border-radius:2px;background:var(--card);border:1px solid var(--line);}
   .vid-box video{width:100%;height:100%;object-fit:cover;display:block;}
+  .img-box{position:relative;overflow:hidden;padding:0;border-radius:2px;background:var(--card);border:1px solid var(--line);}
+  .img-box img{width:100%;height:100%;object-fit:cover;display:block;}
   .vid-controls{
     position:absolute;left:0;right:0;bottom:0;display:flex;align-items:center;gap:12px;
     padding:16px;background:linear-gradient(to top, rgba(0,0,0,.6), transparent);
@@ -173,10 +179,11 @@
     <h1>Performance Creatives</h1>
   </div>
 
-  <div class="video-row-9x16">
+  <div class="section-head">Videos</div>
+  <div class="video-row-9x16 row-4">
     <div>
       <div class="vid-box">
-        <video id="workVideo1" preload="metadata" playsinline data-thumb-time="1" src="/ASSETS/Portfolio/videos/UGC%20V1.mp4"></video>
+        <video id="workVideo1" preload="metadata" playsinline data-thumb-time="1" src="/ASSETS/Portfolio/performance%20creative/Product%20ad%201.mp4"></video>
         <div class="vid-controls">
           <button class="vid-play" type="button" aria-label="Play">
             <svg viewBox="0 0 24 24" fill="currentColor" class="i-play"><path d="M8 5v14l11-7z"/></svg>
@@ -188,11 +195,12 @@
           </button>
         </div>
       </div>
+      <div class="vid-label">Product Direct Response Ad</div>
     </div>
 
     <div>
       <div class="vid-box">
-        <video id="workVideo2" preload="metadata" playsinline src="/ASSETS/Portfolio/videos/UGC%20V2.mp4"></video>
+        <video id="workVideo2" preload="metadata" playsinline data-thumb-time="1" src="/ASSETS/Portfolio/performance%20creative/Product%20ad%202.mp4"></video>
         <div class="vid-controls">
           <button class="vid-play" type="button" aria-label="Play">
             <svg viewBox="0 0 24 24" fill="currentColor" class="i-play"><path d="M8 5v14l11-7z"/></svg>
@@ -203,6 +211,66 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3M16 3h3a2 2 0 0 1 2 2v3M21 16v3a2 2 0 0 1-2 2h-3M8 21H5a2 2 0 0 1-2-2v-3"/></svg>
           </button>
         </div>
+      </div>
+      <div class="vid-label">Product Direct Response Ad</div>
+    </div>
+
+    <div>
+      <div class="vid-box">
+        <video id="workVideo3" preload="metadata" playsinline data-thumb-time="1" src="/ASSETS/Portfolio/performance%20creative/AI%20UGC%201.mp4"></video>
+        <div class="vid-controls">
+          <button class="vid-play" type="button" aria-label="Play">
+            <svg viewBox="0 0 24 24" fill="currentColor" class="i-play"><path d="M8 5v14l11-7z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor" class="i-pause" style="display:none;"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
+          </button>
+          <div class="vid-bar"><div class="vid-bar-track"><div class="vid-bar-fill"></div></div><div class="vid-bar-thumb"></div></div>
+          <button class="vid-fullscreen" type="button" aria-label="Fullscreen">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3M16 3h3a2 2 0 0 1 2 2v3M21 16v3a2 2 0 0 1-2 2h-3M8 21H5a2 2 0 0 1-2-2v-3"/></svg>
+          </button>
+        </div>
+      </div>
+      <div class="vid-label">AI UGC</div>
+    </div>
+
+    <div>
+      <div class="vid-box">
+        <video id="workVideo4" preload="metadata" playsinline data-thumb-time="1" src="/ASSETS/Portfolio/performance%20creative/AI%20UGC%203.mp4"></video>
+        <div class="vid-controls">
+          <button class="vid-play" type="button" aria-label="Play">
+            <svg viewBox="0 0 24 24" fill="currentColor" class="i-play"><path d="M8 5v14l11-7z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor" class="i-pause" style="display:none;"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
+          </button>
+          <div class="vid-bar"><div class="vid-bar-track"><div class="vid-bar-fill"></div></div><div class="vid-bar-thumb"></div></div>
+          <button class="vid-fullscreen" type="button" aria-label="Fullscreen">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3M16 3h3a2 2 0 0 1 2 2v3M21 16v3a2 2 0 0 1-2 2h-3M8 21H5a2 2 0 0 1-2-2v-3"/></svg>
+          </button>
+        </div>
+      </div>
+      <div class="vid-label">AI UGC</div>
+    </div>
+  </div>
+
+  <hr class="section-divider">
+  <div class="section-head">Static Ads</div>
+  <div class="video-row-9x16 row-4">
+    <div>
+      <div class="img-box">
+        <img src="/ASSETS/Portfolio/performance%20creative/4.png" alt="Performance creative">
+      </div>
+    </div>
+    <div>
+      <div class="img-box">
+        <img src="/ASSETS/Portfolio/performance%20creative/5.png" alt="Performance creative">
+      </div>
+    </div>
+    <div>
+      <div class="img-box">
+        <img src="/ASSETS/Portfolio/performance%20creative/6.png" alt="Performance creative">
+      </div>
+    </div>
+    <div>
+      <div class="img-box">
+        <img src="/ASSETS/Portfolio/performance%20creative/7.png" alt="Performance creative">
       </div>
     </div>
   </div>
